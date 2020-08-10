@@ -1,10 +1,12 @@
 import React from 'react'
-
+import './Home.scss'
 const HomePage = () => {
 
     return (
         <>
-         <h1>Home Page under Construction</h1>
+        <div id="home-paige-container">
+            <h1>Home Page under Construction</h1>
+        </div>
         </>
     )
 }
