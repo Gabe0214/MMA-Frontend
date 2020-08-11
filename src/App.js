@@ -7,10 +7,10 @@ import { items } from './components/ShoppingCartPage/ShoppingCartDummyData'
 import './App.scss'
 function App() {
   const [cartData, setCartData] = useState(items)
-
+  const [menu, setMenu ] = useState(false)
   return (
     <div className="App">
-      <NavBar cart={cartData}/>
+      <NavBar cart={cartData} menu={menu} setMenu={setMenu}/>
       <Switch>
         <Route exact path='/' component={() => <HomePage cart ={cartData} setCart ={setCartData}/>}/>
         <Route path='/cart' component={ShoppingCart}/>

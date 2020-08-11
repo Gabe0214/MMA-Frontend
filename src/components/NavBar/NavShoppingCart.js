@@ -2,8 +2,8 @@ import React from 'react'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import './Navbar.scss'
+
 export const NavCart = ({cart}) => {
- console.log(cart)
     return (
         <div className="nav-cart-container">
             <FontAwesomeIcon icon={faShoppingCart} size="lg"/>
