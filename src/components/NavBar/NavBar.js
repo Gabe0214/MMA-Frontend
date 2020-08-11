@@ -1,17 +1,19 @@
 import React from 'react'
-import {NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars } from '@fortawesome/free-solid-svg-icons'
-const NavBar = () => {
+import { NavCart } from './NavShoppingCart'
+import './Navbar.scss'
+const NavBar = ({cart}) => {
 
 
    const test = () => {
        console.log("It's Working!!!")
    } 
     return (
-        <nav>
+        <nav id ="nav-bar">
             <FontAwesomeIcon icon={faBars} size="lg" onClick={test}/>
             <img src ="/alliance-logo.png" class="logo" />
+            <NavCart cart ={cart}/>
         </nav>
     )
 }
