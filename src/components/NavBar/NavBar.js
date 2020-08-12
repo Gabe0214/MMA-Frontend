@@ -4,20 +4,23 @@ import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { NavCart } from './NavShoppingCart'
 import { MobileMenu } from './Menu/MoibileMenu'
 import './Navbar.scss'
-const NavBar = ({cart, menu, setMenu}) => {
+const NavBar = ({cart, menu, setMenu, isClosed, setClosed}) => {
 
 
    const test = () => {
      setMenu(!menu)
+     setClosed(!isClosed)
+     
    } 
+   
     return (
         <>
          <nav id ="nav-bar">
             <FontAwesomeIcon icon={faBars} size="lg" onClick={test}/>
-            <img src ="/alliance-logo.png" class="logo" />
+            <img src ="/alliance-logo.png" className="logo" />
             <NavCart cart ={cart}/>
         </nav>
-        <MobileMenu menu ={menu}/>
+        <MobileMenu menu ={menu} isClosed={isClosed}/>
         </>
     )
 }
