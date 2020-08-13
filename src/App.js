@@ -8,10 +8,10 @@ import './App.scss'
 function App() {
   const [cartData, setCartData] = useState(items)
   const [menu, setMenu ] = useState(false)
-  const [isClosed, setClosed] = useState(true)
+
   return (
     <div className="App">
-      <NavBar cart={cartData} menu={menu} setMenu={setMenu} isClosed={isClosed} setClosed={setClosed}/>
+      <NavBar cart={cartData} menu={menu} setMenu={setMenu} />
       <Switch>
         <Route exact path='/' component={() => <HomePage cart ={cartData} setCart ={setCartData}/>}/>
         <Route path='/cart' component={ShoppingCart}/>

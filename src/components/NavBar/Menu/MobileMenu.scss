@@ -4,7 +4,9 @@
     background-color: #fff;
     position: absolute;
     top:51px;
-    left: 0;
+    left: -380px;
+    transition: ease 0.5s all;
+   
 
 
     
@@ -12,5 +14,5 @@
 
 .active {
     @extend .menu-container;
-    display: block;
+    left: 0px;
 }

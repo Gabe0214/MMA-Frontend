@@ -4,13 +4,11 @@ import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { NavCart } from './NavShoppingCart'
 import { MobileMenu } from './Menu/MoibileMenu'
 import './Navbar.scss'
-const NavBar = ({cart, menu, setMenu, isClosed, setClosed}) => {
+const NavBar = ({cart, menu, setMenu}) => {
 
 
    const test = () => {
      setMenu(!menu)
-     setClosed(!isClosed)
-     
    } 
    
     return (
@@ -20,7 +18,7 @@ const NavBar = ({cart, menu, setMenu, isClosed, setClosed}) => {
             <img src ="/alliance-logo.png" className="logo" />
             <NavCart cart ={cart}/>
         </nav>
-        <MobileMenu menu ={menu} isClosed={isClosed}/>
+        <MobileMenu menu ={menu} />
         </>
     )
 }

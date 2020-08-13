@@ -1,22 +1,23 @@
 import React, {useRef, useEffect} from 'react'
-import { TimelineMax } from 'gsap'
+import { NavLink } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import './MobileMenu.scss'
 
 
-export const MobileMenu = ({menu, isClosed}) => {
+export const MobileMenu = ({menu, men, women, kids, MMAEquipment}) => {
   
-   const tl = new TimelineMax
-    useEffect(() => {
-        tl.fromTo(".menu-container", 0.5, {x: -340}, {x: 0})
-        if (isClosed == true) {tl.to(".menu-container", 0.4, {x: -380})}
-       
-    }, [menu, isClosed])
+  
 
-   
     return (
         <>
-          <div className={menu ? "menu-container": ""} >
-            
+          <div className={menu ? "menu-container active": "menu-container"}>
+            <ul className="list-container">
+                <li>Men  <FontAwesomeIcon icon={faChevronDown}/></li>
+                <li>Women <FontAwesomeIcon icon={faChevronDown}/></li>
+                <li>Kids <FontAwesomeIcon icon={faChevronDown}/></li>
+                <li>MMA Gear <FontAwesomeIcon icon={faChevronDown}/></li>
+            </ul>
          </div> 
         </>
     )
