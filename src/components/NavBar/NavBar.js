@@ -19,7 +19,7 @@ const NavBar = ({cart, menu, setMenu}) => {
             <img src ="/alliance-logo.png" className="logo" />
             <NavCart cart ={cart}/>
         </nav>
-        <MobileMenu menu ={menu} />
+        <MobileMenu menu ={menu} setMenu={setMenu}/>
         </>
     )
 }
