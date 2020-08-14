@@ -9,6 +9,7 @@ const NavBar = ({cart, menu, setMenu}) => {
 
    const test = () => {
      setMenu(!menu)
+     window.scroll(0,0)
    } 
    
     return (

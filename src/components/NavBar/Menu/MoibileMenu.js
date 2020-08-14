@@ -13,10 +13,10 @@ export const MobileMenu = ({menu, men, women, kids, MMAEquipment}) => {
         <>
           <div className={menu ? "menu-container active": "menu-container"}>
             <ul className="list-container">
-                <li>Men  <FontAwesomeIcon icon={faChevronDown}/></li>
-                <li>Women <FontAwesomeIcon icon={faChevronDown}/></li>
-                <li>Kids <FontAwesomeIcon icon={faChevronDown}/></li>
-                <li>MMA Gear <FontAwesomeIcon icon={faChevronDown}/></li>
+                <li className="list-item">Men  <FontAwesomeIcon icon={faChevronDown}/></li>
+                <li className="list-item">Women <FontAwesomeIcon icon={faChevronDown}/></li>
+                <li className="list-item">Kids <FontAwesomeIcon icon={faChevronDown}/></li>
+                <li className="list-item">MMA Gear <FontAwesomeIcon icon={faChevronDown}/></li>
             </ul>
          </div> 
         </>
