@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div>
-      <NavBar cart={cartData} menu={menu} setMenu={setMenu} />
+      <NavBar cart={cartData} menu={menu} setMenu={setMenu}/>
       <Switch>
         <Route exact path='/' component={() => <HomePage cart ={cartData} setCart ={setCartData}/>}/>
         <Route path='/cart' component={ShoppingCart}/>
