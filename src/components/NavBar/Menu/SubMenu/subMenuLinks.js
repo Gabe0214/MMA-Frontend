@@ -9,6 +9,6 @@ export const items = [
     },
     {
         type: 'Kids',
-        links : ["Kid's G", "Kid's Sweaters", "Kid's Pants", "Kid's Shirt"]
+        links : ["Kid's Gi", "Kid's Sweaters", "Kid's Pants", "Kid's Shirt"]
     }
 ]

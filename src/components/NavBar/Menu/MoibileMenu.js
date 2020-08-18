@@ -32,11 +32,11 @@ export const MobileMenu = ({menu, setMenu}) => {
             <ul className="list-container">
                 <li className="list-item" >Men  <FontAwesomeIcon icon={faChevronDown} className={rotateIcon ? "rotate" : ""} onClick={() =>  setSubmenu({subMenu, mens: !subMenu.mens})}/>
                 </li>
-                 {subMenu.mens? <MobileSubMenu mens={subMenu.mens}/> : null}
+                 {subMenu.mens? <MobileSubMenu mens={subMenu.mens} setSubMenu={setMenu} subMenu={menu}/> : null}
                 <li className="list-item" >Women <FontAwesomeIcon icon={faChevronDown} onClick={() => setSubmenu({...subMenu, womens: !subMenu.womens})}/></li>
-                {subMenu.womens? <MobileSubMenu women={subMenu.womens} /> : null}
+                {subMenu.womens? <MobileSubMenu women={subMenu.womens} setSubMenu={setMenu} subMenu={menu}/> : null}
                 <li className="list-item" >Kids <FontAwesomeIcon icon={faChevronDown} onClick={() => setSubmenu({...subMenu, kids: !subMenu.kids})}/></li>
-                {subMenu.kids? <MobileSubMenu kids={subMenu.kids}/> : null}
+                {subMenu.kids? <MobileSubMenu kids={subMenu.kids} setSubMenu={setMenu} subMenu={menu}/> : null}
                 <li className="list-item" >MMA Gear <FontAwesomeIcon icon={faChevronDown}/></li>
             </ul>
          </div> 

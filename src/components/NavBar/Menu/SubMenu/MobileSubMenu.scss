@@ -1,0 +1,22 @@
+.sub-menu-container {
+   display: flex;
+   justify-content: flex-start;
+   width: 100%;
+   padding: 0 0 0 0.8rem;
+    .links-container {
+       display: flex;
+       flex-direction: column;
+       list-style: none;
+       height: 20vh;
+       justify-content: space-evenly;
+      
+        
+             a {
+                 text-decoration: none;
+                 color : #333;
+                 font-size: 0.8rem;
+                 
+             }
+        
+   }
+}
