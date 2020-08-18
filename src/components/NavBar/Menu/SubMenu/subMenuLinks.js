@@ -1,14 +1,14 @@
 export const items = [ 
     {
         type: 'Mens',
-        links : ['Gi', 'Sweaters', 'Pants', 'Shirts']
+        links : ["Men's Gi", "Men's Sweater", "Men's Pants", "Men's Shirt"]
     },
     {
         type: 'Womens',
-        links : ['Gi', 'Sweaters', 'Pants', 'Shirts']
+        links : ["Women's Gi", "Women's Sweater", "Women's Pants", "Women's Shirt"]
     },
     {
         type: 'Kids',
-        links : ['Gi', 'Sweaters', 'Pants', 'Shirts']
+        links : ["Kid's G", "Kid's Sweaters", "Kid's Pants", "Kid's Shirt"]
     }
 ]
