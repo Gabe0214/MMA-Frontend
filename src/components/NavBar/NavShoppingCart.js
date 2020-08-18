@@ -7,7 +7,7 @@ export const NavCart = ({cart}) => {
     return (
         <div className="nav-cart-container">
             <FontAwesomeIcon icon={faShoppingCart} size="lg"/>
-            <span className={cart.length > 9 ? 'double-digit': null}>{cart && cart.length}</span>
+            <span className={cart.length > 9 ? 'double-digit': null} style={cart.length < 1 ? {display: 'none'}: null}>{cart && cart.length}</span>
         </div>
     )
 }
