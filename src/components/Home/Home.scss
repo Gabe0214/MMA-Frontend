@@ -9,3 +9,23 @@
     background-color: beige;
 }
 
+
+.parent-container-slider {
+    .item-one {
+        width: 250px;
+        height: 200px;
+        background-color: red;
+    }
+
+    .item-two {
+        width: 250px;
+        height: 200px;
+        background-color: blue;
+    }
+
+    .item-three{
+        width: 250px;
+        height: 200px;
+        background-color: green;
+    }
+}

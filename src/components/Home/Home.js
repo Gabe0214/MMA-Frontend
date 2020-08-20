@@ -1,5 +1,6 @@
 import React from 'react'
 import { items } from '../ShoppingCartPage/ShoppingCartDummyData'
+
 import './Home.scss'
 
 const HomePage = ({cart, setCart}) => {
@@ -11,10 +12,11 @@ const addItem = () => {
 
     return (
         <>
-        <div id="home-paige-container">
-            <h1>Home Page under Construction</h1>
-            <button onClick={addItem}>Add to cart</button>
-        </div>
+         <div className="parent-container-slider">
+             <div className="item-one"></div>
+             <div className="item-two"></div>            
+             <div className="item-three"></div>            
+         </div>
         </>
     )
 }
