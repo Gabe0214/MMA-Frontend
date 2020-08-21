@@ -12,16 +12,19 @@ const HomePage = ({cart, setCart}) => {
         infinite: true,
         speed: 500,
         slidesToShow: 1,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        
     }
 
 const addItem = () => {
     setCart([...cart, 1])
+    console.log('hello')
 }
 
     return (
+      <>
         <div>
-        <Slider {...settings}>
+        <Slider {...settings} arrows={false} dotsClass="slick-dots dotsa">
           <div className="item-one">
           </div>
           <div>
@@ -40,7 +43,10 @@ const addItem = () => {
             <h3>6</h3>
           </div>
         </Slider>
+        
         </div>
+        <div><h4>Hello</h4></div>
+      </>
     )
 }
 
