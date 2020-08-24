@@ -1,5 +1,5 @@
 import React from 'react'
-import { items } from '../ShoppingCartPage/ShoppingCartDummyData'
+import { NavLink } from 'react-router-dom'
 import Slider from 'react-slick'
 import './Home.scss'
 import "slick-carousel/slick/slick.css";
@@ -16,19 +16,28 @@ const HomePage = ({cart, setCart}) => {
         
     }
 
-const addItem = () => {
+const addItem = (e) => {
+   
     setCart([...cart, 1])
-    console.log('hello')
+    e.preventDefault();
+   
 }
 
     return (
       <>
         <div>
-        <Slider {...settings} arrows={false} dotsClass="slick-dots dotsa">
+        <Slider {...settings} arrows={false} focusOnSelect={true} dotsClass="slick-dots dotsa" className='slider-item-container'>
           <div className="item-one">
+            <div className="over-lay">
+               <h3 className="home-page-title">Shop Men's Gi</h3>
+               <NavLink to='/men-Gi'>Shop</NavLink>
+            </div>
           </div>
-          <div>
-            <h3>2</h3>
+          <div className="item-two">
+            <div className="over-lay">
+              <h3 className="home-page-title">Shop Boxing & MMA Gear</h3>
+              <NavLink to="/mma-boxing-all">Shop</NavLink>
+            </div>
           </div>
           <div>
             <h3>3</h3>
@@ -45,7 +54,7 @@ const addItem = () => {
         </Slider>
         
         </div>
-        <div><h4>Hello</h4></div>
+        <div><button onClick={addItem}>hello</button></div>
       </>
     )
 }

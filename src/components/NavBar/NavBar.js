@@ -1,16 +1,19 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { NavCart } from './NavShoppingCart'
 import { MobileMenu } from './Menu/MoibileMenu'
 import './Navbar.scss'
 import {useHistory } from 'react-router-dom'
-const NavBar = ({cart, menu, setMenu}) => {
-let history = useHistory()
+const NavBar = ({cart}) => {
+  const [menu, setMenu] = useState(false)
+  let history = useHistory()
 
-   const test = () => {
+   const test = (e) => {
+    
      setMenu(!menu)
      window.scroll(0,0)
+     console.log('hello')
    } 
    
     return (

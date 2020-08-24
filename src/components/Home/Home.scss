@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+
 #home-paige-container {
     height: 50vh;
     font-size: 1rem;
@@ -10,14 +12,49 @@
 }
 
 
-.parent-container-slider {
-    
+.slider-item-container {
+     
+    a {
+        padding: 0.3rem 4rem;
+        border: 1px solid #fff;
+        text-decoration: none;
+        color: #fff; 
+        margin-top: 3%;
+
+    }
+
+    .over-lay {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(2, 1, 1, 0.6);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+    }
+  
+    .item-one {
+        width: 250px;
+        height: 200px;
+        background: url('../images/homapge1.jpg') center/cover no-repeat ;
+    }
+
+    .item-two {
+        width: 250px;
+        height: 200px;
+        background: url('../images/homepage2.jpg') center/cover no-repeat;
+    }
 }
+
 .dotsa {
     position: static !important;
 }
-.item-one {
-    width: 250px;
-    height: 200px;
-    background: url('../images/homapge1.jpg') center/cover no-repeat ;
+
+.home-page-title {
+    color: #fff;
+    font-size: 1rem;
+    font-family: 'Alata', sans-serif;
 }
+
+
