@@ -4,6 +4,7 @@ import Slider from 'react-slick'
 import './Home.scss'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import NewArrivals from './NewArrivals/NewArrivals'
 
 const HomePage = ({cart, setCart}) => {
 
@@ -46,9 +47,9 @@ const addItem = (e) => {
             </div>
           </div>
         </Slider>
-        
+        <NewArrivals/> 
         </div>
-        <div><button onClick={addItem}>hello</button></div>
+        
       </>
     )
 }

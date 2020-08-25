@@ -4,5 +4,39 @@
     box-sizing: border-box;
 }
 
+.title {
+    font-size: 1rem;
+    text-align: center ;
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-transform: uppercase;
+}
 
+h2::before{
 
+        content: "";
+        background: #E0E0E0;
+        display: inline-block;
+        width: 15%;
+        height: 1px;
+        box-sizing: border-box;
+        margin-right: 2%;
+        
+    
+}
+
+h2::after{
+
+    content: "";
+    background: #E0E0E0;
+    display: inline-block;
+    width: 15%;
+    height: 1px;
+    box-sizing: border-box;
+    margin-left: 2%;
+    
+
+}
