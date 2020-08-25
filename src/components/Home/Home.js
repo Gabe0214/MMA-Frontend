@@ -39,17 +39,11 @@ const addItem = (e) => {
               <NavLink to="/mma-boxing-all">Shop</NavLink>
             </div>
           </div>
-          <div>
-            <h3>3</h3>
-          </div>
-          <div>
-            <h3>4</h3>
-          </div>
-          <div>
-            <h3>5</h3>
-          </div>
-          <div>
-            <h3>6</h3>
+          <div className="item-three">
+            <div className="over-lay">
+              <h3 className="home-page-title">Shop Muay Thai</h3>
+              <NavLink to ='/muay-thai'>Shop</NavLink>
+            </div>
           </div>
         </Slider>
         
