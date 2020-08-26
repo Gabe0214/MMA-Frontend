@@ -1,4 +1,22 @@
-.product-image { 
-    width: 250px;
-    height: 250px;
+
+.product-arrival-section {
+        overflow-x: auto;
+        z-index: 0;
+       
+    .arrival-product-container {
+         display: flex;
+         width: 180%;
+         
+
+        .product-image { 
+            width: 80%;      
+        }
+    }
+
+    
 }
+
+.product-arrival-section::-webkit-scrollbar {
+    display: none;
+}
+
