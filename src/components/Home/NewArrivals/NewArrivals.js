@@ -12,7 +12,7 @@ const NewArrivals = () => {
    }, [])
 
     return (
-        <div>
+        <div className="arrival-main-view">
         <h2 className="title">New Arrivals</h2>
         <ArrivalProducts/> 
         </div>
