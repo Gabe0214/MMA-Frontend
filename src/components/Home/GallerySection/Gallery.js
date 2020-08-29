@@ -8,7 +8,11 @@ export const GallerySection = () => {
         <div className="gallery-section">
               <h2 className="title">Gallery</h2>
               <div className="gallery-main-view">
-                    <img src={`${galleryImages[0].image_src}`}/>
+                  <div className="image-container">
+                  {galleryImages.map((image) => (
+                      <img src ={image} className="gallery-image"/>
+                  ))}
+                  </div>
               </div>
         </div>
     )

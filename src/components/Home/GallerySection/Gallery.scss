@@ -1,3 +1,16 @@
 .gallery-section {
     margin-top: 8%;
+   
+    .gallery-main-view {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+        overflow-x: auto;
+
+        .gallery-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+    }
 }

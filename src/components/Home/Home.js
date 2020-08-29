@@ -5,7 +5,7 @@ import './Home.scss'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import NewArrivals from './NewArrivals/NewArrivals'
-
+import { GallerySection } from './GallerySection/Gallery'
 const HomePage = ({cart, setCart}) => {
 
     const settings = {
@@ -48,6 +48,7 @@ const addItem = (e) => {
           </div>
         </Slider>
         <NewArrivals/> 
+        <GallerySection/> 
         </div>
         
       </>
