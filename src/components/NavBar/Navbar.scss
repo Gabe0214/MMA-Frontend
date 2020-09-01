@@ -1,0 +1,38 @@
+#nav-bar{
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    z-index: 1;
+    background-color: #fff;
+
+    .logo {
+         width: 40px;
+    }
+
+    .nav-cart-container {
+        position: relative;
+
+        span {
+            position: absolute;
+            top: -8px;
+            right: 1px;
+            color: #fff;
+            z-index: 1;
+            border-radius: 50%;
+            background-color: red;
+            padding: 0 0.3rem;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        .double-digit {
+            @extend span;
+            padding: 0 0.2rem;
+        }
+    }
+
+}
