@@ -4,11 +4,20 @@
     .gallery-main-view {
         
           overflow-x: auto;
-
+       .image-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        
         .gallery-images {
             width: 171.5px;
             height: 171.5px;
             object-fit: cover;
+            flex-shrink: 0;
+            margin: 8px;
         }
+
+       }
+        
     }
 }
