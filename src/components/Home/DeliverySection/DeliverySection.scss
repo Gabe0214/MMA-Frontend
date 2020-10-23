@@ -1,0 +1,22 @@
+.delivery-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: black;
+    padding: 20px;
+    .delivery-sub-item{
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        padding: 0.5rem 0.75rem;
+
+        .icon {
+            color: #fff
+        }
+        .section-text{
+            padding: 0 0.2rem;
+            font-size: 15px;
+            color: #fff
+        }
+    }
+}
