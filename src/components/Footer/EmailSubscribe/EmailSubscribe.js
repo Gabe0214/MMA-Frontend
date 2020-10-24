@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import './EmailSubscribe.scss'
 const EmailSubscribe = () => {
     const [email, setEmail] = useState('')
     return(
@@ -10,9 +10,9 @@ const EmailSubscribe = () => {
                 notices and more.
                 </p>
             </div>
-            <form>
+            <form className='email-form'>
                 <h4>Email</h4>
-                <input name='email' value={email} onChange={(e) =>setEmail(e.target.value)}/>
+                <input className='email-input' name='email' value={email} onChange={(e) =>setEmail(e.target.value)}/>
                 <button className='sign-up'>Sign Up</button>
             </form>
         </div>
