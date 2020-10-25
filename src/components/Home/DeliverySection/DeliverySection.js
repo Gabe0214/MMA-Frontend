@@ -16,9 +16,9 @@ export const DeliverySection = () => {
 
     return(
         <div className="delivery-section">
-           {deliverySectionIcons.map((item) => (
-               <div className='delivery-sub-item'>
-                   <FontAwesomeIcon icon ={item.icon} className={item.class}/>
+           {deliverySectionIcons.map((item, i) => (
+               <div className='delivery-sub-item' key={i}>
+                   <FontAwesomeIcon icon ={item.icon} className={item.class} key={i}/>
                     <p className='section-text'>{item.text}</p>
 
                </div>

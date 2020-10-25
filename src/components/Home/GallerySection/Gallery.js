@@ -9,8 +9,8 @@ export const GallerySection = () => {
               <h2 className="title">Gallery</h2>
               <div className="gallery-main-view">
                   <div className="image-container">
-                  {galleryImages.map((image) => (
-                      <img src ={image} className="gallery-images"/>
+                  {galleryImages.map((image, i) => (
+                      <img key={i}src ={image} className="gallery-images"/>
                   ))}
                   </div>
               </div>

@@ -20,9 +20,9 @@ export const Socials = () => {
     return (
         <div className='socials-container'>
             <h3 className='subtitle'>Socials</h3>
-            {socialIcons.map((icon) => (
-                <a href={!icon.url.includes('@') ?`https://${icon.url}`:`mailto:${icon.url}`} target='_blank'>
-                    <FontAwesomeIcon icon={icon.name} className={icon.class} size='lg'/> 
+            {socialIcons.map((icon, i) => (
+                <a key ={i} href={!icon.url.includes('@') ?`https://${icon.url}`:`mailto:${icon.url}`} target='_blank'>
+                    <FontAwesomeIcon icon={icon.name} className={icon.class} size='lg' key={i}/> 
                 </a>
             ))}
 
