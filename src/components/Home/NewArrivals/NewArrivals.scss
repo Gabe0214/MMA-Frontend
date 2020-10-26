@@ -2,7 +2,7 @@
 
 .arrival-main-view {
 
-    margin-top: 3%;
+    margin-top: 5%;
     .product-arrival-section {
         overflow-x: auto;
         z-index: 0;
@@ -16,17 +16,19 @@
        
         .arrival-product-container {
             display: flex;
-            width: 239%;
+            width: 100%;
          
 
             .arrival-product {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-            
+                margin: 0 5%;
 
                 .product-image { 
-                width: 67%;      
+                width: 112px;
+                height: 112px;
+                object-fit: cover;      
                 }
 
                 h3 {
@@ -34,6 +36,12 @@
                 text-transform: uppercase;
                 font-family: 'Alata', sans-serif;
                 text-align: center;
+                margin-top: 5%;
+                font-family: 'Roboto', sans-serif;
+                }
+
+                .product-price {
+                    margin-top: 2%;
                 }
             }
     
