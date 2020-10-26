@@ -4,6 +4,8 @@
     .gallery-main-view {
         
           overflow-x: auto;
+          position: relative;
+          z-index: 0;
        .image-container {
         display: flex;
         flex-direction: row;

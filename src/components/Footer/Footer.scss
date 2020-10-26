@@ -1,3 +1,11 @@
 .footer-container {
-    margin: 0 2%;
+    padding: 0 2% 10% 2%;
+    border-bottom: 1px solid black;
+}
+
+.copy-right{
+    padding-top: 35px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3%;
 }
