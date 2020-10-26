@@ -1,3 +1,5 @@
+
+
 .arrival-main-view {
 
     margin-top: 3%;
@@ -5,6 +7,12 @@
         overflow-x: auto;
         z-index: 0;
         margin-top: 4%;
+        scrollbar-width: none;
+        
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent; /* make scrollbar transparent */
+        }
        
         .arrival-product-container {
             display: flex;
