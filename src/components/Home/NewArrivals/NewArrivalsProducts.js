@@ -1,15 +1,18 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import './NewArrivals.scss'
 export const ArrivalProducts = ({products}) => {
 
     return (
         <div className="product-arrival-section">
         <div className="arrival-product-container">
-            {products.map((item) => (
-                <div className="arrival-product">
+            {products.map((item, i) => (
+                <div className="arrival-product" key={i}>
+                   <NavLink to={`/products/product/${item.product_id}`}> 
                     <img className="product-image" src={item.images[0].image_one}/>
                     <h3>{item.product_name}</h3>
-                    <span className="product-price">${item.price}</span>
+                   </NavLink> 
+                   <span className="product-price">${item.price}</span> 
                 </div>
             ))}
           {/* <div className="arrival-product">

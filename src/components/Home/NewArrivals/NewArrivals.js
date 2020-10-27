@@ -13,9 +13,11 @@ const NewArrivals = () => {
         .then((res) => {
             setItems(res.data.slice(0,7))
         })
-        .catch((err) => console.log(err))
+        .catch((err) => console.log(err.response))
    }, [])
 
+   console.log(items)
+   
     return (
         <div className="arrival-main-view">
         <h2 className="title">New Arrivals</h2>
