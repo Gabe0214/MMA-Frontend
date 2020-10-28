@@ -15,7 +15,7 @@ const IndividualProduct = (props) => {
        Axios.get(`http://localhost:8000/products/${id}`, {cancelToken: source.token})
         .then(res => {
             setProduct(res.data)
-            setCurrentImgView(res.data.images[0].img_source_1) /* current image view will change dynamically via user actions*/
+            setCurrentImgView(res.data.images[0].img) /* current image view will change dynamically via user actions*/
         })
         .catch(err => console.log(err))
         
@@ -25,10 +25,10 @@ const IndividualProduct = (props) => {
         
     }, [])
   
-     console.log(product.images)
+  
     return (
       <>
-        <ProductCard image={currentImgView && currentImgView} images={product.images}/> 
+        <ProductCard image={currentImgView && currentImgView} images={product.images} setImageView={setCurrentImgView} name={product.name}/> 
       </>
     )
 }
