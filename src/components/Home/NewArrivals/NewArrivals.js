@@ -9,7 +9,7 @@ const NewArrivals = () => {
 
 
    useEffect(() => {
-        Axios.get('http://localhost:3000/products')
+        Axios.get('http://localhost:8000/products')
         .then((res) => {
             setItems(res.data.slice(0,7))
         })
