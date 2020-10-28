@@ -1,6 +1,6 @@
 import React from 'react';
 import './IndividualProduct.scss'
-const ProductCard = ({images, name, image, setImageView}) => {
+const ProductCard = ({images, name, image, setImageView, price}) => {
 
 
 
@@ -19,7 +19,8 @@ const ProductCard = ({images, name, image, setImageView}) => {
                     <img src={item.img} alt='an Image' key={i} onClick={(e) =>e.preventDefault, ()=>changeMainImageView(item.img)}/>
                 ))}
             </div>
-            <h1>{name}</h1>
+            <h3 className='product-name'>{name}</h3>
+                <span className='price'>${price}</span>
         </div>
     )
 }

@@ -24,11 +24,11 @@ const IndividualProduct = (props) => {
        }
         
     }, [])
-  
+   
   
     return (
       <>
-        <ProductCard image={currentImgView && currentImgView} images={product.images} setImageView={setCurrentImgView} name={product.name}/> 
+        <ProductCard price={product.price} image={currentImgView && currentImgView} images={product.images} setImageView={setCurrentImgView} name={product.name}/> 
       </>
     )
 }
