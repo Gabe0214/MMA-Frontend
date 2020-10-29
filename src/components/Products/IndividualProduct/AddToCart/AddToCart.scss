@@ -14,6 +14,10 @@
             flex-shrink: 0;
         }
 
+        .disabled {
+            background-color: rgba(0,0,0,0.5);
+        }
+
         .quantity-input {
             text-align: center;
             height: 44px;
@@ -23,7 +27,8 @@
             border-right: none;
             border-left: none; 
             font-family: Roboto, sans-serif;
-            font-size: 15px;
+            font-size: 17px;
+            font-weight: 300;
         }
     }
 }
