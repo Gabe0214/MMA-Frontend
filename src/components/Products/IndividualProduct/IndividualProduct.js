@@ -1,6 +1,8 @@
 import React,{useState, useEffect} from 'react';
 import ProductCard from './ProductCard'
 import Axios from 'axios'
+import { Sizes } from './SizesSection/Sizes';
+import { CartSection } from './AddToCart/AddToCart'
 
 
 const IndividualProduct = (props) => {
@@ -29,6 +31,8 @@ const IndividualProduct = (props) => {
     return (
       <>
         <ProductCard price={product.price} image={currentImgView && currentImgView} images={product.images} setImageView={setCurrentImgView} name={product.name}/> 
+        <Sizes/>
+        <CartSection/>
       </>
     )
 }
