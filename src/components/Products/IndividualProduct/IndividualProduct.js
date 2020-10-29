@@ -1,9 +1,10 @@
 import React,{useState, useEffect} from 'react';
-import ProductCard from './ProductCard'
+import ProductCard, { ProductDescription } from './ProductCard'
 import Axios from 'axios'
 import { Sizes } from './SizesSection/Sizes';
 import { CartSection } from './AddToCart/AddToCart'
-
+import './IndividualProduct.scss'
+import { ShippingReturns } from './ShippingReturn/ShippingPolicies';
 
 const IndividualProduct = (props) => {
     const [product, setProduct] = useState({})
@@ -27,12 +28,15 @@ const IndividualProduct = (props) => {
         
     }, [])
    
+    console.log(product)
   
     return (
       <>
         <ProductCard price={product.price} image={currentImgView && currentImgView} images={product.images} setImageView={setCurrentImgView} name={product.name}/> 
         <Sizes/>
         <CartSection/>
+        <ProductDescription desc={product.description}/>
+        <ShippingReturns/>
       </>
     )
 }

@@ -27,4 +27,15 @@ const ProductCard = ({images, name, image, setImageView, price}) => {
     )
 }
 
+export const ProductDescription = ({desc}) => {
+    return (
+        <div className='product-desc'>
+            <h3>Description</h3>
+            <div>          
+                <p>{desc}</p>
+            </div>
+        </div>
+    )
+   }
+
 export default ProductCard

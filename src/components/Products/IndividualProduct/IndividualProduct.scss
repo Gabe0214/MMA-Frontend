@@ -34,3 +34,17 @@
         margin-top: 3%
     }
 }
+
+.product-desc {
+    margin: 3% 5% 0 5%;
+
+    h3 {
+        margin-bottom: 3%;
+    }
+    p {
+        font-size: 15px;
+        font-family: Roboto, sans-serif;
+        line-height: 1.4rem;
+        text-transform: uppercase;
+    }
+}
