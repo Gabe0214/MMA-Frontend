@@ -12,18 +12,28 @@ function AllProducts() {
     useEffect(() => {
         axios.get('http://localhost:8000/products')
         .then((res) => {
-            setAllProducts(res.data)
+            setAllProducts(prevState => res.data)
         })
         .catch(err => console.log(err))
-    }, [allProducts])
+    }, [])
 
     
+    const sortedProducts = allProducts.sort((a, b) => {
+        if (a.product_name > b.product_name){
+            return 1
+        } else {
+            return -1
+        }
+    })
+  
+      console.log(allProducts)
+
 
     return (
         <div>
             <h2 style={{textAlign:'center'}} className='title'>All Products</h2>
-             <SortBy products={allProducts} setProducts={setAllProducts}/>
-            <ProductsView products={allProducts}/>
+             <SortBy />
+            <ProductsView products={sortedProducts}/>
         </div>
     )
 }
