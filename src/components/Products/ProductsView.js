@@ -1,7 +1,14 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { NavLink } from 'react-router-dom'
 import './ProductsView.scss'
 export const ProductsView = ({products}) => {
+
+    
+
+   useEffect(() => {
+
+   }, [products])
+
     return (
         <div className='products-container'>
             {products.map((item, i) => (
