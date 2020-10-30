@@ -1,0 +1,50 @@
+.product-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+    
+    .main-img-view {
+        width: 250px;
+        object-fit: cover;
+        
+    }
+    
+    .images-container {
+        margin: 5% 0 ;
+        display: flex;
+        flex-direction: row;
+        img {
+            width: 80px;
+            margin-right: 4%;
+        }
+    }
+
+    .product-name {
+        font-size: 25px;
+        align-self: flex-start;
+        padding-left: 5%;
+        font-family: 'Oswald', sans-serif;
+    }
+
+    .price {
+        font-family: 'Roboto', sans-serif;
+        align-self: flex-start;
+        padding-left: 5%;
+        margin-top: 3%
+    }
+}
+
+.product-desc {
+    margin: 8% 5% 5% 5%;
+
+    h3 {
+        margin-bottom: 3%;
+    }
+    p {
+        font-size: 15px;
+        font-family: Roboto, sans-serif;
+        line-height: 1.4rem;
+        text-transform: uppercase;
+    }
+}

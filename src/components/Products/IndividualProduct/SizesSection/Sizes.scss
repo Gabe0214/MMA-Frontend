@@ -1,0 +1,31 @@
+.size-title{
+  font-family: 'Roboto', sans-serif;
+  padding-left: 5%;
+  margin-top: 3%;
+  font-weight: 400;
+}
+.sizes-container {
+    display: flex;
+    flex-direction: row;
+    margin-left: 5%;
+    margin-top: 1%;
+    .size {
+        margin-right: 2%;
+        border: solid thin #e2e2e2;
+        width: 40px;
+        text-align: center;
+        height: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        font-size:14px;
+        font-family: 'Roboto', sans-serif;
+        
+    }
+
+    .checked-size {
+        border: solid thin black;
+    }
+}
