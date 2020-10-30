@@ -17,7 +17,7 @@ function App() {
       <NavBar cart={cartData}/>
       <Switch>
         <Route exact path='/' component={() => <HomePage cart={cartData} setCart={setCartData}/>}/>
-        <Route path='/cart' component={ShoppingCart}/>
+        <Route path='/cart' component={ShoppingCart}/>c
         <Route path='/products/product/:id' component={IndividualProduct}/> 
         <Route path='/products/all' component={AllProducts}/> 
         </Switch>
