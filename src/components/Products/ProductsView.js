@@ -4,7 +4,9 @@ import './ProductsView.scss'
 export const ProductsView = ({products}) => {
 
     
+    useEffect(() => {
 
+    }, [products])
 
     return (
         <div className='products-container'>
