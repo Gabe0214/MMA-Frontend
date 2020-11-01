@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
-export const SortBy = ({setOption, sortIt}) => {
+export const SortBy = ({ sortIt, setOptions}) => {
 
  
     
 
     
   const onChange = (e) => {
-      setOption(e.target.value)
-      sortIt(e.target.value)
+    setOptions(e.target.value)
+    // sortIt(e.target.value)
   } 
 
     
@@ -16,7 +16,7 @@ export const SortBy = ({setOption, sortIt}) => {
         <div>
             <select onChange={onChange}>
               <option value=''>Select</option>
-              <option value='A-Z'>Alphabetically: A-Z</option>
+              <option value='A-Z' onClick={(e)=>sortIt(e.target.value)}>Alphabetically: A-Z</option>
               <option value='Z-A'>Alphabetically: Z-A</option>
             </select>
         </div>
