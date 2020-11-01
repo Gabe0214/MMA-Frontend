@@ -17,53 +17,32 @@ function AllProducts() {
         })
         .catch(err => console.log(err))
 
-    }, [allProducts])
+    },[])
 
-    useEffect(() => {
-        sortProducts()
-    },[sortOption])
-    
-    
-    
-    const sortProducts = () => {
-         console.log(sortOption)
-        if(sortOption == 'A-Z'){
-           const sorting = allProducts.sort((a,b) => {
-               if(a.product_name > b.product_name){
-                   return 1
-               } else {
-                   return -1
-               }
-           })
 
-            return setDisplayAllProducts(sorting)
+    
+    
+
+    
+    const sortProducts = (value) => {
+         if(value == '') {return}
+             
+        if(value == 'A-Z'){
+            console.log(value)
+            allProducts.sort((a, b) => (a.product_name > b.product_name) ? 1 : -1)
         }
 
-        else if(sortOption == 'Z-A'){
-            const sorting = allProducts.sort((a, b) => {
-                if(a.product_name > b.product_name) {
-                    return -1
-                } else {
-                    return 1 
-                }
-            })
-          return setDisplayAllProducts(sorting)
+        if(value == 'Z-A'){
+            console.log(value)
+             allProducts.sort((a,b) => (a.product_name > b.product_name) ? -1 : 1)
+         
         }
-        
-        else if(sortOption === ''){
-            setDisplayAllProducts(allProducts && allProducts)
-        }
-    
-        
-
     }    
 
-    const handleChange = (e) => {
-     e.preventDefault();
-     setSortOption(e.target.value)
-    
-    }
-
+//  const sorted = allProducts.sort((a,b) => {
+//      const isReversed = (sortOption == 'A-Z') ? 1 : -1
+//      return isReversed * a.product_name.localeCompare(b.product_name)
+//  })
 
 
 
@@ -74,8 +53,8 @@ function AllProducts() {
     return (
         <div>
             <h2 style={{textAlign:'center'}} className='title'>All Products</h2>
-             <SortBy onChange={handleChange}/>
-            <ProductsView products={displayAllProducts}/>
+             <SortBy setOption={setSortOption} sortIt={sortProducts}/>
+            <ProductsView products={allProducts}/>
         </div>
     )
 }

@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react'
 
-export const SortBy = ({onChange}) => {
+export const SortBy = ({setOption, sortIt}) => {
 
  
     
 
     
-
+  const onChange = (e) => {
+      setOption(e.target.value)
+      sortIt(e.target.value)
+  } 
 
     
     return (
