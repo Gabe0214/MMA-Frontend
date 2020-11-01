@@ -6,6 +6,7 @@ import { faLiraSign } from '@fortawesome/free-solid-svg-icons'
 function AllProducts() {
 
     const [allProducts, setAllProducts] = useState([])
+    const [filteredI, setFiltered] = useState([])
     const [sortOption, setSortOption] = useState('')
     const [filterOption, setFilter] = useState('')
     let myRef = useRef(sortOption)
@@ -14,7 +15,8 @@ function AllProducts() {
     useEffect(() => {
         axios.get('http://localhost:8000/products')
         .then((res) => {
-            return setAllProducts(res.data)
+            setAllProducts(res.data)
+            setFiltered(res.data)
         })
         
         .catch(err => console.log(err))
@@ -25,7 +27,7 @@ function AllProducts() {
 
    useEffect(() => {
        myRef.current = ''
-   })
+   },[filterOption])
     
     
     
@@ -85,12 +87,20 @@ function AllProducts() {
 
     function filter(filterBy){
         
-            setAllProducts(allProducts.filter((items) => items.brand.toLowerCase().includes(filterBy.toLowerCase())))
-        
-    }
+        const itISA = filteredI.filter((items) =>{
+            // console.log(allProducts)
+            if(items.brand.toLowerCase().includes(filterBy.toLowerCase())){
+                console.log('hey')
+                return items
+            }  else if(filterBy == 'All'){
+                return items
+            }
+        })
+        // console.log(allProducts)
+        setAllProducts(itISA)
+     }
 
     function callFilter(e){
-        setFilter(e.target.value)
         filter(e.target.value)
     }
   
@@ -106,6 +116,7 @@ function AllProducts() {
             </select>
             <button value='Affliction'onClick={callFilter}>Affliction</button>
             <button value='Venom'onClick={callFilter}>Venom</button>
+            <button value='All'onClick={callFilter}>All</button>
              {/* <SortBy sortIt={sortProducts} setOptions={setSortOption}/> */}
             <ProductsView products={allProducts}/>
         </div>
