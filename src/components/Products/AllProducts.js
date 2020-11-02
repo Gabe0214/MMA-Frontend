@@ -2,14 +2,12 @@ import React, { useEffect, useRef, useState } from 'react'
 import axios from 'axios'
 import { ProductsView } from './ProductsView'
 import { SortBy } from '../Filter.js/SortBy'
-import { faLiraSign } from '@fortawesome/free-solid-svg-icons'
 function AllProducts() {
 
     const [allProducts, setAllProducts] = useState([])
     const [filteredI, setFiltered] = useState([])
     const [sortOption, setSortOption] = useState('')
-    const [filterOption, setFilter] = useState('')
-    let myRef = useRef(sortOption)
+   
 
 
     useEffect(() => {
@@ -25,70 +23,40 @@ function AllProducts() {
     },[])
 
 
-   useEffect(() => {
-       myRef.current = ''
-   },[filterOption])
     
-    
-    
-    const sortProducts = () => {
-    
-        // console.log(myRef.current)
-        // if(myRef.current == 'A-Z'){
-        //     allProducts.sort((a, b) => (a.product_name > b.product_name) ? 1 : -1)
-        // }
-
-        // if(myRef.current == 'Z-A'){
-        //     allProducts.sort((a,b) => (a.product_name > b.product_name) ? -1 : 1)
-         
-        // }
-
-         console.log(allProducts.sort((a,b) => {
-            if (a.product_name > b.product_name){
-                return 1
-            } else {return -1}
-        }))
-        
-    }    
-   
-    // const sorted = allProducts.sort((a, b) =>{
-    //     console.log(myRef.current)
-    //    if(sortOption == 'A-Z'){
-    //     if(a.product_name > b.product_name){
-    //         return 1
-    //     } else  return -1
-    // } else if(sortOption == 'High-Low'){
-    //      if(Number(a.price) > Number(b.price)){
-    //          return -1
-    //      } else return 1
-    // }
-    // })
+    useEffect(() => {
+        sortP('')
+    }, [sortOption])
 
      function selected(e){
-         setSortOption(e.target.value)
-        sortP(e.target.value)
+        setSortOption(e.target.value)
+        sortP('')
     }
     
-    function sortP(sortBy){
-             if(sortBy == 'A-Z'){
-                 allProducts.sort((a, b) => (a.product_name > b.product_name) ? 1 : -1)
+    function sortP(){
+        console.log(sortOption)
+        let result;
+             if(sortOption == 'A-Z'){
+                 console.log('im here')
+                  result = allProducts.sort((a, b) => (a.product_name > b.product_name) ? 1 : -1).map((items) => items)
+              }
+             else if(sortOption == 'Z-A'){
+                 result = allProducts.sort((a,b) => (a.product_name > b.product_name) ? -1 : 1).map((items) => items)
              }
-             else if(sortBy == 'Z-A'){
-                 allProducts.sort((a,b) => (a.product_name > b.product_name) ? -1 : 1)
+             else if(sortOption =='High-Low') {
+                 result = allProducts.sort((a, b) => (parseInt(a.price) > parseInt(b.price)) ? -1 : 1).map((items) => items)
+             } else if(sortOption == 'Low-High'){
+                 result = allProducts.sort((a,b) => (parseInt(a.price) > parseInt(b.price)) ? 1 : -1).map((items) => items)
+             } else if(sortOption == ''){
+                 return 
              }
-             else if(sortBy =='High-Low') {
-                 allProducts.sort((a, b) => (parseInt(a.price) > parseInt(b.price)) ? -1 : 1)
-             } else if(sortBy == 'Low-High'){
-                 allProducts.sort((a,b) => (parseInt(a.price) > parseInt(b.price)) ? 1 : -1)
-             }
-
-             return allProducts
+          setAllProducts(result)
     }
 
     function filter(filterBy){
         
-        const itISA = filteredI.filter((items) =>{
-            // console.log(allProducts)
+        const result = filteredI.filter((items) =>{
+
             if(items.brand.toLowerCase().includes(filterBy.toLowerCase())){
                 console.log('hey')
                 return items
@@ -96,13 +64,11 @@ function AllProducts() {
                 return items
             }
         })
-        // console.log(allProducts)
-        setAllProducts(itISA)
+
+        setAllProducts(result)
      }
 
-    function callFilter(e){
-        filter(e.target.value)
-    }
+  
   
     return (
         <div>
@@ -114,9 +80,10 @@ function AllProducts() {
                 <option value='High-Low'>High-Low</option>
                 <option value='Low-High'>Low-High</option>
             </select>
-            <button value='Affliction'onClick={callFilter}>Affliction</button>
-            <button value='Venom'onClick={callFilter}>Venom</button>
-            <button value='All'onClick={callFilter}>All</button>
+            <button value='Affliction'onClick={(e)=>filter(e.target.value)}>Affliction</button>
+            <button value='Venom'onClick={(e)=>filter(e.target.value)}>Venom</button>
+            <button value='All'onClick={(e)=>filter(e.target.value)}>All</button>
+            <button value='Gracie'onClick={(e)=>filter(e.target.value)}>Gracie</button>
              {/* <SortBy sortIt={sortProducts} setOptions={setSortOption}/> */}
             <ProductsView products={allProducts}/>
         </div>
