@@ -1,0 +1,13 @@
+.dropdown-container {
+    position: relative;
+    .dropdown   {
+        padding-right: 2.5rem;
+        font-size: 15px;
+        border: 1px solid transparent;
+        border-color: #d3d3d3;
+        appearance: none;
+        padding: 0.5rem 2.5rem 0.5rem 1rem;
+        margin-right: 2%;
+        width: 62%;
+    }
+}

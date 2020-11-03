@@ -22,7 +22,7 @@ export const Filter = () => {
     },[])
 
     return (
-        <div>
+        <>
             <button onClick={()=>setModal(prevState => !prevState)} className={modal ? 'filter-btn is--toggled': 'filter-btn'}><span>Filter</span> <div className='icon-filters'></div></button>
             { modal ?<ul>
                 {brands.map((brand, i) => {
@@ -30,6 +30,6 @@ export const Filter = () => {
                 })
             }
             </ul>: null }
-        </div>
+        </>
     )
 }

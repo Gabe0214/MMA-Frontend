@@ -3,7 +3,7 @@ import axios from 'axios'
 import { ProductsView } from './ProductsView'
 import { SortBy } from '../Sort.js/SortBy'
 import { Filter } from '../Filter.js/Filter'
-
+import './ProductsView.scss'
 function AllProducts() {
 
     const [allProducts, setAllProducts] = useState([])
@@ -85,8 +85,10 @@ function AllProducts() {
             <button value='Venom'onClick={(e)=>filter(e.target.value)}>Venom</button>
             <button value='All'onClick={(e)=>filter(e.target.value)}>All</button>
             <button value='Gracie'onClick={(e)=>filter(e.target.value)}>Gracie</button> */}
-             <SortBy sortIt={sortP} setOptions={setSortOption} option={sortOption}/>
-             <Filter/>
+            <div className='sort-filter-container'>
+                <SortBy sortIt={sortP} setOptions={setSortOption} option={sortOption}/>
+                <Filter/>
+            </div>
             <ProductsView products={allProducts}/>
         </div>
     )

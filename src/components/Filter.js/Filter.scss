@@ -3,15 +3,17 @@
     border: transparent;
     display: flex;
     line-height: 1.5;
-    font-size: 1.5rem;
+    font-size: 1rem;
     background: transparent;
-
+    align-items: center;
+     span{
+         padding-right: 8px;
+     }
     .icon-filters {
         margin-top: 2px;
         width: 16px;
         height: 16px;
         position: relative;
-
         &::before{
             content: "";
             color: #333;
