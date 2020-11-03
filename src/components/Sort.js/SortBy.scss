@@ -1,5 +1,6 @@
 .dropdown-container {
     position: relative;
+    margin-right: 5%;
     .dropdown   {
         padding-right: 2.5rem;
         font-size: 15px;
@@ -8,6 +9,16 @@
         appearance: none;
         padding: 0.5rem 2.5rem 0.5rem 1rem;
         margin-right: 2%;
-        width: 62%;
+        width: 100%;
+    }
+
+    &:after{
+        font-family:'FontAwesome';
+        content: '\f078';
+        font-weight: 300;
+        position: absolute;
+        pointer-events: none;
+        top: 7px;
+        right: 19px;
     }
 }

@@ -23,7 +23,6 @@ export const SortBy = ({ sortIt, setOptions, option}) => {
               <option value='High-Low'>Price: High-Low</option>
               <option value='Low-High'>Price: Low-High</option>
             </select>
-            <FontAwesomeIcon icon={faChevronDown} size='xl'/>
         </div>
     )
 }
