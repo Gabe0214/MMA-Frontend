@@ -87,7 +87,7 @@ function AllProducts() {
             <button value='Gracie'onClick={(e)=>filter(e.target.value)}>Gracie</button> */}
             <div className='sort-filter-container'>
                 <SortBy sortIt={sortP} setOptions={setSortOption} option={sortOption}/>
-                <Filter/>
+                <Filter filter={filter}/>
             </div>
             <ProductsView products={allProducts}/>
         </div>

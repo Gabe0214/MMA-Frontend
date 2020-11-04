@@ -1,0 +1,18 @@
+.brands-container {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+    line-height: 2.5;
+
+    .under-line{
+        margin-top: 4%;
+        width: 226px;
+        height: 2px;
+        background: rgb(160, 155, 155);
+    }
+}
+
+#modal-title {
+    margin: 5% 0;
+}
