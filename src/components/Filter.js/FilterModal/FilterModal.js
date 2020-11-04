@@ -25,16 +25,16 @@ const useStyles = makeStyles((theme) => ({
   
     export const FilterModal = ({modal, setModal, brands, filter}) => {
         const classes = useStyles();
-        const [open, setOpen] = useState(false);
-  
-        const handleOpen = () => {
-        setOpen(true);
-        };
   
         const handleClose = () => {
         setModal(false);
         };
-  
+        
+
+        const itemClicked = (brand) => {
+            setModal(false)
+            filter(brand)
+        }
         return (
         <div>
           {/* <button type="button" onClick={handleOpen}>
@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
                     <h5 id="modal-title">Brands:</h5>
                     <ul className="brands-container">
                         {brands && brands.map((brand, i) => (
-                            <li key ={i} onClick={()=>setModal(false), ()=>filter(brand)}>{brand.toUpperCase()}</li>
+                            <li key ={i} onClick={()=>itemClicked(brand)}>{brand.toUpperCase()}</li>
                         ))}
                         <div className='under-line'></div>
                     </ul>

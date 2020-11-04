@@ -2,7 +2,7 @@ import React,{useState, useEffect} from 'react'
 import axios from 'axios'
 import { FilterModal } from './FilterModal/FilterModal'
 import './Filter.scss'
-export const Filter = ({filter}) => {
+export const Filter = ({filterBrand}) => {
     const [brands, setBrands] = useState([])
     const [modal, setModal] = useState(false)
     useEffect(() => {
@@ -31,7 +31,7 @@ export const Filter = ({filter}) => {
                 }) */}
             
             {/* </ul>: null } */}
-            <FilterModal modal={modal} setModal={setModal} brands={brands} filter={filter}/>
+            <FilterModal modal={modal} setModal={setModal} brands={brands} filter={filterBrand}/>
 
         </>
     )

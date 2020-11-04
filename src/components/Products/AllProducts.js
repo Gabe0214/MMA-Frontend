@@ -9,6 +9,7 @@ function AllProducts() {
     const [allProducts, setAllProducts] = useState([])
     const [filteredI, setFiltered] = useState([])
     const [sortOption, setSortOption] = useState('')
+    // const [modal, setModal] = useState(false)
    
 
 
@@ -38,7 +39,6 @@ function AllProducts() {
     function sortP(){
         let result;
              if(sortOption == 'A-Z'){
-                 console.log('im here')
                   result = allProducts.sort((a, b) => (a.product_name > b.product_name) ? 1 : -1).map((items) => items)
               }
              else if(sortOption == 'Z-A'){
@@ -59,13 +59,13 @@ function AllProducts() {
         const result = filteredI.filter((items) =>{
 
             if(items.brand.toLowerCase().includes(filterBy.toLowerCase())){
-                console.log('hey')
+            
                 return items
             }  else if(filterBy == 'All'){
                 return items
             }
         })
-
+        
         setAllProducts(result)
      }
 
@@ -87,7 +87,7 @@ function AllProducts() {
             <button value='Gracie'onClick={(e)=>filter(e.target.value)}>Gracie</button> */}
             <div className='sort-filter-container'>
                 <SortBy sortIt={sortP} setOptions={setSortOption} option={sortOption}/>
-                <Filter filter={filter}/>
+                <Filter filterBrand={filter}/>
             </div>
             <ProductsView products={allProducts}/>
         </div>
