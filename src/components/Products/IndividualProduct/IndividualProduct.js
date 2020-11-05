@@ -30,7 +30,7 @@ const IndividualProduct = (props) => {
         
     }, [])
    
-    console.log(product)
+   
 
     return (
       <>
