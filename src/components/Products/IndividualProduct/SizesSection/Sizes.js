@@ -14,8 +14,8 @@ export const Sizes = ({allSizes, sizeSelected, setSelectedSize}) => {
         <>
         <h4 className='size-title'>Size</h4>
         <div className='sizes-container'>
-            {allSizes.map((size) => (
-                <div className={checkedSize && size.size == sizeSelected ? 'size checked-size': 'size'} onClick={() =>sizeChecked(size.size)}>{size.size}</div>
+            {allSizes.map((size, i) => (
+                <div key={i} className={checkedSize && size.size == sizeSelected ? 'size checked-size': 'size'} onClick={() =>sizeChecked(size.size)}>{size.size}</div>
             ))}   
         </div>
         </>
