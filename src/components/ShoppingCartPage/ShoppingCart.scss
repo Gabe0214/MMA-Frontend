@@ -1,0 +1,18 @@
+.shopping-cart-title {
+    font-size: 1rem;
+    margin: 5% 0 0 5%;
+}
+
+.no-items-container {
+    text-align: center;
+    padding: 20px 0;
+    margin: 8% 0;
+     .no-items {
+         font-size: 1rem;
+         
+
+         &::after, &::before{
+             display: none;
+         }
+     }
+}

@@ -9,7 +9,7 @@ function AllProducts() {
     const [allProducts, setAllProducts] = useState([])
     const [filteredI, setFiltered] = useState([])
     const [sortOption, setSortOption] = useState('')
-    // const [modal, setModal] = useState(false)
+    
    
 
 
@@ -31,10 +31,7 @@ function AllProducts() {
         sortP('')
     }, [sortOption])
 
-     function selected(e){
-        setSortOption(e.target.value)
-        sortP('')
-    }
+
     
     function sortP(){
         let result;
@@ -59,14 +56,14 @@ function AllProducts() {
         const result = filteredI.filter((items) =>{
 
             if(items.brand.toLowerCase().includes(filterBy.toLowerCase())){
-            
-                return items
+                 
+                 return items
             }  else if(filterBy == 'All'){
                 return items
             }
         })
-        
         setAllProducts(result)
+
      }
 
   
@@ -74,17 +71,6 @@ function AllProducts() {
     return (
         <div>
             <h2 style={{textAlign:'center'}} className='title'>All Products</h2>
-            {/* <select onChange={selected} value={sortOption}>
-                <option value=''>Select</option>
-                <option value='A-Z'>A-Z</option>
-                <option value='Z-A'>Z-A</option>
-                <option value='High-Low'>High-Low</option>
-                <option value='Low-High'>Low-High</option>
-            </select> */}
-            {/* <button value='Affliction'onClick={(e)=>filter(e.target.value)}>Affliction</button>
-            <button value='Venom'onClick={(e)=>filter(e.target.value)}>Venom</button>
-            <button value='All'onClick={(e)=>filter(e.target.value)}>All</button>
-            <button value='Gracie'onClick={(e)=>filter(e.target.value)}>Gracie</button> */}
             <div className='sort-filter-container'>
                 <SortBy sortIt={sortP} setOptions={setSortOption} option={sortOption}/>
                 <Filter filterBrand={filter}/>

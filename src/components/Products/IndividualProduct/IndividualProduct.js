@@ -9,6 +9,8 @@ import { ShippingReturns } from './ShippingReturn/ShippingPolicies';
 const IndividualProduct = (props) => {
     const [product, setProduct] = useState({})
     const [currentImgView, setCurrentImgView] = useState('')
+    const [sizeSelected, setSelectedSize] = useState('')
+    const allSizes = [{size: 'S'}, {size: 'M'}, {size: 'L'}, {size: 'XL'}, {size: '2XL'}, {size: '3XL'}]
     const id = props.match.params.id
    
     useEffect(() => {
@@ -29,12 +31,12 @@ const IndividualProduct = (props) => {
     }, [])
    
     console.log(product)
-  
+
     return (
       <>
         <ProductCard price={product.price} image={currentImgView && currentImgView} images={product.images} setImageView={setCurrentImgView} name={product.name}/> 
-        <Sizes/>
-        <CartSection/>
+        <Sizes setSelectedSize={setSelectedSize} sizeSelected={sizeSelected} allSizes={allSizes}/>
+        <CartSection product={product} size={sizeSelected}/>
         <ProductDescription desc={product.description}/>
         <ShippingReturns/>
       </>

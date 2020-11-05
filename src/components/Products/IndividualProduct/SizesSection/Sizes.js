@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import './Sizes.scss'
-export const Sizes = () => {
+export const Sizes = ({allSizes, sizeSelected, setSelectedSize}) => {
     const [checkedSize, setCheckedSize] = useState(false)
-    const [sizeSelected, setSelectedSize] = useState('')
-    const allSizes = [{size: 'S'}, {size: 'M'}, {size: 'L'}, {size: 'XL'}, {size: '2XL'}, {size: '3XL'}]
+    // const [sizeSelected, setSelectedSize] = useState('')
+    // const allSizes = [{size: 'S'}, {size: 'M'}, {size: 'L'}, {size: 'XL'}, {size: '2XL'}, {size: '3XL'}]
 
     const sizeChecked = (sizeId) => {
         setCheckedSize(currState => true)
