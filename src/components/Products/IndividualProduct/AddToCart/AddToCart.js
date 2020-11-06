@@ -14,7 +14,12 @@ export const CartSection = ({product, size}) => {
     const addItem = (item, size) => {
         const { product_id, name, price} = item
         const img = item.images[0].img
-        const product = {product_id, name, price: Number(price) * quantity, size, img, quantity}
+        const itemSize = `${size} `
+        const sizes = itemSize.repeat(quantity).split(' ')
+        sizes.pop()
+
+        const product = {product_id, name, price: Number(price) * quantity, size: sizes, img, quantity}
+
         dispatch({
             type: "ADD_ITEM_TO_CART",
             payload: product
