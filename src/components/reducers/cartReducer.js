@@ -11,10 +11,23 @@ const cartReducer = (state = initialState, action) => {
     switch(type){
         case "ADD_ITEM_TO_CART":
             console.log(payload)
-            const duplicates = state.items.filter((product) => product.product_id == payload.product_id) // lines 14-18 verifies if items already exists within the cart. If, so update quantity only. No duplicates allowed
+            const duplicates = state.items.filter((product) => {
+                if(product.id == payload.id && product.size == payload.size){
+                    return product
+                }
+            }) // lines 14-18 verifies if items already exists within the cart. If, so update quantity only. No duplicates allowed
+            // console.log(duplicates)
             if(duplicates.length > 0){
-                const removeProduct = state.items.filter((product) => product.product_id !== payload.product_id)
-                const updateProductQuantity = {...duplicates[0], quantity : duplicates[0].quantity + payload.quantity, size: [...duplicates[0].size, ...payload.size]}
+                // console.log(duplicates)
+                const updateProductQuantity = {...duplicates[0], quantity : duplicates[0].quantity + payload.quantity}
+                const removeProduct = state.items.filter((product) => {
+                    if(product.id == payload.id && product.size == payload.size){
+                       return product.id !== payload.id
+                    
+                    }
+                    return product
+                })
+                console.log(removeProduct)
                 return{...state, items: [...removeProduct, updateProductQuantity]}
             }
             return {...state, items: [...state.items, payload]}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
-
+import { v4 as uuidv4 } from 'uuid'
 import './AddToCart.scss'
 export const CartSection = ({product, size}) => {
     const [quantity, setQuanitiy] = useState(1)
@@ -9,17 +9,18 @@ export const CartSection = ({product, size}) => {
     const shoppingCart = useSelector((state) =>state.cart)
     const dispatch = useDispatch()
     
-    
+   
+
 
     const addItem = (item, size) => {
         const { product_id, name, price} = item
         const img = item.images[0].img
         const itemSize = `${size} `
         const sizes = itemSize.repeat(quantity).split(' ')
-        sizes.pop()
+        // sizes.pop()
 
-        const product = {product_id, name, price: Number(price) * quantity, size: sizes, img, quantity}
-
+        const product = {product_id, unique_id: uuidv4(), name, price: Number(price) * quantity, size, img, quantity}
+        console.log(product)
         dispatch({
             type: "ADD_ITEM_TO_CART",
             payload: product
