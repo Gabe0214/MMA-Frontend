@@ -4,7 +4,9 @@ import './ProductsView.scss'
 export const ProductsView = ({products}) => {
 
     
+    useEffect(() => {
 
+    }, [products])
 
     return (
         <div className='products-container'>
@@ -13,7 +15,7 @@ export const ProductsView = ({products}) => {
                     <div className='image-container'>
                         <img src={item.images[0].image_one} alt='product image' className='image'/>
                     </div>
-                    <NavLink className='name' to={`/products/product/${item.product_id}`}>{item.product_name}</NavLink>
+                    <NavLink className='name' to={`/products/product/${item.product_id}`}>{item.product_name.toUpperCase()}</NavLink>
                     <span className='item-price'>${item.price}</span>
                 </div>
             ))}
