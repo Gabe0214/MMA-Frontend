@@ -15,6 +15,9 @@ export const NavShoppingCartMenu = () => {
                             <h4>{product.name} - {product.size}</h4>
                             <span>${product.price}</span>
                         </div>
+                        <div className='remove'>
+                            <span>x</span>
+                        </div>    
                     </div>
                     ))}
         </div>
