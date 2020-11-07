@@ -6,10 +6,15 @@ import { Link } from 'react-router-dom'
 import './ShoppingCart.scss'
 const ShoppingCart = () => {
     const shoppingCart = useSelector((state) => state.cart)
-  
+    const dispatch = useDispatch()
    
 
-
+const removeItem = (id) => {
+  dispatch({
+    type: "REMOVE_ITEM",
+    payload: {id}
+  })
+}
 
 
     return(
@@ -28,9 +33,9 @@ const ShoppingCart = () => {
                   <div className='item-info'>
                       <h4>{product.name}</h4>
                       <p className='size'>Size: {product.size}</p>
-                      <p className='price'>Price: {product.price}</p>
+                      <p className='price'>${product.price}</p>
                   </div>
-                  <div className='remove'> 
+                  <div className='remove' onClick={()=>removeItem(product.unique_id)}> 
                       <p>x</p>
                   </div>
                 </div>
