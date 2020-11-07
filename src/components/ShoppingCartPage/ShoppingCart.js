@@ -2,7 +2,8 @@ import React, {useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { Link } from 'react-router-dom'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLock} from '@fortawesome/free-solid-svg-icons'
 import './ShoppingCart.scss'
 const ShoppingCart = () => {
     const shoppingCart = useSelector((state) => state.cart)
@@ -33,8 +34,9 @@ const deductPrice = (deductTotal) => {
           { shoppingCart.items.length == 0 ? <div className='no-items-container'>
              <h2 className='no-items'>There are not items in your cart</h2>
              <Link to='products/all'>Shop Here</Link>
-           </div> : 
-           <div className='items-container'>
+           </div> :
+           <> 
+            <div className='items-container'>
               {shoppingCart.items.map((product, i) => (
                 <div className='item-container' key={i}>
                   <div className='image-container'>
@@ -50,7 +52,18 @@ const deductPrice = (deductTotal) => {
                   </div>
                 </div>
               ))}
-           </div>
+            </div>
+            <div className='sub-total'>
+                  <p>Subtotal:</p>
+                  <div className='sub-total-amount-container'>
+                      <p>$ {shoppingCart.totalAmount}</p>
+                      <p>USD</p>
+                  </div>
+            </div>
+            <div className='checkout-btn'>
+                <button> <FontAwesomeIcon icon={faLock}/> Checkout</button>
+            </div>
+            </>
            }
         </>
     )
