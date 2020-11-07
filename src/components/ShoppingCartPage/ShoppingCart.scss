@@ -28,7 +28,7 @@
         margin: 0 5%;
         align-items: start;
         position: relative;
-        padding-top: 15px;
+        padding: 15px 0;
         .image-container {
             img {
                 width: 100px;
@@ -40,13 +40,13 @@
         .item-info {
             display: flex;
             flex-direction: column;
-            width: 60%;
+            width: 50%;
             align-self: center;
             padding: 0 0 16px 20px;
             line-height: 1.4;
 
             h4 {
-                width: 50%;
+                width: 100%;
             }
             .size {
                 font-size: 0.7rem;

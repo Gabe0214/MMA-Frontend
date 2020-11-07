@@ -42,6 +42,11 @@ const cartReducer = (state = initialState, action) => {
             const finalNumber = Math.round(addTotal * 100) / 100
             return {...state, totalAmount: finalNumber}
         
+        case "DEDUCT_TOTAL": 
+            const subTotal = state.totalAmount - payload.total 
+            const subFinalNumber = Math.round(subTotal* 100) / 100
+            return {...state, totalAmount: subFinalNumber}
+        
         default:
             return state;
     }

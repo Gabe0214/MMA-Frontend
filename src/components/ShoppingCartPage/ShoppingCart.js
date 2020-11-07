@@ -9,13 +9,23 @@ const ShoppingCart = () => {
     const dispatch = useDispatch()
    
 
-const removeItem = (id) => {
+const removeItem = (id, price) => {
+  
+  const deductTotal = price 
   dispatch({
     type: "REMOVE_ITEM",
     payload: {id}
   })
-}
 
+   deductPrice(deductTotal)
+ }
+
+const deductPrice = (deductTotal) => {
+  dispatch({
+    type: "DEDUCT_TOTAL",
+    payload: { total: deductTotal }
+  })
+}
 
     return(
         <>
@@ -35,7 +45,7 @@ const removeItem = (id) => {
                       <p className='size'>Size: {product.size}</p>
                       <p className='price'>${product.price}</p>
                   </div>
-                  <div className='remove' onClick={()=>removeItem(product.unique_id)}> 
+                  <div className='remove' onClick={()=>removeItem(product.unique_id,product.price, product.quantity)}> 
                       <p>x</p>
                   </div>
                 </div>
