@@ -5,6 +5,7 @@ import { NavCart } from './NavShoppingCart'
 import { MobileMenu } from './Menu/MoibileMenu'
 import './Navbar.scss'
 import {useHistory } from 'react-router-dom'
+import { NavShoppingCartMenu } from './NavShoppingCartMenu.js/NavShoppingCartMenu'
 const NavBar = ({cart}) => {
   const [menu, setMenu] = useState(false)
   let history = useHistory()
@@ -24,6 +25,7 @@ const NavBar = ({cart}) => {
             <NavCart cart ={cart}/>
         </nav>
         <MobileMenu menu ={menu} setMenu={setMenu}/>
+        <NavShoppingCartMenu/>
         </>
     )
 }
