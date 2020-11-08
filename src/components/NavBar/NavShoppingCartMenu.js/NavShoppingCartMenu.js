@@ -1,11 +1,14 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLock } from '@fortawesome/free-solid-svg-icons'
+import { useHistory } from 'react-router-dom'
 import './NavShoppingCartMenu.scss'
 
 export const NavShoppingCartMenu = () => {
     const shoppingCart  = useSelector(state => state.cart )
     const dispatch = useDispatch()
-
+    const history = useHistory()
     const removeFromCart = (id, price) => {
         dispatch({
             type: "REMOVE_ITEM",
@@ -39,6 +42,15 @@ export const NavShoppingCartMenu = () => {
                         </div>    
                     </div>
                     ))}
+                    <div className='go-to-cart-container'>
+                        <div className='sub-total-container'>
+                            <span>Subtotal:</span>
+                            <span className='money'>$ {shoppingCart.totalAmount} USD</span>
+                        </div>
+                        <div className='go-to-cart-btn'>
+                            <button onClick={()=>history.push('/cart')}><FontAwesomeIcon icon={faLock}/> Go to cart</button>
+                        </div>
+                    </div>
         </div>
     )
 }
