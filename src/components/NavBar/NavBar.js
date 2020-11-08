@@ -5,13 +5,15 @@ import { NavCart } from './NavShoppingCart'
 import { MobileMenu } from './Menu/MoibileMenu'
 import './Navbar.scss'
 import {useHistory } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { NavShoppingCartMenu } from './NavShoppingCartMenu.js/NavShoppingCartMenu'
-const NavBar = ({cart}) => {
+const NavBar = () => {
   const [menu, setMenu] = useState(false)
   let history = useHistory()
   const shoppingCart = useSelector((state) =>state.cart)
-   const test = (e) => {
+  const dispatch = useDispatch()
+   
+  const test = (e) => {
     
      setMenu(!menu)
      window.scroll(0,0)
@@ -23,10 +25,10 @@ const NavBar = ({cart}) => {
          <nav id ="nav-bar">
             <FontAwesomeIcon icon={faBars} size="lg" onClick={test}/>
             <img src ="/alliance-logo.png" className="logo" onClick={() => history.push('/')}/>
-            <NavCart cart ={cart}/>
+            <NavCart dispatch={dispatch} shoppingCart={shoppingCart}/>
         </nav>
         <MobileMenu menu ={menu} setMenu={setMenu}/>
-        { shoppingCart.showNavMenu ? <NavShoppingCartMenu/> : null}
+        <NavShoppingCartMenu/>
         </>
     )
 }

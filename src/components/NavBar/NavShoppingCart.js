@@ -6,12 +6,13 @@ import { useHistory } from 'react-router-dom'
 import './Navbar.scss'
 
 
-export const NavCart = () => {
-    const shoppingCart = useSelector(state => state.cart)
-    const history = useHistory()
+export const NavCart = ({dispatch, shoppingCart}) => {
+    // const shoppingCart = useSelector(state => state.cart)
+    // const history = useHistory()
+
     return (
         <div className="nav-cart-container">
-            <FontAwesomeIcon icon={faShoppingCart} size="lg" onClick={()=>history.push('/cart')}/>
+            <FontAwesomeIcon icon={faShoppingCart} size="lg" onClick={()=>dispatch({type: "SHOW_CART_NAV_MENU", payload: !shoppingCart.showNavMenu})}/>
             <span className={shoppingCart.items.length > 9 ? 'double-digit': null} style={shoppingCart.items.length < 1 ? {display: 'none'}: null}>{shoppingCart.items.length}</span>
         </div>
     )

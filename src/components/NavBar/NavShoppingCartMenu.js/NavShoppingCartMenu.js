@@ -26,8 +26,8 @@ export const NavShoppingCartMenu = () => {
     }
 
     return (
-        <div className='menu-cart-container'>
-                    <h4 style={{textAlign:'center', fontSize:'12px', margin:'3% 0'}}>Shopping Cart ({shoppingCart.items.length})</h4>
+        <div className={ shoppingCart.showNavMenu ? 'menu-cart-container menu menu--active' : 'menu-cart-container'}>
+                    <h4 style={{textAlign:'center', fontSize:'12px', padding:'15px 0'}}>Shopping Cart ({shoppingCart.items.length})</h4>
                     {shoppingCart.items.map((product) => (
                     <div className='item-container'>
                         <div className='image-container'>
