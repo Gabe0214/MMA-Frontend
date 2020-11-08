@@ -5,11 +5,12 @@ import { NavCart } from './NavShoppingCart'
 import { MobileMenu } from './Menu/MoibileMenu'
 import './Navbar.scss'
 import {useHistory } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import { NavShoppingCartMenu } from './NavShoppingCartMenu.js/NavShoppingCartMenu'
 const NavBar = ({cart}) => {
   const [menu, setMenu] = useState(false)
   let history = useHistory()
-
+  const shoppingCart = useSelector((state) =>state.cart)
    const test = (e) => {
     
      setMenu(!menu)
@@ -25,7 +26,7 @@ const NavBar = ({cart}) => {
             <NavCart cart ={cart}/>
         </nav>
         <MobileMenu menu ={menu} setMenu={setMenu}/>
-        <NavShoppingCartMenu/>
+        { shoppingCart.showNavMenu ? <NavShoppingCartMenu/> : null}
         </>
     )
 }

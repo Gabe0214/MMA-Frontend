@@ -25,12 +25,12 @@ const deductPrice = (deductTotal) => {
     payload: { total: deductTotal }
   })
 }
-const hey = () => {
-  console.log('hey')
+const closeCartNavMenu = () => {
+  dispatch({type: "CLOSE_CART_NAV_MENU", payload: false})
 }
 
     return(
-        <>
+        <section onClick={closeCartNavMenu}>
         <h1 className='shopping-cart-title' >Shopping Cart</h1>
           { shoppingCart.items.length == 0 ? <div className='no-items-container'>
              <h2 className='no-items'>There are not items in your cart</h2>
@@ -66,7 +66,7 @@ const hey = () => {
             </div>
             </>
            }
-        </>
+        </section>
     )
 }
 

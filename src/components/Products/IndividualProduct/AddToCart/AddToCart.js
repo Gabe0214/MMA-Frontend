@@ -29,6 +29,10 @@ export const CartSection = ({product, size}) => {
             type: "CALCULATE_TOTAL",
             payload: product.price
         })
+        dispatch({
+            type: "SHOW_CART_NAV_MENU",
+            payload: true 
+        })
         
         
     }

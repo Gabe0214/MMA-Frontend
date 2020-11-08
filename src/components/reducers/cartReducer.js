@@ -1,6 +1,7 @@
 const initialState = {
     items: [],
-    totalAmount: 0
+    totalAmount: 0,
+    showNavMenu: false
 }
 
 
@@ -46,7 +47,10 @@ const cartReducer = (state = initialState, action) => {
             const subTotal = state.totalAmount - payload.total 
             const subFinalNumber = Math.round(subTotal* 100) / 100
             return {...state, totalAmount: subFinalNumber}
-        
+        case "SHOW_CART_NAV_MENU":
+            return {...state, showNavMenu: payload}
+        case "CLOSE_CART_NAV_MENU":
+            return {...state, showNavMenu: payload}
         default:
             return state;
     }
