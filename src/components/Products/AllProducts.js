@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import axios from 'axios'
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchAllProducts } from '../reducers/productsReducer/productsActions'
 import { ProductsView } from './ProductsView'
 import { SortBy } from '../Sort.js/SortBy'
 import { Filter } from '../Filter.js/Filter'
@@ -9,11 +11,13 @@ function AllProducts() {
     const [allProducts, setAllProducts] = useState([])
     const [filteredI, setFiltered] = useState([])
     const [sortOption, setSortOption] = useState('')
-    
-   
+    const productReducer = useSelector(state => state.productsReducer)
+    const dispatch = useDispatch()
 
 
     useEffect(() => {
+
+        dispatch(fetchAllProducts())
         axios.get('http://localhost:8000/products')
         .then((res) => {
             setAllProducts(res.data)
@@ -67,7 +71,15 @@ function AllProducts() {
      }
 
   
-  
+      if(productReducer.loading){
+          return (
+              <>
+              <h1>Loading Data.....</h1>
+              </>
+          )
+      }
+
+
     return (
         <div>
             <h2 style={{textAlign:'center'}} className='title'>All Products</h2>
