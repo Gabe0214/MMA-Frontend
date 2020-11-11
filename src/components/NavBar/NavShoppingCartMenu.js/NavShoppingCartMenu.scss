@@ -8,6 +8,7 @@
     opacity: 0;
     width: 100%;
     box-shadow: 0 8px 8px rgba(10,10,10,0.1);
+    visibility: hidden;
     .item-container {
         display: flex;
         justify-content: flex-start;
@@ -96,4 +97,5 @@
 .menu--active {
     opacity: 1;
     transition: all ease-in 0.3s;
+    visibility: visible;
 }
