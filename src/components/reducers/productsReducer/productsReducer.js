@@ -4,7 +4,8 @@ const initialState = {
     products: [],
     filteredProducts: [],
     loading: false,
-    error: false
+    error: false,
+    routed: false
 }
 
 const productsReducer = (state = initialState, action) => {
@@ -45,6 +46,8 @@ const productsReducer = (state = initialState, action) => {
                 } else if(payload.option == 'All'){ return items}
             })
             return {...state, products: result}
+        case "ROUTED":
+            return {...state, routed: !state.routed}
         
         default:
             return state

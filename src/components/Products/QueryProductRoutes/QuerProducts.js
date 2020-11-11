@@ -1,14 +1,16 @@
 import React, {useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 const QuerProducts = ({location}) => {
     const arry = location.search.split('&')
     const reString = arry[0].replace('?gender=', '')
     const reStringTwo = arry[1].replace('type=', '')
-    console.log(reString, reStringTwo)
     // console.log(arry)
-
+    const dispatch = useDispatch()
     const qry = location.search
 
+    const routed = useSelector((state) => state.productsReducer)
+   
     useEffect(() => {
         const getQueryItems = async () => {
             try {
@@ -23,7 +25,7 @@ const QuerProducts = ({location}) => {
 
         getQueryItems()
 
-    },[])
+    },[routed.routed])
     return (
         <div>
             <h1>{ reString !== 'unisex' ?  `${reString.toUpperCase()} ${reStringTwo.toUpperCase()}` : reStringTwo.toUpperCase()}</h1>
