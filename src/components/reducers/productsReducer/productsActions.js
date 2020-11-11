@@ -28,3 +28,19 @@ export const fetchAllProducts = () => async ( dispatch ) => {
         errorProducts(err)
     }
 }
+
+export const sortProductsByDesc = () => ({
+    type: "SORT_BY_A-Z"
+})
+
+export const sortProductsByAsc = () => ({
+    type: "SORT_BY_Z-A"
+})
+
+export const sortProductsPriceLowHigh = () => ({
+    type: "SORT_BY_PRICE_LOW_HIGH"
+})
+
+export const sortProductsPriceHighLow = () => ({
+    type: "SORT_BY_PRICE_HIGH_LOW   "
+})

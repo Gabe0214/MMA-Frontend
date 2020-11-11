@@ -1,3 +1,4 @@
+
 const initialState = {
     products: [],
     filteredProducts: [],
@@ -12,10 +13,31 @@ const productsReducer = (state = initialState, action) => {
         case "LOAD_PRODUCTS":
             return {...state, loading: true}
         case "GET_ALL_PRODUCTS_SUCCESS":
-            return {...state, products: payload, loading: false, error:false}
+            return {...state, products: payload, filteredProducts: payload, loading: false, error:false}
         case "GET_ALL_PRODUCTS_FAILURE":
             return {...state, loading: false, error: true}
+        
+        case "SORT_BY_A-Z":
+            const productsState = state.products     
+            const sorted = productsState.sort((a, b) => a.product_name > b.product_name ? 1: -1).map(items => items)
+            return {...state, products: sorted }
 
+        case "SORT_BY_Z-A":
+            const productsCurrState = state.products
+            const sortedAsc= productsCurrState.sort((a, b) => a.product_name > b.product_name ? -1: 1).map(items => items)
+            return {...state, products: sortedAsc }
+        
+        case "SORT_BY_PRICE_LOW_HIGH":
+            const productsStateAgain = state.products
+            const sortedPriceLowHigh = productsStateAgain.sort((a, b) => parseInt(a.price) > parseInt(b.price) ? 1: -1).map(items => items)
+            return {...state, products: sortedPriceLowHigh }
+        
+        case "SORT_BY_PRICE_HIGH_LOW":
+            const productsStateAgainTwo = state.products
+            const sortedPriceHighLow = productsStateAgainTwo.sort((a, b) => parseInt(a.price) > parseInt(b.price) ? -1: 1).map(items => items)
+            return {...state, products: sortedPriceHighLow }
+        
+    
         default:
             return state
     }
