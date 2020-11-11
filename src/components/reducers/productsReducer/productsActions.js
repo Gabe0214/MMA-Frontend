@@ -18,7 +18,8 @@ export const errorProducts = () => ({
 export const fetchAllProducts = () => async ( dispatch ) => {
     dispatch(loadProducts())
     try {
-        const products = await axios.get('http://localhost:8000/products')
+        const res = await axios.get('http://localhost:8000/products')
+        const products = res.data
         dispatch(getProducts(products))
     }
 

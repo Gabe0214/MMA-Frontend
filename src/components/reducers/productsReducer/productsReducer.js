@@ -12,7 +12,7 @@ const productsReducer = (state = initialState, action) => {
         case "LOAD_PRODUCTS":
             return {...state, loading: true}
         case "GET_ALL_PRODUCTS_SUCCESS":
-            return {...state, loading: false, error:false}
+            return {...state, products: payload, loading: false, error:false}
         case "GET_ALL_PRODUCTS_FAILURE":
             return {...state, loading: false, error: true}
 

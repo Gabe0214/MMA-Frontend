@@ -78,7 +78,8 @@ function AllProducts() {
               </>
           )
       }
-
+    
+      console.log(productReducer.products)
 
     return (
         <div>
@@ -87,7 +88,7 @@ function AllProducts() {
                 <SortBy sortIt={sortP} setOptions={setSortOption} option={sortOption}/>
                 <Filter filterBrand={filter}/>
             </div>
-            <ProductsView products={allProducts}/>
+            <ProductsView products={productReducer.products}/>
         </div>
     )
 }
