@@ -1,4 +1,4 @@
-import { PAUSE } from "redux-persist"
+
 
 const initialState = {
     products: [],

@@ -9,8 +9,6 @@ import { sortProductsByDesc, sortProductsByAsc, sortProductsPriceLowHigh, sortPr
 import './ProductsView.scss'
 function AllProducts() {
 
-    const [allProducts, setAllProducts] = useState([])
-    const [filteredI, setFiltered] = useState([])
     const [sortOption, setSortOption] = useState('')
     const productReducer = useSelector(state => state.productsReducer)
     const dispatch = useDispatch()
@@ -57,20 +55,7 @@ function AllProducts() {
     }
 
     function filter(filterBy){
-
         dispatch(filterProducts(filterBy))
-        
-        // const result = filteredI.filter((items) =>{
-
-        //     if(items.brand.toLowerCase().includes(filterBy.toLowerCase())){
-                 
-        //          return items
-        //     }  else if(filterBy == 'All'){
-        //         return items
-        //     }
-        // })
-        // setAllProducts(result)
-
      }
 
   
