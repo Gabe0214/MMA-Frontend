@@ -15,17 +15,7 @@ function AllProducts() {
 
 
     useEffect(() => {
-
         dispatch(fetchAllProducts())
-        axios.get('http://localhost:8000/products')
-        .then((res) => {
-            setAllProducts(res.data)
-            setFiltered(res.data)
-        })
-        
-        .catch(err => console.log(err))
-
-
     },[])
 
 
@@ -37,7 +27,6 @@ function AllProducts() {
 
     
     function sortP(){
-        let result;
              if(sortOption == 'A-Z'){
                  dispatch(sortProductsByDesc())
               }
@@ -51,7 +40,6 @@ function AllProducts() {
              } else if(sortOption == ''){
                  return 
              }
-          setAllProducts(result)
     }
 
     function filter(filterBy){
