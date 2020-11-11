@@ -5,7 +5,7 @@ import { fetchAllProducts } from '../reducers/productsReducer/productsActions'
 import { ProductsView } from './ProductsView'
 import { SortBy } from '../Sort.js/SortBy'
 import { Filter } from '../Filter.js/Filter'
-import { sortProductsByDesc, sortProductsByAsc, sortProductsPriceLowHigh, sortProductsPriceHighLow } from '../reducers/productsReducer/productsActions'
+import { sortProductsByDesc, sortProductsByAsc, sortProductsPriceLowHigh, sortProductsPriceHighLow, filterProducts } from '../reducers/productsReducer/productsActions'
 import './ProductsView.scss'
 function AllProducts() {
 
@@ -57,17 +57,19 @@ function AllProducts() {
     }
 
     function filter(filterBy){
-        
-        const result = filteredI.filter((items) =>{
 
-            if(items.brand.toLowerCase().includes(filterBy.toLowerCase())){
+        dispatch(filterProducts(filterBy))
+        
+        // const result = filteredI.filter((items) =>{
+
+        //     if(items.brand.toLowerCase().includes(filterBy.toLowerCase())){
                  
-                 return items
-            }  else if(filterBy == 'All'){
-                return items
-            }
-        })
-        setAllProducts(result)
+        //          return items
+        //     }  else if(filterBy == 'All'){
+        //         return items
+        //     }
+        // })
+        // setAllProducts(result)
 
      }
 

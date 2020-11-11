@@ -42,5 +42,10 @@ export const sortProductsPriceLowHigh = () => ({
 })
 
 export const sortProductsPriceHighLow = () => ({
-    type: "SORT_BY_PRICE_HIGH_LOW   "
+    type: "SORT_BY_PRICE_HIGH_LOW"
+})
+
+export const filterProducts = (filterOption) => ({
+    type: "FILTER_PRODUCTS",
+    payload: {option : filterOption}
 })

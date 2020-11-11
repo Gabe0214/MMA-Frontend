@@ -1,3 +1,4 @@
+import { PAUSE } from "redux-persist"
 
 const initialState = {
     products: [],
@@ -37,7 +38,14 @@ const productsReducer = (state = initialState, action) => {
             const sortedPriceHighLow = productsStateAgainTwo.sort((a, b) => parseInt(a.price) > parseInt(b.price) ? -1: 1).map(items => items)
             return {...state, products: sortedPriceHighLow }
         
-    
+        case "FILTER_PRODUCTS":
+            const result = state.filteredProducts.filter((items ) => {
+                if(items.brand.toLowerCase().includes(payload.option.toLowerCase())){
+                    return items
+                } else if(payload.option == 'All'){ return items}
+            })
+            return {...state, products: result}
+        
         default:
             return state
     }
