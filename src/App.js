@@ -7,6 +7,7 @@ import './App.scss'
 import { FooterContainer } from './components/Footer/FooterContainer';
 import IndividualProduct from './components/Products/IndividualProduct/IndividualProduct';
 import AllProducts from './components/Products/AllProducts';
+import QuerProducts from './components/Products/QueryProductRoutes/QuerProducts';
 function App() {
 
 
@@ -18,6 +19,7 @@ function App() {
         <Route path='/cart' component={ShoppingCart}/>c
         <Route path='/products/product/:id' component={IndividualProduct}/> 
         <Route path='/products/all' component={AllProducts}/> 
+        <Route path='/products' component={QuerProducts}/> 
         </Switch>
         <FooterContainer/>
     </div>
