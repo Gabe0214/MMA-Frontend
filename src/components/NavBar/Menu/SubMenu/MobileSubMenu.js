@@ -9,6 +9,12 @@ export const MobileSubMenu = ({mens, women, kids, subMenu, setSubMenu}) => {
         return item.links
     })
 
+    
+   const words = "women's shirt"
+   const arrywords = words.split(' ')
+   const firstWord = arrywords[0].substring(0,5)
+   console.log(firstWord)
+
    
    const NavClick = () => {
  
@@ -20,9 +26,9 @@ export const MobileSubMenu = ({mens, women, kids, subMenu, setSubMenu}) => {
     return (
         <div className="sub-menu-container">
            <ul className="links-container">
-    {mens ? NavLinks[0].map((link, i) => <NavLink key={i} onClick={NavClick} to={`products?gender=${link.split(' ')[0].substring(0,3).toLocaleLowerCase()}&type=${link.split(' ')[1]}`}>{link}</NavLink> ): null}
-        { women ? NavLinks[1].map((link) => <NavLink  onClick={() => setSubMenu(!subMenu)} to ={`women-${link.replace(/Women's /g, "")}`}>{link}</NavLink>): null}
-        {kids ? NavLinks[2].map((link) => <NavLink onClick={() => setSubMenu(!subMenu)} to={`kids-${link.replace(/Kid's /g, "")}`}>{link}</NavLink>): null}
+        {mens ? NavLinks[0].map((link, i) => <NavLink key={i} onClick={NavClick} to={`products?gender=${link.split(' ')[0].substring(0,3).toLocaleLowerCase()}&type=${link.split(' ')[1].toLowerCase()}`}>{link}</NavLink> ): null}
+        { women ? NavLinks[1].map((link, i) => <NavLink  onClick={NavClick} key={i} to={`products?gender=${link.split(' ')[0].substring(0,5).toLowerCase()}&type=${link.split(' ')[1].toLowerCase()}`}>{link}</NavLink>): null}
+        {kids ? NavLinks[2].map((link, i) => <NavLink onClick={NavClick} key={i} to={`products?gender=${link.split(' ')[0].substring(0,3).toLowerCase()}&type=${link.split(' ')[1]}`}>{link}</NavLink>): null}
            </ul>
         </div>
     )
