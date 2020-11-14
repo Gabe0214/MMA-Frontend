@@ -11,7 +11,7 @@ export const ProductsView = ({products}) => {
             {products && products.map((item, i) => (
                 <div className='product-container' key={i}>
                     <div className='image-container'>
-                        <img src={item.images[0].image_one} alt='product image' className='image'/>
+                        <img src={item.images[0].image_one} alt='loading....' className='image'/>
                     </div>
                     <NavLink className='name' to={`/products/product/${item.product_id}`}>{item.product_name.toUpperCase()}</NavLink>
                     <span className='item-price'>${item.price}</span>

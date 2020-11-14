@@ -17,6 +17,7 @@ const QuerProducts = ({location}) => {
     const routed = useSelector((state) => state.productsReducer)
    
     useEffect(() => {
+        console.log('hello')
         const getQueryItems = async () => {
             try {
                 const res = await axios.get(`http://localhost:8000/products${qry}`)
@@ -29,7 +30,7 @@ const QuerProducts = ({location}) => {
                 console.log(err)
             }
         }
-
+        
         getQueryItems()
 
     },[routed.routed])
@@ -54,7 +55,7 @@ const QuerProducts = ({location}) => {
         <section className='qry-container'>
             <h1>{ reString !== 'unisex' ?  `${reString.toUpperCase()}'S ${reStringTwo.toUpperCase()}` : reStringTwo.toUpperCase()}</h1>
             <div className='underline'></div>
-            <ProductsView products={qryProducts}/>
+            {isFetching ? <p>Loading...</p> :<ProductsView products={qryProducts}/>}
         </section>
     )
 }

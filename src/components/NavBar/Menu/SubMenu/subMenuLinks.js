@@ -1,7 +1,7 @@
 export const items = [ 
     {
         type: 'men',
-        links : ["Men's Gi", "Men's Sweater", "Men's Pants", "Men's Shirt"]
+        links : ["Men's Gi", "Men's Hoodie", "Men's Pants", "Men's Shirt"]
     },
     {
         type: 'women',
