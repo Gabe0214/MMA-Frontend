@@ -1,6 +1,5 @@
 import React, {useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLock} from '@fortawesome/free-solid-svg-icons'
@@ -8,7 +7,6 @@ import './ShoppingCart.scss'
 const ShoppingCart = () => {
     const shoppingCart = useSelector((state) => state.cart)
     const dispatch = useDispatch()
-   
 
 const removeItem = (id, price) => {
   
@@ -27,9 +25,12 @@ const deductPrice = (deductTotal) => {
     payload: { total: deductTotal }
   })
 }
+const closeCartNavMenu = () => {
+  dispatch({type: "CLOSE_CART_NAV_MENU", payload: false})
+}
 
     return(
-        <>
+        <section onClick={closeCartNavMenu}>
         <h1 className='shopping-cart-title' >Shopping Cart</h1>
           { shoppingCart.items.length == 0 ? <div className='no-items-container'>
              <h2 className='no-items'>There are not items in your cart</h2>
@@ -65,7 +66,7 @@ const deductPrice = (deductTotal) => {
             </div>
             </>
            }
-        </>
+        </section>
     )
 }
 
