@@ -13,7 +13,7 @@ import { persistor } from './components/store'
 ReactDOM.render(
   <React.StrictMode>
   <Provider store={store}>  
-   <Router forceRefresh={true}> 
+   <Router> 
      <PersistGate persistor={persistor}>
       <App />
      </PersistGate> 

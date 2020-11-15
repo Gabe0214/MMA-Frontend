@@ -14,7 +14,7 @@ const QuerProducts = ({location}) => {
     const dispatch = useDispatch()
     const qry = location.search
 
-    const routed = useSelector((state) => state.productsReducer)
+
    
     useEffect(() => {
         console.log('hello')
@@ -33,7 +33,7 @@ const QuerProducts = ({location}) => {
         
         getQueryItems()
 
-    },[routed.routed])
+    },[qry])
 
     
 
