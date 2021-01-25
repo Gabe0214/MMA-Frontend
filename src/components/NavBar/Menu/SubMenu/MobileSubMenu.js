@@ -16,10 +16,13 @@ export const MobileSubMenu = ({mens, women, kids, subMenu, setSubMenu}) => {
    console.log(firstWord)
 
    
-   const NavClick = () => {
- 
+   const NavClick = (pathName) => {
+    console.log(pathName)
     setSubMenu(!subMenu)
+
     dispatch({type:"ROUTED"})
+    
+    
 
    }
 

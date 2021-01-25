@@ -32,7 +32,7 @@ const addItem = (e) => {
           <div className="item-one">
             <div className="over-lay">
                <h3 className="home-page-title">Shop Men's Gi</h3>
-               <NavLink to='/men-Gi'>Shop</NavLink>
+               <NavLink to={`products?gender=men&type=gi`}>Shop</NavLink>
             </div>
           </div>
           <div className="item-two">
@@ -43,8 +43,8 @@ const addItem = (e) => {
           </div>
           <div className="item-three">
             <div className="over-lay">
-              <h3 className="home-page-title">Shop Muay Thai</h3>
-              <NavLink to ='/muay-thai'>Shop</NavLink>
+              <h3 className="home-page-title">Shop Women's Gi</h3>
+              <NavLink to={`products?gender=women&type=gi`}>Shop</NavLink>
             </div>
           </div>
         </Slider>
