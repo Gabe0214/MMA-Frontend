@@ -1,41 +1,40 @@
-
-
 .sort-filter-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    margin: 5% 0 0 8%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+	margin: 5% 0 0 8%;
 }
 
 .products-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    .product-container {
-        width: 48%;
-        .image-container {
-            margin: 0 5%;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            .image {
-                width: 131px;
-                height: 158px;
-                object-fit: contain;
-            }
-        }
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	.product-container {
+		width: 48%;
+		.image-container {
+			margin: 0 5%;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			.image {
+				width: 131px;
+				height: 158px;
+				object-fit: contain;
+			}
+		}
 
-       .name {
-           text-align: center;
-           font-size: 12.5px;
-           font-weight: 300;
-           padding: 0 5%;
-       } 
+		.name {
+			text-align: center;
+			font-size: 12.5px;
+			font-weight: 300;
+			padding: 0 5%;
+			margin-top: 4%;
+		}
 
-       .item-price {
-           text-align: center;
-           margin-top: 3%;
-       }
-    }
+		.item-price {
+			text-align: center;
+			margin-top: 3%;
+		}
+	}
 }

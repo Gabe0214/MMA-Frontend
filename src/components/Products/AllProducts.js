@@ -55,8 +55,6 @@ function AllProducts() {
 		);
 	}
 
-	console.log(productReducer.products);
-
 	return (
 		<div>
 			<h2 style={{ textAlign: 'center' }} className='title'>
