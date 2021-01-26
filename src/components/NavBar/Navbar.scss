@@ -1,38 +1,48 @@
-#nav-bar{
-    position: sticky;
-    top: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2% 5% 2.1% 5%;
-    z-index: 2;
-    background-color: #fff;
+#nav-bar {
+	position: sticky;
+	top: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 2% 5% 2.1% 5%;
+	z-index: 2;
+	background-color: #fff;
 
-    .logo {
-         width: 40px;
-    }
+	.logo {
+		// width: 40px;
+		width: 15%;
+		margin-left: 7%;
+	}
 
-    .nav-cart-container {
-        position: relative;
+	.user-cart-container {
+		display: flex;
+		flex-direction: row;
 
-        span {
-            position: absolute;
-            top: -8px;
-            right: 1px;
-            color: #fff;
-            z-index: 1;
-            border-radius: 50%;
-            background-color: red;
-            padding: 0 0.3rem;
-            font-size: 0.7rem;
-            font-weight: bold;
-        }
+		.user-icon {
+			margin-right: 20%;
+		}
 
-        .double-digit {
-            @extend span;
-            padding: 0 0.2rem;
-        }
-    }
+		.nav-cart-container {
+			position: relative;
 
+			span {
+				position: absolute;
+				top: -8px;
+				right: 1px;
+				color: #fff;
+				z-index: 1;
+				border-radius: 50%;
+				background-color: red;
+				padding: 0 0.3rem;
+				font-size: 0.7rem;
+				font-weight: bold;
+			}
+
+			.double-digit {
+				@extend span;
+				padding: 0 0.2rem;
+			}
+		}
+	}
 }
