@@ -31,8 +31,6 @@ const IndividualProduct = (props) => {
 		};
 	}, []);
 
-	console.log(images);
-
 	return (
 		<React.Fragment>
 			<ProductCard
