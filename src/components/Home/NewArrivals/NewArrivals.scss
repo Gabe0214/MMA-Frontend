@@ -1,55 +1,49 @@
-
-
 .arrival-main-view {
+	margin-top: 5%;
+	.product-arrival-section {
+		overflow-x: auto;
+		z-index: 0;
+		margin-top: 4%;
+		scrollbar-width: none;
 
-    margin-top: 5%;
-    .product-arrival-section {
-        overflow-x: auto;
-        z-index: 0;
-        margin-top: 4%;
-        scrollbar-width: none;
-        
-        ::-webkit-scrollbar {
-            width: 0px;
-            background: transparent; /* make scrollbar transparent */
-        }
-       
-        .arrival-product-container {
-            display: flex;
-            width: 100%;
-         
+		::-webkit-scrollbar {
+			width: 0px;
+			background: transparent; /* make scrollbar transparent */
+		}
 
-            .arrival-product {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                margin: 0 5%;
+		.arrival-product-container {
+			display: flex;
+			width: 100%;
 
-                .product-image { 
-                width: 112px;
-                height: 112px;
-                object-fit: cover;      
-                }
+			.arrival-product {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin: 0 5%;
 
-                h3 {
-                font-size: 0.7rem;
-                text-transform: uppercase;
-                font-family: 'Alata', sans-serif;
-                text-align: center;
-                margin-top: 5%;
-                font-family: 'Roboto', sans-serif;
-                }
+				.product-image {
+					width: 125px;
+					height: 145px;
+					object-fit: contain;
+				}
 
-                .product-price {
-                    margin-top: 2%;
-                }
-            }
-    
-        }   
-    }
+				h3 {
+					font-size: 0.7rem;
+					text-transform: uppercase;
+					font-family: 'Alata', sans-serif;
+					text-align: center;
+					margin-top: 5%;
+					font-family: 'Roboto', sans-serif;
+				}
+
+				.product-price {
+					margin-top: 2%;
+				}
+			}
+		}
+	}
 }
 
 .product-arrival-section::-webkit-scrollbar {
-    display: none;
+	display: none;
 }
-
