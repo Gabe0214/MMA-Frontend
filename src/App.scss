@@ -1,59 +1,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;500;700&display=swap');
 a {
-    text-decoration: none;
-    color: black;
+	text-decoration: none;
+	color: black;
 }
 
-.subtitle{
-    font-family: 'Roboto', sans-serif;
-    margin-bottom: 4%;
+.subtitle {
+	font-family: 'Roboto', sans-serif;
+	margin-bottom: 4%;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-
-body{
-    font-family: Roboto, sans-serif;
+body {
+	font-family: Roboto, sans-serif;
 }
 
 .title {
-    font-size: 1rem;
-    text-align: center ;
-    margin-top: 2%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    text-transform: uppercase;
+	font-size: 1rem;
+	text-align: center;
+	margin-top: 2%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	text-transform: uppercase;
 }
 
-h2::before{
-
-        content: "";
-        background: #E0E0E0;
-        display: inline-block;
-        width: 15%;
-        height: 1px;
-        box-sizing: border-box;
-        margin-right: 2%;
-        
-    
+h2::before {
+	content: "";
+	background: #e0e0e0;
+	display: inline-block;
+	width: 15%;
+	height: 1px;
+	box-sizing: border-box;
+	margin-right: 2%;
 }
 
-h2::after{
-
-    content: "";
-    background: #E0E0E0;
-    display: inline-block;
-    width: 15%;
-    height: 1px;
-    box-sizing: border-box;
-    margin-left: 2%;
-    
-
+h2::after {
+	content: "";
+	background: #e0e0e0;
+	display: inline-block;
+	width: 15%;
+	height: 1px;
+	box-sizing: border-box;
+	margin-left: 2%;
 }
