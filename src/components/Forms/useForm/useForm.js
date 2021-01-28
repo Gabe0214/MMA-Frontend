@@ -14,7 +14,6 @@ export const useForm = (cb, validateSignUp) => {
 		e.preventDefault();
 		cb();
 		setErrors(validateSignUp(state));
-		console.log(errors);
 	};
 
 	return [ state, handleChanges, resetFields, errors, handleSubmit ];

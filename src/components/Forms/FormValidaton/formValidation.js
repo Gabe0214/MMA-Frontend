@@ -20,7 +20,7 @@ export const signupValidation = (values) => {
 
 	if (!values.email) {
 		errors.email = 'Field is required';
-	} else if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(values.email)) {
+	} else if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(values.email)) {
 		errors.email = 'Please insert valid email';
 	}
 
