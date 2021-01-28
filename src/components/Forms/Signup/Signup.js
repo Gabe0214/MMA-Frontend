@@ -4,11 +4,10 @@ import { states } from './fiftyStates';
 import { signupValidation } from '../FormValidaton/formValidation';
 const SignupForm = () => {
 	const cb = (e) => {
-		console.log('hi');
-		// resetFields();
+		console.log('Fields are clean');
 	};
 	const [ values, handleChanges, resetFields, errors, handleSubmit ] = useForm(cb, signupValidation);
-	console.log(errors);
+
 	return (
 		<div>
 			<form onSubmit={handleSubmit} noValidate>
