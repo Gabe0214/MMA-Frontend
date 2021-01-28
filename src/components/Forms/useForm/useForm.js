@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-export const useForm = () => {
+export const useForm = (cb, validateSignUp) => {
 	const [ state, setState ] = useState({});
-
+	const [ errors, setErrors ] = useState({});
 	const resetFields = () => {
 		setState({});
 	};
@@ -10,5 +10,12 @@ export const useForm = () => {
 		setState({ ...state, [e.target.name]: e.target.value });
 	};
 
-	return [ state, handleChanges, resetFields ];
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		cb();
+		setErrors(validateSignUp(state));
+		console.log(errors);
+	};
+
+	return [ state, handleChanges, resetFields, errors, handleSubmit ];
 };

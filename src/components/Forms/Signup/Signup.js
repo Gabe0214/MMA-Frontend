@@ -1,17 +1,17 @@
 import React from 'react';
 import { useForm } from '../useForm/useForm';
 import { states } from './fiftyStates';
+import { signupValidation } from '../FormValidaton/formValidation';
 const SignupForm = () => {
-	const onSubmit = (e) => {
-		e.preventDefault();
-		console.log(values);
-		resetFields();
+	const cb = (e) => {
+		console.log('hi');
+		// resetFields();
 	};
-	const [ values, handleChanges, resetFields, errors ] = useForm();
-
+	const [ values, handleChanges, resetFields, errors, handleSubmit ] = useForm(cb, signupValidation);
+	console.log(errors);
 	return (
 		<div>
-			<form onSubmit={onSubmit}>
+			<form onSubmit={handleSubmit} noValidate>
 				<label>First Name</label>
 				<div>
 					<input
@@ -20,6 +20,7 @@ const SignupForm = () => {
 						handleChanges={handleChanges}
 						onChange={handleChanges}
 					/>
+					{errors.firstname && <p>{errors.firstname}</p>}
 				</div>
 				<label>Last Name</label>
 				<div>
