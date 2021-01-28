@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export const useForm = (cb, validateSignUp) => {
+export const useForm = (cb, validateForm) => {
 	const [ state, setState ] = useState({});
 	const [ errors, setErrors ] = useState({});
 	const [ submitted, setSubmitted ] = useState(false);
@@ -13,7 +13,7 @@ export const useForm = (cb, validateSignUp) => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		setErrors(validateSignUp(state));
+		setErrors(validateForm(state));
 		setSubmitted(true);
 	};
 

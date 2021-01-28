@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from '../useForm/useForm';
 import { states } from './fiftyStates';
 import { signupValidation } from '../FormValidaton/formValidation';
+import { NavLink } from 'react-router-dom';
 import '../Form.scss';
 const SignupForm = () => {
 	const cb = (e) => {
@@ -18,13 +19,7 @@ const SignupForm = () => {
 				</div>
 				<label>First Name</label>
 				<div className='input-container'>
-					<input
-						name='firstname'
-						value={values.firstname || ''}
-						handleChanges={handleChanges}
-						onChange={handleChanges}
-						placeholder='First name'
-					/>
+					<input name='firstname' value={values.firstname || ''} onChange={handleChanges} placeholder='First name' />
 					{errors.firstname && <p className='errors'>{errors.firstname}</p>}
 				</div>
 				<label>Last Name</label>
@@ -44,7 +39,13 @@ const SignupForm = () => {
 				</div>
 				<label>Password</label>
 				<div className='input-container'>
-					<input name='password' type='password' value={values.password || ''} onChange={handleChanges} />
+					<input
+						name='password'
+						type='password'
+						value={values.password || ''}
+						onChange={handleChanges}
+						placeholder='Password'
+					/>
 					{errors.password && <p className='errors'>{errors.password}</p>}
 				</div>
 				<label>Zip Code</label>
@@ -61,7 +62,11 @@ const SignupForm = () => {
 				<div className='input-container'>
 					<select value={values.state || ''} name='state' onChange={handleChanges}>
 						<option>Select State</option>
-						{states.map((state) => <option value={state}>{state}</option>)}
+						{states.map((state) => (
+							<option key={state} value={state}>
+								{state}
+							</option>
+						))}
 					</select>
 					{errors.state && <p className='errors'>{errors.state}</p>}
 				</div>
@@ -73,6 +78,9 @@ const SignupForm = () => {
 				<button type='submit' className='form-btn'>
 					Sign Up
 				</button>
+				<p className='returning-or-new-customer'>
+					Returning customer? <NavLink to='/signin'>Login</NavLink>
+				</p>
 			</form>
 		</div>
 	);
