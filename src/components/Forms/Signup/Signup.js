@@ -3,12 +3,27 @@ import { useForm } from '../useForm/useForm';
 import { states } from './fiftyStates';
 import { signupValidation } from '../FormValidaton/formValidation';
 import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { registerUser } from '../../reducers/userReducer/userAction';
 import '../Form.scss';
+
 const SignupForm = () => {
-	const cb = (e) => {
-		console.log('Fields are clean');
+	const dispatch = useDispatch();
+	const userReducer = useSelector((state) => state.customer);
+	// console.log(userReducer);
+
+	const cb = () => {
+		dispatch(registerUser(values));
 	};
 	const [ values, handleChanges, resetFields, errors, handleSubmit ] = useForm(cb, signupValidation);
+
+	if (userReducer.loadingUser) {
+		return (
+			<div>
+				<h1>Loading...</h1>
+			</div>
+		);
+	}
 
 	return (
 		<div className='form-container'>
