@@ -1,32 +1,47 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from '../useForm/useForm';
 import { states } from './fiftyStates';
 import { signupValidation } from '../FormValidaton/formValidation';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { registerUser } from '../../reducers/userReducer/userAction';
+import { registerUser, userFormSubmitted } from '../../reducers/userReducer/userAction';
+import { useHistory } from 'react-router-dom';
+import { ModalSubmit } from '../ModalSubmit';
 import '../Form.scss';
 
 const SignupForm = () => {
+	const [ seconds, setSeconds ] = useState(5);
 	const dispatch = useDispatch();
+	const history = useHistory();
 	const userReducer = useSelector((state) => state.customer);
-	// console.log(userReducer);
+	console.log(userReducer);
 
 	const cb = () => {
-		dispatch(registerUser(values));
+		// dispatch(registerUser(values));
+		dispatch(userFormSubmitted(true));
 	};
 	const [ values, handleChanges, resetFields, errors, handleSubmit ] = useForm(cb, signupValidation);
 
-	if (userReducer.loadingUser) {
-		return (
-			<div>
-				<h1>Loading...</h1>
-			</div>
-		);
-	}
+	useEffect(
+		() => {
+			if (userReducer.userFormSubmitted) {
+				// history.push('/signin');
+				var intervalId = setInterval(() => {
+					setSeconds(seconds - 1);
+					if (seconds <= 1) {
+						dispatch(userFormSubmitted(false));
+						alert('route here');
+					}
+				}, 800);
+				return () => clearInterval(intervalId);
+			}
+		},
+		[ userReducer.userFormSubmitted, seconds ]
+	);
 
 	return (
 		<div className='form-container'>
+			{userReducer.userFormSubmitted ? <ModalSubmit heading={'Thank You For Registering!!'} seconds={seconds} /> : null}
 			<form onSubmit={handleSubmit} noValidate>
 				<div className='title-container'>
 					<h1>Create Account</h1>
