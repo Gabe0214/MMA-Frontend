@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-export const useForm = (cb, validateSignUp) => {
+export const useForm = (cb, validateForm) => {
 	const [ state, setState ] = useState({});
 	const [ errors, setErrors ] = useState({});
+	const [ submitted, setSubmitted ] = useState(false);
 	const resetFields = () => {
 		setState({});
 	};
@@ -12,9 +13,18 @@ export const useForm = (cb, validateSignUp) => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		cb();
-		setErrors(validateSignUp(state));
+		setErrors(validateForm(state));
+		setSubmitted(true);
 	};
+
+	useEffect(
+		() => {
+			if (Object.keys(errors).length == 0 && submitted) {
+				cb();
+			}
+		},
+		[ errors ]
+	);
 
 	return [ state, handleChanges, resetFields, errors, handleSubmit ];
 };

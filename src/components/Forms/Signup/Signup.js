@@ -2,70 +2,100 @@ import React from 'react';
 import { useForm } from '../useForm/useForm';
 import { states } from './fiftyStates';
 import { signupValidation } from '../FormValidaton/formValidation';
+import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { registerUser } from '../../reducers/userReducer/userAction';
+import '../Form.scss';
+
 const SignupForm = () => {
-	const cb = (e) => {
-		console.log('hi');
-		// resetFields();
+	const dispatch = useDispatch();
+	const userReducer = useSelector((state) => state.customer);
+	// console.log(userReducer);
+
+	const cb = () => {
+		dispatch(registerUser(values));
 	};
 	const [ values, handleChanges, resetFields, errors, handleSubmit ] = useForm(cb, signupValidation);
-	console.log(errors);
+
+	if (userReducer.loadingUser) {
+		return (
+			<div>
+				<h1>Loading...</h1>
+			</div>
+		);
+	}
+
 	return (
-		<div>
+		<div className='form-container'>
 			<form onSubmit={handleSubmit} noValidate>
+				<div className='title-container'>
+					<h1>Create Account</h1>
+					<div className='underline' />
+				</div>
 				<label>First Name</label>
-				<div>
-					<input
-						name='firstname'
-						value={values.firstname || ''}
-						handleChanges={handleChanges}
-						onChange={handleChanges}
-					/>
-					{errors.firstname && <p>{errors.firstname}</p>}
+				<div className='input-container'>
+					<input name='firstname' value={values.firstname || ''} onChange={handleChanges} placeholder='First name' />
+					{errors.firstname && <p className='errors'>{errors.firstname}</p>}
 				</div>
 				<label>Last Name</label>
-				<div>
-					<input name='lastname' value={values.lastname || ''} onChange={handleChanges} />
-					{errors.lastname && <p>{errors.lastname}</p>}
+				<div className='input-container'>
+					<input name='lastname' value={values.lastname || ''} onChange={handleChanges} placeholder='Last name' />
+					{errors.lastname && <p className='errors'>{errors.lastname}</p>}
 				</div>
 				<label>Username</label>
-				<div>
-					<input name='username' value={values.username || ''} onChange={handleChanges} />
-					{errors.username && <p>{errors.username}</p>}
+				<div className='input-container'>
+					<input name='username' value={values.username || ''} onChange={handleChanges} placeholder='Username' />
+					{errors.username && <p className='errors'>{errors.username}</p>}
 				</div>
 				<label>Email</label>
-				<div>
-					<input name='email' value={values.email || ''} onChange={handleChanges} />
-					{errors.email && <p>{errors.email}</p>}
+				<div className='input-container'>
+					<input name='email' value={values.email || ''} onChange={handleChanges} placeholder='Email' />
+					{errors.email && <p className='errors'>{errors.email}</p>}
 				</div>
 				<label>Password</label>
-				<div>
-					<input name='password' type='password' value={values.password || ''} onChange={handleChanges} />
-					{errors.password && <p>{errors.password}</p>}
+				<div className='input-container'>
+					<input
+						name='password'
+						type='password'
+						value={values.password || ''}
+						onChange={handleChanges}
+						placeholder='Password'
+					/>
+					{errors.password && <p className='errors'>{errors.password}</p>}
 				</div>
 				<label>Zip Code</label>
-				<div>
-					<input name='zip' value={values.zip || ''} onChange={handleChanges} />
-					{errors.zip && <p>{errors.zip}</p>}
+				<div className='input-container'>
+					<input name='zip' value={values.zip || ''} onChange={handleChanges} placeholder='Zip Code' />
+					{errors.zip && <p className='errors'>{errors.zip}</p>}
 				</div>
 				<label>City</label>
-				<div>
-					<input name='city' value={values.city || ''} onChange={handleChanges} />
-					{errors.city && <p>{errors.city}</p>}
+				<div className='input-container'>
+					<input name='city' value={values.city || ''} onChange={handleChanges} placeholder='City' />
+					{errors.city && <p className='errors'>{errors.city}</p>}
 				</div>
 				<label>State</label>
-				<div>
+				<div className='input-container'>
 					<select value={values.state || ''} name='state' onChange={handleChanges}>
 						<option>Select State</option>
-						{states.map((state) => <option value={state}>{state}</option>)}
+						{states.map((state) => (
+							<option key={state} value={state}>
+								{state}
+							</option>
+						))}
 					</select>
-					{errors.state && <p>{errors.state}</p>}
+					{errors.state && <p className='errors'>{errors.state}</p>}
 				</div>
 				<label>Address</label>
-				<div>
-					<input name='adress' value={values.adress || ''} onChange={handleChanges} />
-					{errors.adress && <p>{errors.adress}</p>}
+				<div className='input-container'>
+					<input name='adress' value={values.adress || ''} onChange={handleChanges} placeholder='Address' />
+					{errors.adress && <p className='errors'>{errors.adress}</p>}
 				</div>
-				<button>Sign Up</button>
+				<button type='submit' className='form-btn'>
+					Sign Up
+				</button>
+				<p className='returning-or-new-customer'>
+					Returning customer? <NavLink to='/signin'>Login</NavLink>
+				</p>
 			</form>
 		</div>
 	);

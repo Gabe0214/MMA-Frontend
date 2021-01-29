@@ -52,3 +52,21 @@ export const signupValidation = (values) => {
 
 	return errors;
 };
+
+export const loginValidation = (values) => {
+	let errors = {};
+
+	if (!values.email) {
+		errors.email = 'Field is required';
+	} else if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(values.email)) {
+		errors.email = 'Please insert valid email';
+	}
+
+	if (!values.password) {
+		errors.password = 'Field is required';
+	} else if (values.password.length < 10) {
+		errors.password = 'Password must be at least 10 characters';
+	}
+
+	return errors;
+};
