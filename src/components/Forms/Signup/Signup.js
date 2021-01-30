@@ -14,23 +14,20 @@ const SignupForm = () => {
 	const dispatch = useDispatch();
 	const history = useHistory();
 	const userReducer = useSelector((state) => state.customer);
-	console.log(userReducer);
 
 	const cb = () => {
-		// dispatch(registerUser(values));
-		dispatch(userFormSubmitted(true));
+		dispatch(registerUser(values));
 	};
 	const [ values, handleChanges, resetFields, errors, handleSubmit ] = useForm(cb, signupValidation);
 
 	useEffect(
 		() => {
 			if (userReducer.userFormSubmitted) {
-				// history.push('/signin');
 				var intervalId = setInterval(() => {
 					setSeconds(seconds - 1);
 					if (seconds <= 1) {
 						dispatch(userFormSubmitted(false));
-						alert('route here');
+						history.push('/signin');
 					}
 				}, 800);
 				return () => clearInterval(intervalId);

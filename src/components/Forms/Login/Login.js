@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from '../useForm/useForm';
 import { loginValidation } from '../FormValidaton/formValidation';
 import { NavLink } from 'react-router-dom';
+import axios from 'axios';
 const LoginForm = () => {
-	const login = () => {
-		console.log('hello');
+	const login = async () => {
+		const res = await axios.post('https://mma-server.herokuapp.com/auth/login', values);
+		console.log(res);
 	};
 	const [ values, handleChanges, resetFields, errors, handleSubmit ] = useForm(login, loginValidation);
+
 	return (
 		<div className='form-container'>
 			<form noValidate onSubmit={handleSubmit}>
