@@ -10,6 +10,9 @@ import AllProducts from './components/Products/AllProducts';
 import QuerProducts from './components/Products/QueryProductRoutes/QuerProducts';
 import SignupForm from './components/Forms/Signup/Signup';
 import LoginForm from './components/Forms/Login/Login';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import UserDashboard from './components/Dashboard/UserDashboard';
+
 function App() {
 	return (
 		<div>
@@ -22,6 +25,7 @@ function App() {
 				<Route path='/products' component={QuerProducts} />
 				<Route path='/register' component={SignupForm} />
 				<Route path='/signin' component={LoginForm} />
+				<PrivateRoute path='/user/dashboard' component={UserDashboard} />
 			</Switch>
 			<FooterContainer />
 		</div>
