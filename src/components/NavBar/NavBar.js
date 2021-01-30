@@ -29,7 +29,7 @@ const NavBar = () => {
 						icon={faUserCircle}
 						size='lg'
 						className={'user-icon'}
-						onClick={(e) => history.push('/users/dashboard')}
+						onClick={(e) => history.push('/user/dashboard')}
 					/>
 					<NavCart dispatch={dispatch} shoppingCart={shoppingCart} />
 				</div>
