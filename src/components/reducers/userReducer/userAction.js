@@ -46,7 +46,8 @@ export const loginUser = (userData) => async (dispatch) => {
 		const res = await api().post('/auth/login', userData);
 		console.log(res);
 		localStorage.setItem('token', res.data.token);
-		dispatch(userLoginSuccess());
+		const user = res.data.user;
+		dispatch(userLoginSuccess(user));
 	} catch (err) {
 		dispatch(userLoginFailure());
 	}
