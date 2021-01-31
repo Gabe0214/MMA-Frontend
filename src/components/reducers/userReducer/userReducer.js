@@ -31,7 +31,22 @@ const userReducer = (state = initialState, action) => {
 		case 'LOGIN USER FALIURE':
 			return { ...state, loadingUser: false, userError: true };
 		case 'LOGIN USER SUCCESS':
-			return { ...state, loadingUser: false };
+			console.log('payload', payload);
+			const { user_id, username, firstname, lastname, email, city, zip, adress, adress_2 } = payload;
+			const userData = {
+				user_id,
+				username,
+				firstname,
+				lastname,
+				email,
+				state: payload.state,
+				city,
+				zip,
+				adress,
+				adress_2
+			};
+			console.log('user', userData);
+			return { ...state, loadingUser: false, user: userData };
 		default:
 			return state;
 	}
