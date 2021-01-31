@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { api } from '../../utils/axiosWithAuth';
 
 export const userFormSubmitted = (type) => ({
@@ -19,7 +18,7 @@ export const userRegisteredSuccess = () => ({
 });
 
 export const userLoginSuccess = (data) => ({
-	type: 'USER LOGIN SUCCESS',
+	type: 'LOGIN USER SUCCESS',
 	payload: data
 });
 
@@ -31,7 +30,7 @@ export const registerUser = (userData) => async (dispatch) => {
 	dispatch(userLoading());
 
 	try {
-		const res = await axios.post('https://mma-server.herokuapp.com/auth/signup', userData);
+		const res = await api().post('/auth/signup', userData);
 
 		console.log(res);
 		dispatch(userFormSubmitted(true));
@@ -44,8 +43,9 @@ export const loginUser = (userData) => async (dispatch) => {
 	dispatch(userLoading());
 
 	try {
-		const res = await api().post('/auth/login');
+		const res = await api().post('/auth/login', userData);
 		console.log(res);
+		localStorage.setItem('token', res.data.token);
 		dispatch(userLoginSuccess());
 	} catch (err) {
 		dispatch(userLoginFailure());

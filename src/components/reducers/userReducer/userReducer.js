@@ -31,7 +31,7 @@ const userReducer = (state = initialState, action) => {
 		case 'LOGIN USER FALIURE':
 			return { ...state, loadingUser: false, userError: true };
 		case 'LOGIN USER SUCCESS':
-			return { ...state, loadUser: false };
+			return { ...state, loadingUser: false };
 		default:
 			return state;
 	}
