@@ -37,7 +37,7 @@ const UserDashboard = () => {
 				</button>
 				<div className='orders-container'>
 					<h3>Order History</h3>
-					{customer.user.orders.length < 1 ? <p>You haven't placed any orders yet</p> : null}
+					{customer.user.orders && customer.user.orders.length < 1 ? <p>You haven't placed any orders yet</p> : null}
 				</div>
 			</div>
 		</div>
