@@ -11,7 +11,7 @@ const UserDashboard = () => {
 	};
 
 	const customer = useSelector((state) => state.customer);
-
+	console.log(customer.user);
 	return (
 		<div className='dashboard-container'>
 			<div className='title-container'>
@@ -32,10 +32,14 @@ const UserDashboard = () => {
 					<p>{`${customer.user.city}, ${customer.user.state}, ${customer.user.zip}`}</p>
 					<p>United States</p>
 				</div>
+				<button onClick={logout} className='form-btn'>
+					Logout
+				</button>
+				<div className='orders-container'>
+					<h3>Order History</h3>
+					{customer.user.orders.length < 1 ? <p>You haven't placed any orders yet</p> : null}
+				</div>
 			</div>
-			<button onClick={logout} className='form-btn'>
-				Logout
-			</button>
 		</div>
 	);
 };

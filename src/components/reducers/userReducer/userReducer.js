@@ -46,7 +46,7 @@ const userReducer = (state = initialState, action) => {
 				adress_2
 			};
 			console.log('user', userData);
-			return { ...state, loadingUser: false, user: userData };
+			return { ...state, loadingUser: false, user: { ...userData, orders: state.orders } };
 		default:
 			return state;
 	}
