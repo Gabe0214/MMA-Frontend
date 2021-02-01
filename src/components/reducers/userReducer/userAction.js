@@ -48,6 +48,7 @@ export const loginUser = (userData) => async (dispatch) => {
 		localStorage.setItem('token', res.data.token);
 		const user = res.data.user;
 		dispatch(userLoginSuccess(user));
+		dispatch(userFormSubmitted(true));
 	} catch (err) {
 		dispatch(userLoginFailure());
 	}

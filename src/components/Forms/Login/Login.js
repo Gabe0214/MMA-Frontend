@@ -3,21 +3,28 @@ import { useForm } from '../useForm/useForm';
 import { loginValidation } from '../FormValidaton/formValidation';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { loginUser } from '../../reducers/userReducer/userAction';
+import { loginUser, userFormSubmitted } from '../../reducers/userReducer/userAction';
+import { useHistory } from 'react-router-dom';
 import Loader from 'react-loader-spinner';
 
 const LoginForm = () => {
 	const dispatch = useDispatch();
 	const login = async () => {
-		// const res = await axios.post('https://mma-server.herokuapp.com/auth/login', values);
-		// console.log(res);
-		console.log('hi');
 		dispatch(loginUser(values));
 	};
 	const [ values, handleChanges, resetFields, errors, handleSubmit ] = useForm(login, loginValidation);
-
+	const history = useHistory();
 	const userReducer = useSelector((state) => state.customer);
 
+	useEffect(
+		() => {
+			if (userReducer.userFormSubmitted) {
+				history.push('/user/dashboard');
+				dispatch(userFormSubmitted(false));
+			}
+		},
+		[ userReducer.userFormSubmitted ]
+	);
 	return (
 		<div className='form-container'>
 			<form noValidate onSubmit={handleSubmit}>
