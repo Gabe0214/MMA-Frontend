@@ -1,0 +1,56 @@
+.dashboard-container {
+	padding: 0 16px;
+	margin-top: 8%;
+	.title-container {
+		width: 100%;
+		h1 {
+			font-size: 1.5rem;
+			margin-bottom: 1.5rem;
+			font-family: 'Oswald', sans-serif;
+			font-weight: 400;
+		}
+
+		.underline {
+			width: 70px;
+			border-top: thin solid;
+			margin-bottom: 1.2rem;
+		}
+	}
+	.user-content {
+		h5 {
+			font-family: 'Oswald', sans-serif;
+			font-weight: 400;
+		}
+
+		p {
+			font-family: 'Roboto', sans-serif;
+			font-weight: 300;
+			font-size: 15px;
+		}
+
+		.sub-content {
+			margin-bottom: 8%;
+		}
+	}
+
+	.orders-container {
+		h3 {
+			margin-bottom: 2%;
+			font-family: 'Oswald', sans-serif;
+			font-weight: 400;
+		}
+
+		margin: 8% 0;
+	}
+
+	.form-btn {
+		width: 22%;
+		align-self: flex-start;
+		height: 5vh;
+		background-color: #fff;
+		border: 1px solid #000;
+		font-size: 16px;
+		font-weight: 500;
+		font-family: 'Oswald', sans-serif;
+	}
+}
