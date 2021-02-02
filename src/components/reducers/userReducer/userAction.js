@@ -26,6 +26,10 @@ export const userLoginFailure = () => ({
 	type: 'LOGIN USER FAILURE'
 });
 
+export const orderLoading = () => ({
+	type: 'ORDER LOADING'
+});
+
 export const registerUser = (userData) => async (dispatch) => {
 	dispatch(userLoading());
 
@@ -52,4 +56,8 @@ export const loginUser = (userData) => async (dispatch) => {
 	} catch (err) {
 		dispatch(userLoginFailure());
 	}
+};
+
+export const placeOrder = () => async (dispatch) => {
+	dispatch(orderLoading(true));
 };
