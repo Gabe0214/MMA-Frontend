@@ -30,13 +30,26 @@ export const orderLoading = () => ({
 	type: 'ORDER LOADING'
 });
 
+export const getUserOrderLoading = () => ({
+	type: 'GET_USER_ORDERS_LOADING'
+});
+
+export const getUserOrderErrors = (error) => ({
+	type: 'GET_USER_ORDERS_ERROR',
+	payload: error
+});
+
+export const getUserOrdersSuccess = (orders) => ({
+	type: 'GET_USER_ORDERS_SUCCESS',
+	payload: orders
+});
+
 export const registerUser = (userData) => async (dispatch) => {
 	dispatch(userLoading());
 
 	try {
 		const res = await api().post('/auth/signup', userData);
 
-		console.log(res);
 		dispatch(userFormSubmitted(true));
 	} catch (err) {
 		dispatch(userError(err));
@@ -48,7 +61,7 @@ export const loginUser = (userData) => async (dispatch) => {
 
 	try {
 		const res = await api().post('/auth/login', userData);
-		console.log(res);
+
 		localStorage.setItem('token', res.data.token);
 		const user = res.data.user;
 		dispatch(userLoginSuccess(user));
@@ -58,6 +71,19 @@ export const loginUser = (userData) => async (dispatch) => {
 	}
 };
 
-export const placeOrder = () => async (dispatch) => {
-	dispatch(orderLoading(true));
+export const getUserOrders = (id) => async (dispatch) => {
+	dispatch(getUserOrderLoading());
+
+	try {
+		const res = await api().get(`/orders/order/user/${id}`);
+		console.log(res);
+		const { orders } = res.data;
+		dispatch(getUserOrdersSuccess(orders));
+	} catch (err) {
+		dispatch(getUserOrderErrors(err));
+	}
 };
+
+// export const placeOrder = () => async (dispatch) => {
+// 	dispatch(orderLoading(true));
+// };

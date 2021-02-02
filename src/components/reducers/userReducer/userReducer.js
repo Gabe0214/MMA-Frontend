@@ -14,7 +14,8 @@ const initialState = {
 	userError: false,
 	userSucceed: false,
 	userFormSubmitted: false,
-	userOrderLoading: false
+	userOrdersLoading: false,
+	userOrderError: false
 };
 
 const userReducer = (state = initialState, action) => {
@@ -32,7 +33,6 @@ const userReducer = (state = initialState, action) => {
 		case 'LOGIN USER FALIURE':
 			return { ...state, loadingUser: false, userError: true };
 		case 'LOGIN USER SUCCESS':
-			console.log('payload', payload);
 			const { user_id, username, firstname, lastname, email, city, zip, adress, adress_2 } = payload;
 			const userData = {
 				user_id,
@@ -46,8 +46,14 @@ const userReducer = (state = initialState, action) => {
 				adress,
 				adress_2
 			};
-			console.log('user', userData);
+
 			return { ...state, loadingUser: false, user: { ...userData, orders: [ ...state.user.orders ] } };
+		case 'GET_USER_ORDERS_LOADING':
+			return { ...state, loadingOrdersLoading: true };
+		case 'GET_USER_ORDERS_FAILURE':
+			return { ...state, loadOrdersLoading: false, userOrderError: payload.error };
+		case 'GET_USER_ORDERS_SUCCESS':
+			return { ...state, user: { ...state.user, orders: payload } };
 		default:
 			return state;
 	}
