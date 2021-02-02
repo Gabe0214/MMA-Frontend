@@ -6,7 +6,10 @@ import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { useHistory } from 'react-router-dom';
 import { api } from '../utils/axiosWithAuth';
 import './ShoppingCart.scss';
+import { PaymentModal } from './PaymentModal';
 const ShoppingCart = () => {
+	const [ payment, setPayment ] = useState(false);
+	const [ pendingPayment, setPendingPayment ] = useState(false);
 	const shoppingCart = useSelector((state) => state.cart);
 	const customer = useSelector((state) => state.customer);
 
@@ -35,13 +38,12 @@ const ShoppingCart = () => {
 
 	const checkout = async () => {
 		if (!localStorage.getItem('token')) {
-			history.push('/signin');
+			return history.push('/signin');
 		}
-		// console.log('user_id', customer.user.user_id);
-		// console.log('total_amount', shoppingCart.totalAmount);
-		// console.log(shoppingCart.items);
+
+		setPendingPayment(true);
+
 		const orderData = { order_user_id: Number(customer.user.user_id), total: parseInt(shoppingCart.totalAmount) };
-		// console.log(orderData);
 
 		try {
 			const res = await api().post('/orders/order', orderData);
@@ -60,10 +62,23 @@ const ShoppingCart = () => {
 					console.log(err);
 				}
 			});
+			setPayment(true);
 		} catch (err) {
 			console.log(err);
 		}
 	};
+
+	useEffect(
+		() => {
+			if (payment) {
+				setTimeout(() => {
+					setPayment(false);
+					setPendingPayment(false);
+				}, 5000);
+			}
+		},
+		[ payment ]
+	);
 
 	return (
 		<section onClick={closeCartNavMenu}>
@@ -102,11 +117,12 @@ const ShoppingCart = () => {
 					<div className='checkout-btn'>
 						<button onClick={checkout}>
 							{' '}
-							<FontAwesomeIcon icon={faLock} /> Checkout
+							<FontAwesomeIcon icon={faLock} /> {pendingPayment ? 'Loading...' : 'Checkout'}
 						</button>
 					</div>
 				</React.Fragment>
 			)}
+			{payment ? <PaymentModal /> : null}
 		</section>
 	);
 };
