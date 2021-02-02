@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { api } from '../utils/axiosWithAuth';
 import './dashboard.scss';
 
 const UserDashboard = () => {
@@ -12,6 +13,20 @@ const UserDashboard = () => {
 
 	const customer = useSelector((state) => state.customer);
 	console.log(customer.user);
+	const customer_id = customer.user.user_id;
+
+	useEffect(() => {
+		const getUserOrders = async () => {
+			try {
+				const res = await api().get(`/orders/order/user/${customer_id}`);
+				console.log(res);
+			} catch (err) {
+				console.log(err);
+			}
+		};
+
+		getUserOrders();
+	}, []);
 	return (
 		<div className='dashboard-container'>
 			<div className='title-container'>
