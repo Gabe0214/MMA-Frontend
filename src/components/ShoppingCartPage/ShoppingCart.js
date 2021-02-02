@@ -1,74 +1,114 @@
-import React, {useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLock} from '@fortawesome/free-solid-svg-icons'
-import './ShoppingCart.scss'
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLock } from '@fortawesome/free-solid-svg-icons';
+import { useHistory } from 'react-router-dom';
+import { api } from '../utils/axiosWithAuth';
+import './ShoppingCart.scss';
 const ShoppingCart = () => {
-    const shoppingCart = useSelector((state) => state.cart)
-    const dispatch = useDispatch()
+	const shoppingCart = useSelector((state) => state.cart);
+	const customer = useSelector((state) => state.customer);
 
-const removeItem = (id, price) => {
-  
-  const deductTotal = price 
-  dispatch({
-    type: "REMOVE_ITEM",
-    payload: {id}
-  })
+	const dispatch = useDispatch();
+	const history = useHistory();
 
-   deductPrice(deductTotal)
- }
+	const removeItem = (id, price) => {
+		const deductTotal = price;
+		dispatch({
+			type: 'REMOVE_ITEM',
+			payload: { id }
+		});
 
-const deductPrice = (deductTotal) => {
-  dispatch({
-    type: "DEDUCT_TOTAL",
-    payload: { total: deductTotal }
-  })
-}
-const closeCartNavMenu = () => {
-  dispatch({type: "CLOSE_CART_NAV_MENU", payload: false})
-}
+		deductPrice(deductTotal);
+	};
 
-    return(
-        <section onClick={closeCartNavMenu}>
-        <h1 className='shopping-cart-title' >Shopping Cart</h1>
-          { shoppingCart.items.length == 0 ? <div className='no-items-container'>
-             <h2 className='no-items'>There are not items in your cart</h2>
-             <Link to='products/all'>Shop Here</Link>
-           </div> :
-           <> 
-            <div className='items-container'>
-              {shoppingCart.items.map((product, i) => (
-                <div className='item-container' key={i}>
-                  <div className='image-container'>
-                      <img src={product.img}/>
-                  </div>
-                  <div className='item-info'>
-                      <h4>{product.name}</h4>
-                      <p className='size'>Size: {product.size}</p>
-                      <p className='price'>${product.price}</p>
-                  </div>
-                  <div className='remove' onClick={()=>removeItem(product.unique_id,product.price, product.quantity)}> 
-                      <p>x</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className='sub-total'>
-                  <p>Subtotal:</p>
-                  <div className='sub-total-amount-container'>
-                      <p>$ {shoppingCart.totalAmount}</p>
-                      <p>USD</p>
-                  </div>
-            </div>
-            <div className='checkout-btn'>
-                <button> <FontAwesomeIcon icon={faLock}/> Checkout</button>
-            </div>
-            </>
-           }
-        </section>
-    )
-}
+	const deductPrice = (deductTotal) => {
+		dispatch({
+			type: 'DEDUCT_TOTAL',
+			payload: { total: deductTotal }
+		});
+	};
+	const closeCartNavMenu = () => {
+		dispatch({ type: 'CLOSE_CART_NAV_MENU', payload: false });
+	};
 
+	const checkout = async () => {
+		if (!localStorage.getItem('token')) {
+			history.push('/signin');
+		}
+		// console.log('user_id', customer.user.user_id);
+		// console.log('total_amount', shoppingCart.totalAmount);
+		// console.log(shoppingCart.items);
+		const orderData = { order_user_id: Number(customer.user.user_id), total: parseInt(shoppingCart.totalAmount) };
+		// console.log(orderData);
 
-export default ShoppingCart
+		try {
+			const res = await api().post('/orders/order', orderData);
+			console.log(res);
+			const { order_id } = res.data;
+			shoppingCart.items.map(async (item) => {
+				try {
+					await api().post('/orders/order/order_detail', {
+						order_details_order_id: order_id,
+						order_details_product_id: item.product_id,
+						qty: item.quantity,
+						size: item.size,
+						price: item.price
+					});
+				} catch (err) {
+					console.log(err);
+				}
+			});
+		} catch (err) {
+			console.log(err);
+		}
+	};
+
+	return (
+		<section onClick={closeCartNavMenu}>
+			<h1 className='shopping-cart-title'>Shopping Cart</h1>
+			{shoppingCart.items.length == 0 ? (
+				<div className='no-items-container'>
+					<h2 className='no-items'>There are not items in your cart</h2>
+					<Link to='products/all'>Shop Here</Link>
+				</div>
+			) : (
+				<React.Fragment>
+					<div className='items-container'>
+						{shoppingCart.items.map((product, i) => (
+							<div className='item-container' key={i}>
+								<div className='image-container'>
+									<img src={product.img} />
+								</div>
+								<div className='item-info'>
+									<h4>{product.name}</h4>
+									<p className='size'>Size: {product.size}</p>
+									<p className='price'>${product.price}</p>
+								</div>
+								<div className='remove' onClick={() => removeItem(product.unique_id, product.price, product.quantity)}>
+									<p>x</p>
+								</div>
+							</div>
+						))}
+					</div>
+					<div className='sub-total'>
+						<p>Subtotal:</p>
+						<div className='sub-total-amount-container'>
+							<p>$ {shoppingCart.totalAmount}</p>
+							<p>USD</p>
+						</div>
+					</div>
+					<div className='checkout-btn'>
+						<button onClick={checkout}>
+							{' '}
+							<FontAwesomeIcon icon={faLock} /> Checkout
+						</button>
+					</div>
+				</React.Fragment>
+			)}
+		</section>
+	);
+};
+
+export default ShoppingCart;

@@ -13,7 +13,8 @@ const initialState = {
 	loadingUser: false,
 	userError: false,
 	userSucceed: false,
-	userFormSubmitted: false
+	userFormSubmitted: false,
+	userOrderLoading: false
 };
 
 const userReducer = (state = initialState, action) => {
