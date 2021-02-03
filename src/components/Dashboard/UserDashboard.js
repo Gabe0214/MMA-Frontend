@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { api } from '../utils/axiosWithAuth';
 import { getUserOrders } from '../reducers/userReducer/userAction';
 import './dashboard.scss';
+import { UserOrders } from './UserOrders/UserOrders';
 
 const UserDashboard = () => {
 	const history = useHistory();
@@ -45,7 +46,11 @@ const UserDashboard = () => {
 				</button>
 				<div className='orders-container'>
 					<h3>Order History</h3>
-					{customer.user.orders && customer.user.orders.length < 1 ? <p>You haven't placed any orders yet</p> : null}
+					{customer.user.orders && customer.user.orders.length < 1 ? (
+						<p>You haven't placed any orders yet</p>
+					) : (
+						<UserOrders orders={customer.user.orders} />
+					)}
 				</div>
 			</div>
 		</div>
