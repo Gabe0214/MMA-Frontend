@@ -1,12 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { api } from '../utils/axiosWithAuth';
 import { getUserOrders } from '../reducers/userReducer/userAction';
 import './dashboard.scss';
 import { UserOrders } from './UserOrders/UserOrders';
+import { Pagination } from '../Pagination/Pagination';
 
 const UserDashboard = () => {
+	const [ postsPerPage, setPostPerPage ] = useState(3);
+	const [ currentPage, setCurrentPage ] = useState(1);
 	const history = useHistory();
 	const logout = () => {
 		localStorage.clear();
@@ -21,6 +24,14 @@ const UserDashboard = () => {
 	useEffect(() => {
 		dispatch(getUserOrders(customer_id));
 	}, []);
+
+	// Pagination index
+
+	const indexOfLastPost = currentPage * postsPerPage;
+	const indexOfFirstPost = indexOfLastPost - postsPerPage;
+	const currentOrders = customer.user.orders.slice(indexOfFirstPost, indexOfLastPost);
+	const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
 	return (
 		<div className='dashboard-container'>
 			<div className='title-container'>
@@ -49,9 +60,10 @@ const UserDashboard = () => {
 					{customer.user.orders && customer.user.orders.length < 1 ? (
 						<p>You haven't placed any orders yet</p>
 					) : (
-						<UserOrders orders={customer.user.orders} />
+						<UserOrders orders={currentOrders} />
 					)}
 				</div>
+				<Pagination postsPerPage={postsPerPage} totalPosts={customer.user.orders.length} paginate={paginate} />
 			</div>
 		</div>
 	);
