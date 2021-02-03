@@ -1,0 +1,18 @@
+.pages-container {
+	ul {
+		list-style: none;
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+
+		li {
+			padding: 10px 16px;
+			border: 1px solid black;
+			margin-right: 3%;
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
+}
