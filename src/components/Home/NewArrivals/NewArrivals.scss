@@ -20,11 +20,18 @@
 				flex-direction: column;
 				align-items: center;
 				margin: 0 5%;
+				@media screen and (min-width: 450px) {
+					margin: 0 2%;
+				}
 
 				.product-image {
 					width: 125px;
 					height: 145px;
 					object-fit: contain;
+					@media screen and (min-width: 450px) {
+						width: 180px;
+						height: 180px;
+					}
 				}
 
 				h3 {

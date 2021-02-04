@@ -29,6 +29,9 @@ body {
 	align-items: center;
 	width: 100%;
 	text-transform: uppercase;
+	@media screen and (min-width: 450px) {
+		font-size: 1.4rem;
+	}
 }
 
 h2::before {
