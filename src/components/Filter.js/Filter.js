@@ -10,7 +10,7 @@ export const Filter = ({ filterBrand }) => {
 			try {
 				const response = await axios.get('https://mma-server.herokuapp.com/products');
 				const items = response.data.map((products) => products.brand.toLowerCase());
-				const removeDup = [ ...new Set(items) ];
+				const removeDup = [ ...new Set(items), 'All' ];
 				setBrands(removeDup.sort());
 			} catch (err) {
 				console.log(err);
@@ -34,7 +34,7 @@ export const Filter = ({ filterBrand }) => {
                 }) */}
 
 			{/* </ul>: null } */}
-			<FilterModal modal={modal} setModal={setModal} brands={brands} filter={filterBrand} />
+			{modal ? <FilterModal modal={modal} setModal={setModal} brands={brands} filter={filterBrand} /> : null}
 		</React.Fragment>
 	);
 };

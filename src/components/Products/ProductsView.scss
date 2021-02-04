@@ -21,6 +21,10 @@
 				width: 131px;
 				height: 158px;
 				object-fit: contain;
+				@media screen and (min-width: 450px) {
+					width: 195px;
+					height: 195px;
+				}
 			}
 		}
 
