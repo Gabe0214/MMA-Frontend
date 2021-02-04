@@ -25,7 +25,7 @@ const UserDashboard = () => {
 		dispatch(getUserOrders(customer_id));
 	}, []);
 
-	// Pagination index
+	// Orders Pagination
 
 	const indexOfLastPost = currentPage * postsPerPage;
 	const indexOfFirstPost = indexOfLastPost - postsPerPage;

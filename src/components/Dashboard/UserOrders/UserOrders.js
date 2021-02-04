@@ -10,7 +10,7 @@ export const UserOrders = ({ orders }) => {
 							<h4>{order.name}</h4>
 							<img src={`${order.image}`} alt='product-img' />
 							<p>
-								<span>Price</span>: ${order.price}
+								<span>Amount</span>: ${order.price}
 							</p>
 							<p>
 								{' '}
