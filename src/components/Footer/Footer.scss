@@ -1,11 +1,15 @@
 .footer-container {
-    padding: 0 5% 10% 5%;
-    border-bottom: 1px solid black;
+	padding: 0 5% 10% 5%;
+	border-bottom: 1px solid black;
+
+	@media screen and (min-width: 768px) {
+		padding-botton: 7%;
+	}
 }
 
-.copy-right{
-    padding-top: 35px;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 3%;
+.copy-right {
+	padding-top: 35px;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 3%;
 }

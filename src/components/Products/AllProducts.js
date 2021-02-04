@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchAllProducts } from '../reducers/productsReducer/productsActions';
 import { ProductsView } from './ProductsView';
@@ -56,7 +55,7 @@ function AllProducts() {
 	}
 
 	return (
-		<div>
+		<div className='product-main-container'>
 			<h2 style={{ textAlign: 'center' }} className='title'>
 				All Products
 			</h2>

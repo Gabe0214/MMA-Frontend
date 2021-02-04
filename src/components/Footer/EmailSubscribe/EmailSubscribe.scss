@@ -1,39 +1,46 @@
-
-
 .email-container {
-    margin: 5% 0;
+	margin: 5% 0;
 
-    .text-container{
-        margin-bottom: 8%;
+	.text-container {
+		margin-bottom: 8%;
 
-     
+		@media screen and (min-width: 768px) {
+			margin-bottom: 4%;
+		}
 
-        p {
-            font-family: 'Roboto', sans-serif;
-        }
-    }
+		p {
+			font-family: 'Roboto', sans-serif;
+		}
+	}
 
-    .email-form{
-      
-        h4 {
-            font-family: 'Roboto', sans-serif;
-            margin-bottom: 2%;
-        }
-        .email-input{
-            width: 100%;
-            padding: 0.6rem 0.5rem;
-            margin-bottom: 7%;
-            border:1px solid #b5b5b5;
-        }
-        .sign-up {
-          width: 100%;
-          flex-shrink: 0;
-          padding: 0.6rem 0.5rem;
-          background-color: black;
-          border: none;
-          color: #fff;
-          font-size: 1rem;
-          font-family: 'Roboto', sans-serif;
-        }
-    }
+	.email-form {
+		h4 {
+			font-family: 'Roboto', sans-serif;
+			margin-bottom: 2%;
+		}
+		.email-input {
+			width: 100%;
+			padding: 0.6rem 0.5rem;
+			margin-bottom: 7%;
+			border: 1px solid #b5b5b5;
+
+			@media screen and (min-width: 768px) {
+				height: 5vh;
+			}
+		}
+		.sign-up {
+			width: 100%;
+			flex-shrink: 0;
+			padding: 0.6rem 0.5rem;
+			background-color: black;
+			border: none;
+			color: #fff;
+			font-size: 1rem;
+			font-family: 'Roboto', sans-serif;
+
+			@media screen and (min-width: 768px) {
+				padding: 1.2rem 0.5rem;
+			}
+		}
+	}
 }

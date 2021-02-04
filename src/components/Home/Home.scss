@@ -18,6 +18,10 @@
 		text-decoration: none;
 		color: #fff;
 		margin-top: 3%;
+
+		@media screen and (min-width: 768px) {
+			padding: 0.8rem 4rem;
+		}
 	}
 
 	.over-lay {
@@ -37,6 +41,10 @@
 		@media screen and (min-width: 450px) {
 			height: 255px;
 		}
+
+		@media screen and (min-width: 768px) {
+			height: 440px;
+		}
 	}
 
 	.item-two {
@@ -46,6 +54,10 @@
 		@media screen and (min-width: 450px) {
 			height: 255px;
 		}
+
+		@media screen and (min-width: 768px) {
+			height: 440px;
+		}
 	}
 
 	.item-three {
@@ -54,6 +66,10 @@
 		background: url('../images/homepage4.jpg') center/cover no-repeat;
 		@media screen and (min-width: 450px) {
 			height: 255px;
+		}
+
+		@media screen and (min-width: 768px) {
+			height: 440px;
 		}
 	}
 }
@@ -66,4 +82,8 @@
 	color: #fff;
 	font-size: 1rem;
 	font-family: 'Alata', sans-serif;
+
+	@media screen and (min-width: 768px) {
+		font-size: 1.4rem;
+	}
 }
