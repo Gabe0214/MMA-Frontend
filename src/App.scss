@@ -8,6 +8,10 @@ a {
 .subtitle {
 	font-family: 'Roboto', sans-serif;
 	margin-bottom: 4%;
+
+	@media screen and (min-width: 768px) {
+		margin-bottom: 2%;
+	}
 }
 
 * {
