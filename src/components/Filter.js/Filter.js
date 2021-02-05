@@ -28,13 +28,7 @@ export const Filter = ({ filterBrand }) => {
 			>
 				<span>Filter</span> <div className='icon-filters' />
 			</button>
-			{/* { modal ?<ul>
-                {brands.map((brand, i) => {
-                    return <li key={i}>{brand.toUpperCase()}</li>
-                }) */}
-
-			{/* </ul>: null } */}
-			{modal ? <FilterModal modal={modal} setModal={setModal} brands={brands} filter={filterBrand} /> : null}
+			<FilterModal brands={brands} setModal={setModal} modal={modal} filter={filterBrand} />
 		</React.Fragment>
 	);
 };
