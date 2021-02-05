@@ -1,6 +1,10 @@
 .form-container {
 	margin-top: 8%;
 	padding: 0 18px;
+
+	@media screen and (min-width: 768px) {
+		padding: 0 30px;
+	}
 	form {
 		display: flex;
 		flex-direction: column;
@@ -40,10 +44,18 @@
 				&::placeholder {
 					color: rgba(54, 54, 54, 0.5);
 				}
+
+				@media screen and (min-width: 768px) {
+					height: 6vh;
+				}
 			}
 
 			select {
 				padding: 0.7rem 0;
+
+				@media screen and (min-width: 768px) {
+					height: 6vh;
+				}
 			}
 			.errors {
 				color: red;
