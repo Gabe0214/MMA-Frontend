@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FilterModal } from './FilterModal/FilterModal';
 import './Filter.scss';
-export const Filter = ({ filterBrand, brands, setBrands }) => {
+export const Filter = ({ filterBrand, brands }) => {
 	// const [ brands, setBrands ] = useState([]);
 	const [ modal, setModal ] = useState(false);
 	// useEffect(() => {

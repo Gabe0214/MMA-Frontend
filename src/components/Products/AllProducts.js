@@ -78,7 +78,7 @@ function AllProducts() {
 			</h2>
 			<div className='sort-filter-container'>
 				<SortBy sortIt={sortP} setOptions={setSortOption} option={sortOption} />
-				<Filter filterBrand={filter} brands={brands} setBrands={setBrands} />
+				<Filter filterBrand={filter} brands={brands} />
 			</div>
 			<ProductsView products={productReducer.products} />
 		</div>
