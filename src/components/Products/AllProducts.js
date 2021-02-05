@@ -12,12 +12,25 @@ import {
 	filterProducts
 } from '../reducers/productsReducer/productsActions';
 import './ProductsView.scss';
+import axios from 'axios';
 function AllProducts() {
 	const [ sortOption, setSortOption ] = useState('');
+	const [ brands, setBrands ] = useState([]);
 	const productReducer = useSelector((state) => state.productsReducer);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
+		const getBrands = async () => {
+			try {
+				const response = await axios.get('https://mma-server.herokuapp.com/products');
+				const items = response.data.map((products) => products.brand.toLowerCase());
+				const removeDup = [ ...new Set(items), 'All' ];
+				setBrands(removeDup.sort());
+			} catch (err) {
+				console.log(err);
+			}
+		};
+		getBrands();
 		dispatch(fetchAllProducts());
 	}, []);
 
@@ -42,9 +55,13 @@ function AllProducts() {
 		}
 	}
 
-	function filter(filterBy) {
+	// function filter(filterBy) {
+	// 	dispatch(filterProducts(filterBy));
+	// }
+
+	const filter = (filterBy) => {
 		dispatch(filterProducts(filterBy));
-	}
+	};
 
 	if (productReducer.loading) {
 		return (
@@ -61,7 +78,7 @@ function AllProducts() {
 			</h2>
 			<div className='sort-filter-container'>
 				<SortBy sortIt={sortP} setOptions={setSortOption} option={sortOption} />
-				<Filter filterBrand={filter} />
+				<Filter filterBrand={filter} brands={brands} />
 			</div>
 			<ProductsView products={productReducer.products} />
 		</div>
