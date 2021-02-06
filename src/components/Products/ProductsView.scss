@@ -12,6 +12,10 @@
 			margin-left: 2%;
 			margin-right: 2%;
 		}
+
+		@media screen and (min-width: 800px) {
+			justify-content: flex-end;
+		}
 	}
 
 	.products-container {
