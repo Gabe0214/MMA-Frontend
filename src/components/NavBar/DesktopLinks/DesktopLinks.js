@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { NavLink } from 'react-router-dom';
 import './desktopLinks.scss';
 export const DesktopLinks = ({ setOptions, options }) => {
 	const mouseOver = (type) => {
@@ -40,6 +41,9 @@ export const DesktopLinks = ({ setOptions, options }) => {
 				</li>
 				<li>
 					MMA Gear<FontAwesomeIcon icon={faChevronDown} className='arrow-icon' />{' '}
+				</li>
+				<li>
+					<NavLink to='/products/all'>Shop All</NavLink>
 				</li>
 			</ul>
 		</div>
