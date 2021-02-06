@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ProductCard, { ProductDescription } from './ProductCard';
+import ProductCard, { ProductDescription, ProductName } from './ProductCard';
 import Axios from 'axios';
 import { Sizes } from './SizesSection/Sizes';
 import { CartSection } from './AddToCart/AddToCart';
@@ -34,12 +34,11 @@ const IndividualProduct = (props) => {
 	return (
 		<React.Fragment>
 			<ProductCard
-				price={product.price}
 				image={currentImgView && currentImgView}
 				images={images && images}
 				setImageView={setCurrentImgView}
-				name={product.name}
 			/>
+			<ProductName name={product.name} price={product.price} />
 			<Sizes setSelectedSize={setSelectedSize} sizeSelected={sizeSelected} allSizes={allSizes} />
 			<CartSection product={product} size={sizeSelected} />
 			<ProductDescription desc={product.description} />

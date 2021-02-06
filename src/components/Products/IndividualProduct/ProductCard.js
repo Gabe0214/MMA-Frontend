@@ -6,7 +6,8 @@ const ProductCard = ({ images, name, image, setImageView, price }) => {
 	};
 
 	return (
-		<div className='product-container'>
+		// <div className='product-container'>
+		<div className='main-img-view-images-container'>
 			<img src={image} alt='AN IMAGE' className='main-img-view' />
 			<div className='images-container'>
 				{images &&
@@ -23,6 +24,16 @@ const ProductCard = ({ images, name, image, setImageView, price }) => {
 						}
 					})}
 			</div>
+			{/* </div> */}
+			{/* <h3 className='product-name'>{name}</h3>
+			<span className='price'>${price}</span> */}
+		</div>
+	);
+};
+
+export const ProductName = ({ name, price }) => {
+	return (
+		<div className='product-name-price-container'>
 			<h3 className='product-name'>{name}</h3>
 			<span className='price'>${price}</span>
 		</div>
