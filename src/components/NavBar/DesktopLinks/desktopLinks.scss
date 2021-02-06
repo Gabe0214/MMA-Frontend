@@ -1,5 +1,9 @@
 .desktop-links-outer-container {
 	width: 70%;
+
+	@media screen and (max-width: 799px) {
+		display: none;
+	}
 	ul {
 		display: flex;
 		justify-content: center;
