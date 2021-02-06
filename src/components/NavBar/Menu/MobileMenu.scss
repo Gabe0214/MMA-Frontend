@@ -11,6 +11,10 @@
 		left: -800px;
 	}
 
+	@media screen and (min-width: 800px) {
+		display: none;
+	}
+
 	.list-container {
 		display: flex;
 		flex-direction: column;
