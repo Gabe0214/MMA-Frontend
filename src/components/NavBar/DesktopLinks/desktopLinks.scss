@@ -1,0 +1,33 @@
+.desktop-links-outer-container {
+	width: 70%;
+	ul {
+		display: flex;
+		justify-content: center;
+
+		li {
+			display: flex;
+			align-items: center;
+			margin-right: 3%;
+			width: 20%;
+			justify-content: center;
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+		.arrow-icon {
+			margin-left: 7%;
+			transition: all ease 0.2s;
+
+			// &:hover {
+			// 	transform: rotate(180deg);
+			// 	transition: ease 0.2s transform;
+			// }
+		}
+
+		.hovered {
+			@extend .arrow-icon;
+			transform: rotate(180deg);
+		}
+	}
+}

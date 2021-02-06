@@ -9,6 +9,11 @@
 	z-index: 2;
 	background-color: #fff;
 
+	.burger-menu {
+		@media screen and (min-width: 800px) {
+			display: none;
+		}
+	}
 	.logo {
 		// width: 40px;
 		width: 15%;
@@ -16,6 +21,11 @@
 		@media screen and (min-width: 768px) {
 			width: 9%;
 			margin-left: 5%;
+		}
+
+		@media screen and (min-width: 800px) {
+			width: 5;
+			margin-left: 0;
 		}
 	}
 

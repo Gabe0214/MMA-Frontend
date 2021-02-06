@@ -7,9 +7,12 @@ import './Navbar.scss';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavShoppingCartMenu } from './NavShoppingCartMenu.js/NavShoppingCartMenu';
+import { DesktopLinks } from './DesktopLinks/DesktopLinks';
+import { DesktopSubMenu } from './DesktopSubMenu/DesktopSubMenu';
 const NavBar = () => {
 	const [ menu, setMenu ] = useState(false);
 	let history = useHistory();
+	const [ desktopMenus, setDesktopMenus ] = useState({ men: false, women: false, kids: false, Mma: false });
 	const shoppingCart = useSelector((state) => state.cart);
 	const dispatch = useDispatch();
 
@@ -22,8 +25,14 @@ const NavBar = () => {
 	return (
 		<React.Fragment>
 			<nav id='nav-bar'>
-				<FontAwesomeIcon icon={faBars} size='lg' onClick={test} />
+				<FontAwesomeIcon icon={faBars} size='lg' onClick={test} className='burger-menu' />
 				<img src='/alliance-logo.png' className='logo' onClick={() => history.push('/')} />
+				<DesktopLinks
+					setOpenDesktopMenu={setMenu}
+					openDesktopMenu={menu}
+					setOptions={setDesktopMenus}
+					options={desktopMenus}
+				/>
 				<div className='user-cart-container'>
 					<FontAwesomeIcon
 						icon={faUserCircle}
@@ -34,6 +43,14 @@ const NavBar = () => {
 					<NavCart dispatch={dispatch} shoppingCart={shoppingCart} />
 				</div>
 			</nav>
+			<DesktopSubMenu
+				menu={menu}
+				mens={desktopMenus.men}
+				kid={desktopMenus.kids}
+				setMenu={setMenu}
+				womens={desktopMenus.women}
+				setOptions={setDesktopMenus}
+			/>
 			<MobileMenu menu={menu} setMenu={setMenu} />
 			<NavShoppingCartMenu />
 		</React.Fragment>
