@@ -15,7 +15,15 @@ export const DesktopSubMenu = ({ mens, menu, setMenu, womens, kid, mma, setOptio
 									<h4>Mens</h4>
 									{items[0].links.map((link) => (
 										<li>
-											<NavLink to='/'>{link}</NavLink>
+											<NavLink
+												to={`/products?product_for=${link
+													.split(' ')[0]
+													.substring(0, 3)
+													.toLocaleLowerCase()}&type=${link.split(' ')[1].toLowerCase()}`}
+												onClick={() => setOptions({ ...options, men: false })}
+											>
+												{link}
+											</NavLink>
 										</li>
 									))}
 								</React.Fragment>
