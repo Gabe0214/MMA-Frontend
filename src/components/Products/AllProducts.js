@@ -13,6 +13,7 @@ import {
 } from '../reducers/productsReducer/productsActions';
 import './ProductsView.scss';
 import axios from 'axios';
+import { DesktopFiltering } from '../Filter.js/DesktopFiltering/DesktopFiltering';
 function AllProducts() {
 	const [ sortOption, setSortOption ] = useState('');
 	const [ brands, setBrands ] = useState([]);
@@ -80,7 +81,10 @@ function AllProducts() {
 				<SortBy sortIt={sortP} setOptions={setSortOption} option={sortOption} />
 				<Filter filterBrand={filter} brands={brands} />
 			</div>
-			<ProductsView products={productReducer.products} />
+			<div className='products-desktop-filter-container'>
+				<DesktopFiltering filter={filter} brands={brands} />
+				<ProductsView products={productReducer.products} />
+			</div>
 		</div>
 	);
 }

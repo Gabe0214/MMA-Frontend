@@ -1,0 +1,27 @@
+.filter-main-container {
+	flex: 1;
+	@media screen and (max-width: 799px) {
+		display: none;
+	}
+	.filter-option-container {
+		border-top: 1px solid #e5e5e5;
+		padding-top: 15px;
+		margin-right: 2%;
+		h4 {
+			margin-bottom: 6%;
+			font-weight: 500;
+		}
+		ul {
+			list-style: none;
+
+			li {
+				margin-bottom: 5%;
+				font-family: 'Roboto', sans-serif;
+				font-weight: 400;
+				&:hover {
+					cursor: pointer;
+				}
+			}
+		}
+	}
+}
