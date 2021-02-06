@@ -32,18 +32,20 @@ const IndividualProduct = (props) => {
 	}, []);
 
 	return (
-		<React.Fragment>
+		<div className='product-individual-main-container'>
 			<ProductCard
 				image={currentImgView && currentImgView}
 				images={images && images}
 				setImageView={setCurrentImgView}
 			/>
-			<ProductName name={product.name} price={product.price} />
-			<Sizes setSelectedSize={setSelectedSize} sizeSelected={sizeSelected} allSizes={allSizes} />
-			<CartSection product={product} size={sizeSelected} />
-			<ProductDescription desc={product.description} />
-			<ShippingReturns />
-		</React.Fragment>
+			<div className='second-half-product-view-container'>
+				<ProductName name={product.name} price={product.price} />
+				<Sizes setSelectedSize={setSelectedSize} sizeSelected={sizeSelected} allSizes={allSizes} />
+				<CartSection product={product} size={sizeSelected} />
+				<ProductDescription desc={product.description} />
+				<ShippingReturns />
+			</div>
+		</div>
 	);
 };
 
