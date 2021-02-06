@@ -1,8 +1,32 @@
-.product-container {
+// .product-container {
+// 	display: flex;
+// 	flex-direction: column;
+// 	align-items: center;
+// 	margin-top: 5%;
+
+.product-individual-main-container {
+	@media screen and (min-width: 800px) {
+		max-width: 750px;
+		margin: 7% auto 0 auto;
+		display: flex;
+		flex-direction: row;
+	}
+}
+
+.main-img-view-images-container {
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	align-items: center;
-	margin-top: 5%;
+	margin-top: 8%;
+	@media screen and (min-width: 800px) {
+		width: 50%;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		margin-top: 0;
+		justify-content: flex-start;
+	}
 
 	.main-img-view {
 		width: 250px;
@@ -11,12 +35,21 @@
 		@media screen and (min-width: 768px) {
 			width: 60%;
 		}
+
+		@media screen and (min-width: 800px) {
+			width: 100%;
+		}
 	}
 
 	.images-container {
 		margin: 5% 0;
 		display: flex;
 		flex-direction: row;
+
+		@media screen and (min-width: 800px) {
+			justify-content: space-between;
+			width: 100%;
+		}
 		img {
 			width: 80px;
 			margin-right: 4%;
@@ -26,24 +59,49 @@
 			}
 		}
 	}
+}
 
+.second-half-product-view-container {
+	@media screen and (min-width: 800px) {
+		width: 53%;
+		margin-left: 3%;
+	}
+}
+
+.product-name-price-container {
 	.product-name {
 		font-size: 25px;
 		align-self: flex-start;
 		padding-left: 5%;
 		font-family: 'Oswald', sans-serif;
+
+		@media screen and (min-width: 800px) {
+			padding-left: 0;
+			margin-bottom: 7%;
+		}
 	}
 
 	.price {
 		font-family: 'Roboto', sans-serif;
 		align-self: flex-start;
 		padding-left: 5%;
-		margin-top: 3%;
+
+		@media screen and (min-width: 800px) {
+			padding-left: 0;
+			font-size: 1.3rem;
+			margin-bottom: 5%;
+		}
 	}
 }
+// }
 
 .product-desc {
 	margin: 8% 5% 5% 5%;
+
+	@media screen and (min-width: 800px) {
+		margin-left: 0;
+		margin-right: 0;
+	}
 
 	h3 {
 		margin-bottom: 3%;

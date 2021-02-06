@@ -1,15 +1,27 @@
 .shipping-container {
-    margin: 3% 5% 0 5%;
-     
-    .shipping-list {
-        margin: 2% 0 0 8%;
+	margin: 3% 5% 0 5%;
 
-        li {
-            margin-bottom: 2%;
-            font-family: Roboto, sans-serif;
-            font-size: 15px;
-            font-weight: 300;
-            line-height: 1.4;
-        }
-    }
+	@media screen and (min-width: 800px) {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.shipping-list {
+		margin: 2% 0 0 8%;
+
+		@media screen and (min-width: 768px) {
+			margin-left: 4%;
+		}
+
+		@media screen and (min-width: 800px) {
+			margin-left: 0;
+		}
+
+		li {
+			margin-bottom: 2%;
+			font-family: Roboto, sans-serif;
+			font-size: 15px;
+			font-weight: 300;
+			line-height: 1.4;
+		}
+	}
 }
