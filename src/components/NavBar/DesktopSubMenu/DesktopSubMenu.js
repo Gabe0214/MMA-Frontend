@@ -41,7 +41,15 @@ export const DesktopSubMenu = ({ mens, menu, setMenu, womens, kid, mma, setOptio
 									<h4>Womens</h4>
 									{items[1].links.map((link) => (
 										<li>
-											<NavLink to='/'>{link}</NavLink>
+											<NavLink
+												to={`/products?product_for=${link
+													.split(' ')[0]
+													.substring(0, 5)
+													.toLowerCase()}&type=${link.split(' ')[1].toLowerCase()}`}
+												onClick={() => setOptions({ ...options, women: false })}
+											>
+												{link}
+											</NavLink>
 										</li>
 									))}
 								</React.Fragment>
@@ -59,7 +67,15 @@ export const DesktopSubMenu = ({ mens, menu, setMenu, womens, kid, mma, setOptio
 									<h4>Kid's</h4>
 									{items[2].links.map((link) => (
 										<li>
-											<NavLink to='/'>{link}</NavLink>
+											<NavLink
+												to={`/products?product_for=${link
+													.split(' ')[0]
+													.substring(0, 3)
+													.toLowerCase()}&type=${link.split(' ')[1].toLowerCase()}`}
+												onClick={() => setOptions({ ...options, kid: false })}
+											>
+												{link}
+											</NavLink>
 										</li>
 									))}
 								</React.Fragment>
