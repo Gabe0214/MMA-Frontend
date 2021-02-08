@@ -3,10 +3,12 @@ import EmailSubscribe from './EmailSubscribe/EmailSubscribe';
 import { Socials } from './Socials/Socials';
 import { AboutCompany } from './AboutCompany/AboutCompany';
 import { ShopFooter } from './ShopFooterSection/ShopFooterSection';
+import { DeliverySection } from './DeliverySection/DeliverySection';
 import './Footer.scss';
 export const FooterContainer = () => {
 	return (
 		<React.Fragment>
+			<DeliverySection />
 			<section id='footer'>
 				<div className='footer-inner-container'>
 					<EmailSubscribe />

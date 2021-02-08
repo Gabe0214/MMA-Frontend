@@ -6,7 +6,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import NewArrivals from './NewArrivals/NewArrivals';
 import { GallerySection } from './GallerySection/Gallery';
-import { DeliverySection } from './DeliverySection/DeliverySection';
+// import { DeliverySection } from './DeliverySection/DeliverySection';
 const HomePage = ({ cart, setCart }) => {
 	const settings = {
 		dots: true,
@@ -52,7 +52,7 @@ const HomePage = ({ cart, setCart }) => {
 				</Slider>
 				<NewArrivals />
 				<GallerySection />
-				<DeliverySection />
+				{/* <DeliverySection /> */}
 			</div>
 		</React.Fragment>
 	);
