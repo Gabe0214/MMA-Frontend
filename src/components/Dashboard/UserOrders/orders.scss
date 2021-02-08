@@ -1,5 +1,12 @@
 .orders-main-view {
-	.orders-container {
+	.items-container {
+		@media screen and (min-width: 800px) {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			margin-top: 5%;
+			flex-wrap: wrap;
+		}
 		.order {
 			border-top: 1px solid black;
 			display: flex;
@@ -8,10 +15,24 @@
 			padding-top: 13px;
 			margin-bottom: 4%;
 
+			@media screen and (min-width: 800px) {
+				border-top: none;
+				border-left: 1px solid black;
+				padding-left: 20px;
+				width: 33%;
+				justify-content: center;
+				margin-bottom: 7%;
+				height: 300px;
+			}
+
 			h4 {
 				font-family: 'Oswald', sans-serif;
 				font-weight: 400;
 				margin-bottom: 3%;
+
+				@media screen and (min-width: 800px) {
+					text-align: center;
+				}
 			}
 
 			p {
