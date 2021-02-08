@@ -3,7 +3,7 @@ import './orders.scss';
 export const UserOrders = ({ orders }) => {
 	return (
 		<div className='orders-main-view'>
-			<div className='orders-container'>
+			<div className='items-container'>
 				{orders &&
 					orders.map((order) => (
 						<div className='order'>

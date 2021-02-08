@@ -8,7 +8,7 @@ import { UserOrders } from './UserOrders/UserOrders';
 import { Pagination } from '../Pagination/Pagination';
 
 const UserDashboard = () => {
-	const [ postsPerPage, setPostPerPage ] = useState(3);
+	const [ postsPerPage, setPostPerPage ] = useState(6);
 	const [ currentPage, setCurrentPage ] = useState(1);
 	const history = useHistory();
 	const logout = () => {
