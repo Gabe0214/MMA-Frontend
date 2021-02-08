@@ -10,6 +10,10 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+
+		@media screen and (min-width: 800px) {
+			width: 50%;
+		}
 		.title-container {
 			width: 100%;
 			h1 {
@@ -48,6 +52,10 @@
 				@media screen and (min-width: 768px) {
 					height: 6vh;
 				}
+
+				@media screen and (min-width: 800px) {
+					height: 3.8vh;
+				}
 			}
 
 			select {
@@ -73,6 +81,10 @@
 			font-size: 16px;
 			font-weight: 500;
 			font-family: 'Oswald', sans-serif;
+
+			@media screen and (min-width: 800px) {
+				height: 3.8vh;
+			}
 		}
 
 		.returning-or-new-customer {
