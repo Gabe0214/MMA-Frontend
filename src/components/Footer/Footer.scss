@@ -1,9 +1,25 @@
-.footer-container {
-	padding: 0 5% 10% 5%;
+#footer {
 	border-bottom: 1px solid black;
 
-	@media screen and (min-width: 768px) {
-		padding-botton: 7%;
+	padding-bottom: 5%;
+	.footer-inner-container {
+		padding: 0 5% 10% 5%;
+
+		@media screen and (min-width: 768px) {
+			padding-botton: 7%;
+		}
+
+		@media screen and (min-width: 800px) {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			max-width: 1200px;
+			width: 95%;
+			margin-left: auto;
+			margin-right: auto;
+			padding: 0 1%;
+			margin-top: 4%;
+		}
 	}
 }
 

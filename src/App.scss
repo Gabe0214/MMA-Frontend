@@ -12,6 +12,12 @@ a {
 	@media screen and (min-width: 768px) {
 		margin-bottom: 2%;
 	}
+
+	@media screen and (min-width: 800px) {
+		margin-bottom: 10px;
+		font-weight: 300;
+		font-size: 18px;
+	}
 }
 
 * {
