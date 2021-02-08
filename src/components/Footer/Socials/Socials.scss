@@ -1,7 +1,19 @@
 .socials-container {
-    margin-bottom: 5%;
-    .social {
-        color: black;
-        margin-right: 0.5rem;
-    }
+	margin-bottom: 5%;
+
+	@media screen and (min-width: 800px) {
+		width: calc(25% - 20px);
+		margin-top: 0;
+		margin-left: calc(20px / 2);
+		margin-right: calc(20px / 2);
+	}
+
+	.socials-icon-container {
+		padding: 20px 0;
+
+		.social {
+			color: black;
+			margin-right: 0.5rem;
+		}
+	}
 }
