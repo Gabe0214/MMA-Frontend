@@ -1,5 +1,11 @@
 .product-main-container {
 	padding: 0 25px;
+
+	@media screen and (min-width: 1366px) {
+		padding: 0;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
 	.sort-filter-container {
 		display: flex;
 		flex-direction: row;
@@ -55,6 +61,10 @@
 					margin-bottom: 3%;
 				}
 
+				@media screen and (min-width: 1366px) {
+					margin-left: 1%;
+				}
+
 				.image-container {
 					margin: 0 5%;
 					width: 100%;
@@ -82,6 +92,11 @@
 
 						@media screen and (min-width: 800px) {
 							height: 223px;
+						}
+
+						@media screen and (min-width: 1366px) {
+							height: 361px;
+							width: 100%;
 						}
 					}
 				}

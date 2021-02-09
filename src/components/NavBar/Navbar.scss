@@ -17,6 +17,10 @@
 		padding-left: 4%;
 	}
 
+	@media screen and (min-width: 800px) {
+		padding: 1% 5% 1% 4%;
+	}
+
 	.burger-menu {
 		@media screen and (min-width: 800px) {
 			display: none;
@@ -32,9 +36,13 @@
 		}
 
 		@media screen and (min-width: 800px) {
-			width: 5;
+			width: 5%;
 			margin-left: 0;
 		}
+
+		// @media screen and (min-width:1366px) {
+		// 	width: ;
+		// }
 	}
 
 	.user-cart-container {
