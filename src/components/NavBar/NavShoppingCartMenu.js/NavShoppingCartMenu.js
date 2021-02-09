@@ -33,7 +33,7 @@ export const NavShoppingCartMenu = () => {
 				Shopping Cart ({shoppingCart.items.length})
 			</h4>
 			{shoppingCart.items.map((product) => (
-				<div className='item-container'>
+				<div className='item-container' key={product.unique_id}>
 					<div className='image-container'>
 						<img src={product.img} alt='proudt-image' />
 					</div>
