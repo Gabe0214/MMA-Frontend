@@ -5,8 +5,15 @@
 	z-index: 1000;
 	padding: 2% 5% 0% 5%;
 
+	@media screen and (min-width: 1366px) {
+		padding: 0;
+	}
 	.desktop-sub-menu-container {
 		height: 100%;
+
+		@media screen and (min-width: 1366px) {
+			padding: 0 2%;
+		}
 
 		ul {
 			display: flex;
@@ -23,6 +30,10 @@
 			li {
 				margin-bottom: 4%;
 				font-size: 12px;
+
+				@media screen and (min-width: 1366px) {
+					margin-bottom: 2%;
+				}
 			}
 		}
 	}
