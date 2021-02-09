@@ -5,6 +5,11 @@
 	@media screen and (min-width: 768px) {
 		padding: 0 40px;
 	}
+
+	@media screen and (min-width: 1366px) {
+		padding: 0 80px;
+	}
+
 	.title-container {
 		width: 100%;
 		h1 {
@@ -12,6 +17,11 @@
 			margin-bottom: 1.5rem;
 			font-family: 'Oswald', sans-serif;
 			font-weight: 400;
+
+			@media screen and (min-width: 1366px) {
+				margin-bottom: 1rem;
+				font-size: 25px;
+			}
 		}
 
 		.underline {
@@ -38,6 +48,10 @@
 
 		.sub-content {
 			margin-bottom: 8%;
+
+			@media screen and (min-width: 1366px) {
+				margin-bottom: 2%;
+			}
 		}
 	}
 
@@ -68,6 +82,10 @@
 		@media screen and (min-width: 800px) {
 			width: 15%;
 			height: 4vh;
+		}
+
+		@media screen and (min-width: 1366px) {
+			width: 7%;
 		}
 	}
 }

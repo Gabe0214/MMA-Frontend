@@ -24,7 +24,12 @@
 
 				@media screen and (min-width: 768px) {
 					width: 232.5px;
-					width: 232.5px;
+					height: 232.5px;
+				}
+
+				@media screen and (min-width: 1366px) {
+					width: 325.5px;
+					height: 325.5px;
 				}
 			}
 		}

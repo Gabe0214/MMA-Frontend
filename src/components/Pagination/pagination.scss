@@ -10,6 +10,10 @@
 			border: 1px solid black;
 			margin-right: 3%;
 
+			@media screen and (min-width: 1366px) {
+				margin-right: 1%;
+			}
+
 			&:hover {
 				cursor: pointer;
 			}

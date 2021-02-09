@@ -9,6 +9,14 @@
 	width: 100%;
 	box-shadow: 0 8px 8px rgba(10, 10, 10, 0.1);
 	visibility: hidden;
+
+	@media screen and (min-width: 1366px) {
+		position: fixed;
+		width: 30%;
+		height: 100vh;
+		left: auto;
+		right: -450px;
+	}
 	.item-container {
 		display: flex;
 		justify-content: flex-start;
@@ -94,4 +102,8 @@
 	opacity: 1;
 	transition: all ease-in 0.3s;
 	visibility: visible;
+
+	@media screen and (min-width: 1366px) {
+		right: 0;
+	}
 }
