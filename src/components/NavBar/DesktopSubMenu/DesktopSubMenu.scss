@@ -4,7 +4,7 @@
 	position: fixed;
 	z-index: 1000;
 	padding: 2% 5% 0% 5%;
-
+	box-shadow: 0 8px 8px rgba(10, 10, 10, 0.3);
 	@media screen and (min-width: 1366px) {
 		padding: 0;
 	}
@@ -26,13 +26,18 @@
 				font-family: 'Roboto', sans-serif;
 				font-weight: 400;
 				margin-bottom: 3%;
+
+				@media screen and (min-width: 1366px) {
+					margin-bottom: 1%;
+				}
 			}
 			li {
 				margin-bottom: 4%;
 				font-size: 12px;
 
 				@media screen and (min-width: 1366px) {
-					margin-bottom: 2%;
+					padding-bottom: 1rem;
+					margin-bottom: 0;
 				}
 			}
 		}
