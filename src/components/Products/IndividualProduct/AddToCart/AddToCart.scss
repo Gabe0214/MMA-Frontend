@@ -26,6 +26,10 @@
 			margin-right: 0;
 		}
 
+		@media screen and (min-width: 1366px) {
+			width: 50%;
+		}
+
 		.btn {
 			width: 44px;
 			height: 44px;
@@ -71,5 +75,9 @@
 		@media screen and (min-width: 800px) {
 			width: 47%;
 		}
+
+		// @media screen and (min-width: 1366px) {
+		// 	width: ;
+		// }
 	}
 }
