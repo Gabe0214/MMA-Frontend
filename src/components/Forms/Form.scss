@@ -9,6 +9,12 @@
 	@media screen and (min-width: 1366px) {
 		padding: 0 60px;
 	}
+
+	@media screen and (min-width: 1700px) {
+		padding: 0;
+		max-width: 1200px;
+		margin: 5% auto 0 auto;
+	}
 	form {
 		display: flex;
 		flex-direction: column;
@@ -17,6 +23,10 @@
 
 		@media screen and (min-width: 800px) {
 			width: 50%;
+		}
+
+		@media screen and (min-width: 1700px) {
+			width: 47%;
 		}
 		.title-container {
 			width: 100%;
@@ -34,6 +44,10 @@
 		label {
 			margin-bottom: 2%;
 			width: 100%;
+
+			@media screen and (min-width: 1700px) {
+				margin-bottom: 1%;
+			}
 		}
 
 		.input-container {
@@ -66,7 +80,7 @@
 				}
 
 				@media screen and (min-width: 1366px) {
-					height: 5.2vh;
+					height: 3.4vh;
 				}
 			}
 
@@ -75,6 +89,10 @@
 
 				@media screen and (min-width: 768px) {
 					height: 6vh;
+				}
+
+				@media screen and (min-width: 1366px) {
+					height: 3.4vh;
 				}
 			}
 			.errors {
@@ -99,8 +117,8 @@
 			}
 
 			@media screen and (min-width: 1366px) {
-				width: 12%;
-				height: 4.8vh;
+				width: 11%;
+				height: 3vh;
 			}
 		}
 

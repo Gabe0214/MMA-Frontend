@@ -21,8 +21,8 @@
 		padding: 1% 5% 1% 4%;
 	}
 
-	@media screen and (min-width: 1920px) {
-		padding: 0.4% 2% 0.4% 2%;
+	@media screen and (min-width: 1700px) {
+		padding: 0.3% 2% 0.3% 2%;
 	}
 
 	.burger-menu {
@@ -44,7 +44,11 @@
 			margin-left: 0;
 		}
 
-		@media screen and (min-width: 1920px) {
+		@media screen and (min-width: 1366px) {
+			width: 6%;
+		}
+
+		@media screen and (min-width: 1700px) {
 			width: 4.2%;
 		}
 	}
