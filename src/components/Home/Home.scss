@@ -51,14 +51,14 @@
 		}
 
 		@media screen and (min-width: 1366px) {
-			height: 100vh;
+			height: 75vh;
 		}
 	}
 
 	.item-two {
 		width: 250px;
 		height: 200px;
-		background: url('../images/homepage2.jpg') center/cover no-repeat;
+		background: url('../images/homepage2.jpg') no-repeat center center/cover;
 		@media screen and (min-width: 450px) {
 			height: 255px;
 		}
@@ -68,14 +68,17 @@
 		}
 
 		@media screen and (min-width: 1366px) {
-			height: 100vh;
+			height: 75vh;
 		}
 	}
 
 	.item-three {
 		width: 250px;
 		height: 200px;
-		background: url('../images/homepage4.jpg') center/cover no-repeat;
+		background: url('../images/homepage4.jpg');
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
 		@media screen and (min-width: 450px) {
 			height: 255px;
 		}
@@ -85,7 +88,7 @@
 		}
 
 		@media screen and (min-width: 1366px) {
-			height: 100vh;
+			height: 75vh;
 		}
 	}
 }
