@@ -10,6 +10,12 @@
 		padding: 0 80px;
 	}
 
+	@media screen and (min-width: 1700px) {
+		padding: 0;
+		max-width: 1200px;
+		margin: 5% auto 0 auto;
+	}
+
 	.title-container {
 		width: 100%;
 		h1 {
