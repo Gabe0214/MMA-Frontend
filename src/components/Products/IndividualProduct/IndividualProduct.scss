@@ -88,6 +88,10 @@
 			padding-left: 0;
 			margin-bottom: 7%;
 		}
+
+		@media screen and (min-width: 1366px) {
+			margin-bottom: 3%;
+		}
 	}
 
 	.price {
