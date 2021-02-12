@@ -82,7 +82,7 @@ const ShoppingCart = () => {
 	);
 
 	return (
-		<section onClick={closeCartNavMenu}>
+		<section onClick={closeCartNavMenu} className='shopping-cart-main-view'>
 			<h1 className='shopping-cart-title'>Shopping Cart</h1>
 			{shoppingCart.items.length == 0 ? (
 				<div className='no-items-container'>
@@ -111,14 +111,14 @@ const ShoppingCart = () => {
 					<div className='sub-total'>
 						<p>Subtotal:</p>
 						<div className='sub-total-amount-container'>
-							<p>$ {shoppingCart.totalAmount}</p>
+							<p className='total'>$ {shoppingCart.totalAmount}</p>
 							<p>USD</p>
 						</div>
 					</div>
 					<div className='checkout-btn'>
 						<button onClick={checkout}>
 							{' '}
-							<FontAwesomeIcon icon={faLock} /> {pendingPayment ? 'Loading...' : 'Checkout'}
+							<FontAwesomeIcon className='lock' icon={faLock} /> {pendingPayment ? 'Loading...' : 'Checkout'}
 						</button>
 					</div>
 				</React.Fragment>

@@ -29,6 +29,9 @@ export const ArrivalProducts = ({ products }) => {
 	const mouseUp = (e) => {
 		setDragged(false);
 		setIsDown(false);
+		// const x = e.pageX - myRef.current.offsetLeft;
+		// const walk = x + startX;
+		// myRef.current.scrollLeft = scrollLeft - walk;
 	};
 
 	const mouseMove = (e) => {
@@ -54,7 +57,7 @@ export const ArrivalProducts = ({ products }) => {
 			onMouseLeave={mouseLeave}
 			onMouseMove={mouseMove}
 			onMouseUp={mouseUp}
-			style={{ cursor: isDown ? 'grabbing' : null }}
+			style={{ cursor: isDown ? 'grabbing' : null, transition: 'all ease 0.5s' }}
 			ref={myRef}
 		>
 			<div className='arrival-product-container'>

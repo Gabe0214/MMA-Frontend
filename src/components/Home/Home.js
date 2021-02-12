@@ -1,13 +1,14 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Slider from 'react-slick';
+import { slides } from './sliderImages';
 import './Home.scss';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import NewArrivals from './NewArrivals/NewArrivals';
 import { GallerySection } from './GallerySection/Gallery';
 // import { DeliverySection } from './DeliverySection/DeliverySection';
-const HomePage = ({ cart, setCart }) => {
+const HomePage = () => {
 	const settings = {
 		dots: true,
 		infinite: true,
@@ -15,11 +16,6 @@ const HomePage = ({ cart, setCart }) => {
 		slidesToShow: 1,
 		slidesToScroll: 1,
 		autoplay: true
-	};
-
-	const addItem = (e) => {
-		setCart([ ...cart, 1 ]);
-		e.preventDefault();
 	};
 
 	return (
@@ -32,28 +28,21 @@ const HomePage = ({ cart, setCart }) => {
 					dotsClass='slick-dots dotsa'
 					className='slider-item-container'
 				>
-					<div className='item-one'>
-						<div className='over-lay'>
-							<h3 className='home-page-title'>Shop Men's Gi</h3>
-							<NavLink to={`products?product_for=men&type=gi`}>Shop</NavLink>
-						</div>
-					</div>
-					<div className='item-two'>
-						<div className='over-lay'>
-							<h3 className='home-page-title'>Shop Boxing & MMA Gear</h3>
-							<NavLink to='/mma-boxing-all'>Shop</NavLink>
-						</div>
-					</div>
-					<div className='item-three'>
-						<div className='over-lay'>
-							<h3 className='home-page-title'>Shop Women's Gi</h3>
-							<NavLink to={`products?product_for=women&type=gi`}>Shop</NavLink>
-						</div>
-					</div>
+					{slides.map((slide) => {
+						return (
+							<div>
+								<div className='item' style={{ background: `url(${slide.image}) no-repeat center center/cover` }}>
+									<div className='over-lay'>
+										<h3 className='home-page-title'>{slide.name}</h3>
+										<NavLink to={slide.route}>Shop</NavLink>
+									</div>
+								</div>
+							</div>
+						);
+					})}
 				</Slider>
 				<NewArrivals />
 				<GallerySection />
-				{/* <DeliverySection /> */}
 			</div>
 		</React.Fragment>
 	);
