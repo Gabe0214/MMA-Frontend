@@ -8,6 +8,11 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	z-index: 9000;
+
+	@media screen and (min-width: 1366px) {
+		left: 0;
+	}
 	.modal-container-payment {
 		background: #fff;
 		display: flex;
@@ -17,6 +22,11 @@
 		height: 30%;
 		width: 80%;
 		border-radius: 15px;
+
+		@media screen and (min-width: 1366px) {
+			height: 41%;
+			width: 53%;
+		}
 
 		h3 {
 			font-family: 'Oswald', sans-serif;
