@@ -11,9 +11,12 @@ const QuerProducts = ({ location }) => {
 	const reString = arry[0].replace('?product_for=', '');
 	const reStringTwo = arry[1].replace('type=', '');
 
+	console.log(arry);
+	console.log(reString);
+
+	console.log(reStringTwo);
 	const dispatch = useDispatch();
 	const qry = location.search;
-	// console.log(qry);
 
 	useEffect(
 		() => {
