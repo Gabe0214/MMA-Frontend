@@ -12,7 +12,7 @@ import { DesktopSubMenu } from './DesktopSubMenu/DesktopSubMenu';
 const NavBar = () => {
 	const [ menu, setMenu ] = useState(false);
 	let history = useHistory();
-	const [ desktopMenus, setDesktopMenus ] = useState({ men: false, women: false, kids: false, Mma: false });
+	const [ desktopMenus, setDesktopMenus ] = useState({ men: false, women: false, kids: false, mma: false });
 	const shoppingCart = useSelector((state) => state.cart);
 	const dispatch = useDispatch();
 
@@ -50,6 +50,7 @@ const NavBar = () => {
 				setMenu={setMenu}
 				womens={desktopMenus.women}
 				setOptions={setDesktopMenus}
+				mma={desktopMenus.mma}
 			/>
 			<MobileMenu menu={menu} setMenu={setMenu} />
 			<NavShoppingCartMenu />
