@@ -84,6 +84,29 @@ export const DesktopSubMenu = ({ mens, menu, setMenu, womens, kid, mma, setOptio
 					</div>
 				</div>
 			) : null}
+			{mma ? (
+				<div className='desktop-outer-sub-menu-container' onMouseLeave={() => setOptions(false)}>
+					<div className='desktop-sub-menu-container'>
+						<ul>
+							{mma ? (
+								<React.Fragment>
+									<h4>MMA Gear</h4>
+									{items[3].links.map((link) => (
+										<li>
+											<NavLink
+												to={`/products?product_for=unisex&type=${link.toLowerCase()}`}
+												onClick={() => setOptions({ ...options, mma: false })}
+											>
+												{link}
+											</NavLink>
+										</li>
+									))}
+								</React.Fragment>
+							) : null}
+						</ul>
+					</div>
+				</div>
+			) : null}
 		</React.Fragment>
 	);
 };
