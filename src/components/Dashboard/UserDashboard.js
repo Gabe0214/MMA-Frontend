@@ -11,18 +11,23 @@ const UserDashboard = () => {
 	const [ postsPerPage, setPostPerPage ] = useState(6);
 	const [ currentPage, setCurrentPage ] = useState(1);
 	const history = useHistory();
+
+	const customer = useSelector((state) => state.customer);
+	const dispatch = useDispatch();
+
 	const logout = () => {
 		localStorage.clear();
 		history.push('/signin');
 	};
 
-	const customer = useSelector((state) => state.customer);
-	const dispatch = useDispatch();
 	console.log(customer.user);
 	const customer_id = customer.user.user_id;
 
 	useEffect(() => {
 		dispatch(getUserOrders(customer_id));
+		if (customer.user.firstname == '') {
+			return logout();
+		}
 	}, []);
 
 	// Orders Pagination
@@ -31,6 +36,10 @@ const UserDashboard = () => {
 	const indexOfFirstPost = indexOfLastPost - postsPerPage;
 	const currentOrders = customer.user.orders.slice(indexOfFirstPost, indexOfLastPost);
 	const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+	if (customer.user.firstname == '') {
+		return <h1>Loading...</h1>;
+	}
 
 	return (
 		<div className='dashboard-container'>
