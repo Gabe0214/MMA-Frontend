@@ -5,7 +5,7 @@ export const items = [
 	},
 	{
 		type: 'women',
-		links: [ "Women's Gi", "Women's Sweater", "Women's Pants", "Women's Shirt" ]
+		links: [ "Women's Gi", "Women's Hoodie", "Women's Pants", "Women's Shirt" ]
 	},
 	{
 		type: 'kid',
