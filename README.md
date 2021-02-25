@@ -27,7 +27,7 @@ In addition, I plan to implement an api payment system for better user experienc
 Currently, the sorting and filtering functionality is only usable in the  `/products/all`  route. It will be added to the other product routes.
 Users can currently filter by brand, soon users will have more options to filter by such as color.
 
-These are a few improvements I can think of currently. I know there are a whole bunch more.
+These are a few improvements I can think of currently. I know there's whole bunch more.
 
 
 
