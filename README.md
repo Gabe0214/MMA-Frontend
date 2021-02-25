@@ -1,8 +1,44 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# MMA Aliance 
 
-In the project directory, you can run:
+This is an ecommernce web application created with ReactJS, Node-Sass, Redux, Axios, NodeJs(express), JWT, and PostgreSQL
+
+Deployed Link: "https://mma-frontend.vercel.app/"
+
+Backend Repo can be found here: "https://github.com/Gabe0214/MMA-Backend"
+
+I've been a fan of mixed martial arts, so I thought I'd build an ecommernce project that sells MMA equipment, gear and clothing.
+
+
+## Overview
+
+Users can view products and add products to their cart. Users must create an account to purchase items.
+Users can filter and sort through products for easy and fast accessibility. 
+Users can view order purchases in their dashboard, and user information. 
+
+
+## Imporvements
+
+There is a lot of room for imporment. This project isn't completely finshed; there is still some components to optimize and refactor.
+
+I plan on implementing a more secure authentication system other than JWT, such as firebase auth or auth0.
+In addition, I plan to implement an api payment system for better user experience such as stripe or paypal.
+Currently, the sorting and filtering functionality is only usable in the  `/products/all`  route. It will be added to the other product routes.
+Users can currently filter by brand, soon users will have more options to filter by such as color.
+
+These are a few improvements I can think of currently. I know there are a whole bunch more.
+
+
+
+
+
+
+
+
+
+
+<!-- In the project directory, you can run:
 
 ### `yarn start`
 
@@ -65,4 +101,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 ### `yarn build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify -->
