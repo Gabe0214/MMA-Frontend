@@ -9,7 +9,7 @@ import { ShippingReturns } from './ShippingReturn/ShippingPolicies';
 const IndividualProduct = (props) => {
 	const [ product, setProduct ] = useState({});
 	const [ currentImgView, setCurrentImgView ] = useState('');
-	const [ sizeSelected, setSelectedSize ] = useState('');
+	const [ sizeSelected, setSelectedSize ] = useState('S');
 	const [ images, setImages ] = useState([]);
 	const allSizes = [ { size: 'S' }, { size: 'M' }, { size: 'L' }, { size: 'XL' }, { size: '2XL' }, { size: '3XL' } ];
 	const id = props.match.params.id;
