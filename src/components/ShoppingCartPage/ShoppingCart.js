@@ -17,14 +17,12 @@ const ShoppingCart = () => {
 	const history = useHistory();
 
 	const removeItem = (id, price, qty) => {
-		const totalItemAmount = price * qty;
-
 		dispatch({
 			type: 'REMOVE_ITEM',
 			payload: { id }
 		});
 
-		deductPrice(totalItemAmount);
+		deductPrice(price);
 	};
 
 	const deductPrice = (deductTotal) => {

@@ -10,13 +10,15 @@ export const NavShoppingCartMenu = () => {
 	const dispatch = useDispatch();
 	const history = useHistory();
 	const removeFromCart = (id, price, qty) => {
-		const totalItemAmount = price * qty;
+		console.log({ price, qty });
+
+		const totalItemPrice = price * qty;
 		dispatch({
 			type: 'REMOVE_ITEM',
 			payload: { id }
 		});
 
-		deductPrice(totalItemAmount);
+		deductPrice(price);
 	};
 
 	const deductPrice = (deductPrice) => {
@@ -25,7 +27,7 @@ export const NavShoppingCartMenu = () => {
 			payload: { total: deductPrice }
 		});
 	};
-	// console.log(shoppingCart.items);
+	console.log(shoppingCart.items);
 
 	return (
 		<div className={shoppingCart.showNavMenu ? 'menu-cart-container menu menu--active' : 'menu-cart-container'}>
