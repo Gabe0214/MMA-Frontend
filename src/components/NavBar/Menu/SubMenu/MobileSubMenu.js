@@ -3,7 +3,7 @@ import { NavLink, Link } from 'react-router-dom';
 import { items } from './subMenuLinks';
 import { useDispatch } from 'react-redux';
 import './MobileSubMenu.scss';
-export const MobileSubMenu = ({ mens, women, kids, subMenu, setSubMenu }) => {
+export const MobileSubMenu = ({ mens, women, kids, mma, subMenu, setSubMenu }) => {
 	const dispatch = useDispatch();
 	const NavLinks = items.map((item) => {
 		return item.links;
@@ -61,6 +61,13 @@ export const MobileSubMenu = ({ mens, women, kids, subMenu, setSubMenu }) => {
 								.split(' ')[1]
 								.toLowerCase()}`}
 						>
+							{link}
+						</NavLink>
+					))
+				) : null}
+				{mma ? (
+					NavLinks[3].map((link, i) => (
+						<NavLink onClick={NavClick} key={i} to={`/products?product_for=unisex&type=${link.toLowerCase()}`}>
 							{link}
 						</NavLink>
 					))
