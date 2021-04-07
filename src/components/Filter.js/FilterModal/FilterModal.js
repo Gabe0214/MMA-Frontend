@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -32,9 +32,6 @@ export const FilterModal = ({ modal, setModal, brands, filter }) => {
 	};
 	return (
 		<div style={{ position: 'absolute' }}>
-			{/* <button type="button" onClick={handleOpen}>
-            react-spring
-          </button> */}
 			<Modal
 				aria-labelledby='spring-modal-title'
 				aria-describedby='spring-modal-description'

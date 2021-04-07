@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
+
 import { FilterModal } from './FilterModal/FilterModal';
 import './Filter.scss';
 export const Filter = ({ filterBrand, brands }) => {
-	// const [ brands, setBrands ] = useState([]);
 	const [ modal, setModal ] = useState(false);
 	// useEffect(() => {
 	// 	const CancelToken = axios.CancelToken;

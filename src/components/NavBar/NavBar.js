@@ -26,7 +26,7 @@ const NavBar = () => {
 		<React.Fragment>
 			<nav id='nav-bar'>
 				<FontAwesomeIcon icon={faBars} size='lg' onClick={test} className='burger-menu' />
-				<img src='/alliance-logo.png' className='logo' onClick={() => history.push('/')} />
+				<img src='/alliance-logo.png' className='logo' alt='logo' onClick={() => history.push('/')} />
 				<DesktopLinks
 					setOpenDesktopMenu={setMenu}
 					openDesktopMenu={menu}
