@@ -22,6 +22,7 @@ const ProductCard = ({ images, name, image, setImageView, price }) => {
 								/>
 							);
 						}
+						return null;
 					})}
 			</div>
 		</div>
