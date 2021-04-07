@@ -12,7 +12,6 @@ export const NavShoppingCartMenu = () => {
 	const removeFromCart = (id, price, qty) => {
 		console.log({ price, qty });
 
-		const totalItemPrice = price * qty;
 		dispatch({
 			type: 'REMOVE_ITEM',
 			payload: { id }
@@ -37,7 +36,7 @@ export const NavShoppingCartMenu = () => {
 			{shoppingCart.items.map((product) => (
 				<div className='item-container' key={product.unique_id}>
 					<div className='image-container'>
-						<img src={product.img} alt='proudt-image' />
+						<img src={product.img} alt='proudct' />
 					</div>
 					<div className='item-info'>
 						<h4>
