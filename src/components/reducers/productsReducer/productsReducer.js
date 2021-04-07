@@ -45,9 +45,10 @@ const productsReducer = (state = initialState, action) => {
 			const result = state.filteredProducts.filter((items) => {
 				if (items.brand.toLowerCase().includes(payload.option.toLowerCase())) {
 					return items;
-				} else if (payload.option == 'All') {
+				} else if (payload.option === 'All') {
 					return items;
 				}
+				return null;
 			});
 			return { ...state, products: result };
 		case 'ROUTED':
@@ -56,8 +57,6 @@ const productsReducer = (state = initialState, action) => {
 		default:
 			return state;
 	}
-
-	return state;
 };
 
 export default productsReducer;

@@ -1,6 +1,5 @@
 import slideOne from '../images/homapge1.jpg';
 import slideTwo from '../images/homepage2.jpg';
-import slideThree from '../images/homepage3.jpg';
 import slideFour from '../images/homepage4.jpg';
 import slideFive from '../images/hompage5.jpg';
 export const slides = [

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
@@ -6,7 +6,7 @@ import { MobileSubMenu } from './SubMenu/MobileSubMenu';
 import './MobileMenu.scss';
 
 export const MobileMenu = ({ menu, setMenu }) => {
-	const [ rotateIcon, setRotateIcon ] = useState(false);
+	const [ rotateIcon ] = useState(false);
 	const [ subMenu, setSubmenu ] = useState({
 		mens: false,
 		womens: false,

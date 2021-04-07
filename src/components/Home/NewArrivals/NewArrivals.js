@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { ArrivalProducts } from './NewArrivalsProducts';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchAllProducts } from '../../reducers/productsReducer/productsActions';
@@ -9,6 +9,7 @@ const NewArrivals = () => {
 	const items = productsReducer.products.slice(0, 7);
 	useEffect(() => {
 		dispatch(fetchAllProducts());
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	const loading = items.length === 0 ? <h3 style={{ textAlign: 'center', marginTop: '25px' }}>Loading...</h3> : null;

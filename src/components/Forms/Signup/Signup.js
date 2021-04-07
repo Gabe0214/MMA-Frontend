@@ -28,11 +28,13 @@ const SignupForm = () => {
 					if (seconds <= 1) {
 						dispatch(userFormSubmitted(false));
 						history.push('/signin');
+						resetFields();
 					}
 				}, 800);
 				return () => clearInterval(intervalId);
 			}
 		},
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[ userReducer.userFormSubmitted, seconds ]
 	);
 

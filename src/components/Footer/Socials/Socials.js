@@ -6,7 +6,6 @@ import { faYoutubeSquare } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelopeSquare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Socials.scss';
-import { Link } from 'react-router-dom';
 export const Socials = () => {
 	const socialIcons = [
 		{ name: faFacebookSquare, url: 'facebook.com', class: 'social' },
@@ -21,7 +20,12 @@ export const Socials = () => {
 			<h3 className='subtitle'>Socials</h3>
 			<div className='socials-icon-container'>
 				{socialIcons.map((icon, i) => (
-					<a key={i} href={!icon.url.includes('@') ? `https://${icon.url}` : `mailto:${icon.url}`} target='_blank'>
+					<a
+						key={i}
+						href={!icon.url.includes('@') ? `https://${icon.url}` : `mailto:${icon.url}`}
+						target='_blank'
+						rel='noopener noreferrer'
+					>
 						<FontAwesomeIcon icon={icon.name} className={icon.class} size='lg' key={i} />
 					</a>
 				))}

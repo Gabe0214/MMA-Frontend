@@ -1,39 +1,35 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
 import './desktopLinks.scss';
 export const DesktopLinks = ({ setOptions, options }) => {
 	const mouseOver = (type) => {
-		if (type == 'men') {
+		if (type === 'men') {
 			return setOptions({ ...options, men: true, women: false, kids: false, mma: false });
 		}
 
-		if (type == 'women') {
+		if (type === 'women') {
 			return setOptions({ ...options, women: true, men: false, kids: false, mma: false });
 		}
 
-		if (type == 'kid') {
+		if (type === 'kid') {
 			return setOptions({ ...options, women: false, men: false, kids: true, mma: false });
 		}
 
-		if (type == 'mma') {
+		if (type === 'mma') {
 			return setOptions({ ...options, women: false, men: false, kids: false, mma: true });
 		}
 	};
 
 	const mouseLeave = (type) => {
-		if (type != 'men') {
+		if (type !== 'men') {
 			return setOptions({ ...options, men: false });
 		}
 
-		if (type != 'women') {
+		if (type !== 'women') {
 			return setOptions({ ...options, women: false });
 		}
-
-		// if (type != 'mma') {
-		// 	return setOptions({ ...options, mma: false });
-		// }
 	};
 	return (
 		<div className='desktop-links-outer-container'>
@@ -48,11 +44,7 @@ export const DesktopLinks = ({ setOptions, options }) => {
 					Kid's <FontAwesomeIcon icon={faChevronDown} className={!options.kids ? 'arrow-icon' : 'hovered'} />
 				</li>
 				<li onMouseOver={() => mouseOver('mma')} onMouseLeave={() => mouseLeave('mma')}>
-					MMA Gear<FontAwesomeIcon
-						icon={faChevronDown}
-						className='arrow-icon'
-						className={!options.mma ? 'arrow-icon' : 'hovered'}
-					/>{' '}
+					MMA Gear<FontAwesomeIcon icon={faChevronDown} className={!options.mma ? 'arrow-icon' : 'hovered'} />{' '}
 				</li>
 				<li>
 					<NavLink to='/products/all'>Shop All</NavLink>

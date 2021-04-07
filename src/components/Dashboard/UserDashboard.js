@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { api } from '../utils/axiosWithAuth';
 import { getUserOrders } from '../reducers/userReducer/userAction';
 import './dashboard.scss';
 import { UserOrders } from './UserOrders/UserOrders';
 import { Pagination } from '../Pagination/Pagination';
 
 const UserDashboard = () => {
-	const [ postsPerPage, setPostPerPage ] = useState(6);
+	const [ postsPerPage ] = useState(6);
 	const [ currentPage, setCurrentPage ] = useState(1);
 	const history = useHistory();
 
@@ -25,9 +24,10 @@ const UserDashboard = () => {
 
 	useEffect(() => {
 		dispatch(getUserOrders(customer_id));
-		if (customer.user.firstname == '') {
+		if (customer.user.firstname === '') {
 			return logout();
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	// Orders Pagination
@@ -37,7 +37,7 @@ const UserDashboard = () => {
 	const currentOrders = customer.user.orders.slice(indexOfFirstPost, indexOfLastPost);
 	const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-	if (customer.user.firstname == '') {
+	if (customer.user.firstname === '') {
 		return <h1>Loading...</h1>;
 	}
 

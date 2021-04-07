@@ -17,17 +17,18 @@ const LoginForm = () => {
 	const userReducer = useSelector((state) => state.customer);
 
 	const routeToDashboard = () => {
+		console.log('should route');
 		history.push('/user/dashboard');
 		dispatch(userFormSubmitted(false));
+		resetFields();
 	};
 
 	useEffect(
 		() => {
-			return () => {
-				const route = routeToDashboard;
-				route();
-				resetFields();
-			};
+			const formSubmitted = userReducer.userFormSubmitted;
+			if (formSubmitted) {
+				routeToDashboard();
+			}
 		},
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[ userReducer.userFormSubmitted ]

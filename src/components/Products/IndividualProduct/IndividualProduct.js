@@ -14,22 +14,26 @@ const IndividualProduct = (props) => {
 	const allSizes = [ { size: 'S' }, { size: 'M' }, { size: 'L' }, { size: 'XL' }, { size: '2XL' }, { size: '3XL' } ];
 	const id = props.match.params.id;
 
-	useEffect(() => {
-		const cancelToken = Axios.CancelToken; // cancel token is used to fully abort asynchronous calls when component is unmounted. If not, memory leakage error occurs.
-		const source = cancelToken.source();
+	useEffect(
+		() => {
+			const cancelToken = Axios.CancelToken; // cancel token is used to fully abort asynchronous calls when component is unmounted. If not, memory leakage error occurs.
+			const source = cancelToken.source();
 
-		Axios.get(`https://mma-server.herokuapp.com/products/${id}`, { cancelToken: source.token })
-			.then((res) => {
-				setProduct(res.data);
-				setCurrentImgView(res.data.image); /* current image view will change dynamically via user actions*/
-				setImages([ res.data.image, res.data.image_2, res.data.image_3 ]);
-			})
-			.catch((err) => console.log(err));
+			Axios.get(`https://mma-server.herokuapp.com/products/${id}`, { cancelToken: source.token })
+				.then((res) => {
+					setProduct(res.data);
+					setCurrentImgView(res.data.image); /* current image view will change dynamically via user actions*/
+					setImages([ res.data.image, res.data.image_2, res.data.image_3 ]);
+				})
+				.catch((err) => console.log(err));
 
-		return () => {
-			source.cancel();
-		};
-	}, []);
+			return () => {
+				source.cancel();
+			};
+		},
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+		[ id ]
+	);
 
 	return (
 		<div className='product-individual-main-container'>

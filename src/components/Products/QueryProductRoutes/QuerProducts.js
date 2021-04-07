@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import './QueryProducts.scss';
@@ -15,7 +14,7 @@ const QuerProducts = ({ location }) => {
 	console.log(reString);
 
 	console.log(reStringTwo);
-	const dispatch = useDispatch();
+
 	const qry = location.search;
 
 	useEffect(
@@ -41,7 +40,7 @@ const QuerProducts = ({ location }) => {
 				<h1>Loading...</h1>
 			</div>
 		);
-	} else if (qryProducts.length == 0) {
+	} else if (qryProducts.length === 0) {
 		return (
 			<div className='no-qry-container'>
 				<h1>No Items Found</h1>
