@@ -8,7 +8,7 @@ const ProductCard = ({ images, name, image, setImageView, price }) => {
 	return (
 		// <div className='product-container'>
 		<div className='main-img-view-images-container'>
-			<img src={image} alt='AN IMAGE' className='main-img-view' />
+			<img src={image} alt='product' className='main-img-view' />
 			<div className='images-container'>
 				{images &&
 					images.map((image) => {
@@ -16,7 +16,7 @@ const ProductCard = ({ images, name, image, setImageView, price }) => {
 							return (
 								<img
 									src={image && image}
-									alt='an Image'
+									alt='product'
 									key={image}
 									onClick={((e) => e.preventDefault, () => changeMainImageView(image))}
 								/>
@@ -24,9 +24,6 @@ const ProductCard = ({ images, name, image, setImageView, price }) => {
 						}
 					})}
 			</div>
-			{/* </div> */}
-			{/* <h3 className='product-name'>{name}</h3>
-			<span className='price'>${price}</span> */}
 		</div>
 	);
 };
