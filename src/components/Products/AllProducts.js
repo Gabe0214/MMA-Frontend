@@ -56,10 +56,6 @@ function AllProducts() {
 		}
 	}
 
-	// function filter(filterBy) {
-	// 	dispatch(filterProducts(filterBy));
-	// }
-
 	const filter = (filterBy) => {
 		dispatch(filterProducts(filterBy));
 	};
