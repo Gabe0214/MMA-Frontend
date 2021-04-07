@@ -10,9 +10,10 @@ const cartReducer = (state = initialState, action) => {
 	switch (type) {
 		case 'ADD_ITEM_TO_CART':
 			const duplicates = state.items.filter((product) => {
-				if (product.product_id == payload.product_id && product.size == payload.size) {
+				if (product.product_id === payload.product_id && product.size === payload.size) {
 					return product;
 				}
+				return null;
 			});
 			console.log(duplicates);
 			if (duplicates.length > 0) {
@@ -20,7 +21,7 @@ const cartReducer = (state = initialState, action) => {
 				// OK -> cart:[{shirt: 'blue' size: 'M', quantity: 2}, {shirt: 'blue', size: 'L', quantity: 1}]
 				//  NOT OK -> cart: [{shirt: 'blue', size: 'L', quantity: 1}, {shirt: 'blue', size: 'L', quantity: 3}]
 				const removeProduct = state.items.filter((product) => {
-					if (product.product_id == payload.product_id && product.size == payload.size) {
+					if (product.product_id === payload.product_id && product.size === payload.size) {
 						return product.product_id !== payload.product_id;
 					}
 					return product;
@@ -61,7 +62,6 @@ const cartReducer = (state = initialState, action) => {
 		default:
 			return state;
 	}
-	return state;
 };
 
 export default cartReducer;

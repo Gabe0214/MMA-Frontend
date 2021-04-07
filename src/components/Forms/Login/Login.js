@@ -17,6 +17,7 @@ const LoginForm = () => {
 	const userReducer = useSelector((state) => state.customer);
 
 	const routeToDashboard = () => {
+		console.log('should route');
 		history.push('/user/dashboard');
 		dispatch(userFormSubmitted(false));
 		resetFields();
@@ -24,7 +25,7 @@ const LoginForm = () => {
 
 	useEffect(
 		() => {
-			const formSubmitted = userReducer.formSubmitted;
+			const formSubmitted = userReducer.userFormSubmitted;
 			if (formSubmitted) {
 				routeToDashboard();
 			}

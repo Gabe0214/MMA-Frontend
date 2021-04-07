@@ -6,7 +6,7 @@ export const Sizes = ({ allSizes, sizeSelected, setSelectedSize }) => {
 	// const allSizes = [{size: 'S'}, {size: 'M'}, {size: 'L'}, {size: 'XL'}, {size: '2XL'}, {size: '3XL'}]
 
 	const sizeChecked = (sizeId) => {
-		setCheckedSize((currState) => true);
+		setCheckedSize(!checkedSize);
 		setSelectedSize(sizeId);
 	};
 
@@ -17,7 +17,7 @@ export const Sizes = ({ allSizes, sizeSelected, setSelectedSize }) => {
 				{allSizes.map((size, i) => (
 					<div
 						key={i}
-						className={size.size == sizeSelected ? 'size checked-size' : 'size'}
+						className={size.size === sizeSelected ? 'size checked-size' : 'size'}
 						onClick={() => sizeChecked(size.size)}
 					>
 						{size.size}

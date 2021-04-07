@@ -19,10 +19,11 @@ export const useForm = (cb, validateForm) => {
 
 	useEffect(
 		() => {
-			if (Object.keys(errors).length == 0 && submitted) {
+			if (Object.keys(errors).length === 0 && submitted) {
 				cb();
 			}
 		},
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[ errors ]
 	);
 

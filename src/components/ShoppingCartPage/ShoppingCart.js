@@ -82,7 +82,7 @@ const ShoppingCart = () => {
 	return (
 		<section onClick={closeCartNavMenu} className='shopping-cart-main-view'>
 			<h1 className='shopping-cart-title'>Shopping Cart</h1>
-			{shoppingCart.items.length == 0 ? (
+			{shoppingCart.items.length === 0 ? (
 				<div className='no-items-container'>
 					<h2 className='no-items'>There are not items in your cart</h2>
 					<Link to='products/all'>Shop Here</Link>
@@ -93,7 +93,7 @@ const ShoppingCart = () => {
 						{shoppingCart.items.map((product, i) => (
 							<div className='item-container' key={i}>
 								<div className='image-container'>
-									<img src={product.img} />
+									<img src={product.img} alt='product' />
 								</div>
 								<div className='item-info'>
 									<h4>{product.name}</h4>

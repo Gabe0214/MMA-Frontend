@@ -72,6 +72,7 @@ export const ArrivalProducts = ({ products }) => {
 								className='product-image'
 								src={item.image}
 								draggable='false'
+								alt='product'
 								onMouseDown={(e) => e.preventDefault()}
 							/>
 							<h3>{item.name}</h3>
