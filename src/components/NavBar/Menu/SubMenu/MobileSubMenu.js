@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { items } from './subMenuLinks';
 import { useDispatch } from 'react-redux';
 import './MobileSubMenu.scss';
@@ -27,9 +27,9 @@ export const MobileSubMenu = ({ mens, women, kids, mma, subMenu, setSubMenu }) =
 		<div className='sub-menu-container'>
 			<ul className='links-container'>
 				{mens ? (
-					NavLinks[0].map((link, i) => (
+					NavLinks[0].map((link) => (
 						<NavLink
-							key={i}
+							key={link}
 							onClick={NavClick}
 							to={`/products?product_for=${link.split(' ')[0].substring(0, 3).toLocaleLowerCase()}&type=${link
 								.split(' ')[1]
@@ -40,10 +40,10 @@ export const MobileSubMenu = ({ mens, women, kids, mma, subMenu, setSubMenu }) =
 					))
 				) : null}
 				{women ? (
-					NavLinks[1].map((link, i) => (
+					NavLinks[1].map((link) => (
 						<NavLink
 							onClick={NavClick}
-							key={i}
+							key={link}
 							to={`/products?product_for=${link.split(' ')[0].substring(0, 5).toLowerCase()}&type=${link
 								.split(' ')[1]
 								.toLowerCase()}`}
@@ -53,10 +53,10 @@ export const MobileSubMenu = ({ mens, women, kids, mma, subMenu, setSubMenu }) =
 					))
 				) : null}
 				{kids ? (
-					NavLinks[2].map((link, i) => (
+					NavLinks[2].map((link) => (
 						<NavLink
 							onClick={NavClick}
-							key={i}
+							key={link}
 							to={`/products?product_for=${link.split(' ')[0].substring(0, 3).toLowerCase()}&type=${link
 								.split(' ')[1]
 								.toLowerCase()}`}
@@ -66,8 +66,8 @@ export const MobileSubMenu = ({ mens, women, kids, mma, subMenu, setSubMenu }) =
 					))
 				) : null}
 				{mma ? (
-					NavLinks[3].map((link, i) => (
-						<NavLink onClick={NavClick} key={i} to={`/products?product_for=unisex&type=${link.toLowerCase()}`}>
+					NavLinks[3].map((link) => (
+						<NavLink onClick={NavClick} key={link} to={`/products?product_for=unisex&type=${link.toLowerCase()}`}>
 							{link}
 						</NavLink>
 					))

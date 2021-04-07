@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchAllProducts } from '../reducers/productsReducer/productsActions';
 import { ProductsView } from './ProductsView';
@@ -33,25 +33,27 @@ function AllProducts() {
 		};
 		getBrands();
 		dispatch(fetchAllProducts());
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	useEffect(
 		() => {
 			sortP('');
 		},
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[ sortOption ]
 	);
 
 	function sortP() {
-		if (sortOption == 'A-Z') {
+		if (sortOption === 'A-Z') {
 			dispatch(sortProductsByDesc());
-		} else if (sortOption == 'Z-A') {
+		} else if (sortOption === 'Z-A') {
 			dispatch(sortProductsByAsc());
-		} else if (sortOption == 'High-Low') {
+		} else if (sortOption === 'High-Low') {
 			dispatch(sortProductsPriceHighLow());
-		} else if (sortOption == 'Low-High') {
+		} else if (sortOption === 'Low-High') {
 			dispatch(sortProductsPriceLowHigh());
-		} else if (sortOption == '') {
+		} else if (sortOption === '') {
 			return;
 		}
 	}

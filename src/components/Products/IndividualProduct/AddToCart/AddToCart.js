@@ -31,8 +31,8 @@ export const CartSection = ({ product, size }) => {
 		<div className='cart-section-container'>
 			<div className='quantity-container'>
 				<button
-					className={quantity == 1 ? 'btn disabled' : 'btn'}
-					disabled={quantity == 1 ? 'disabled' : null}
+					className={quantity === 1 ? 'btn disabled' : 'btn'}
+					disabled={quantity === 1 ? 'disabled' : null}
 					onClick={() => setQuanitiy((prevState) => prevState - 1)}
 				>
 					-
