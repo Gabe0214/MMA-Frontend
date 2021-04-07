@@ -16,13 +16,20 @@ const LoginForm = () => {
 	const history = useHistory();
 	const userReducer = useSelector((state) => state.customer);
 
+	const routeToDashboard = () => {
+		history.push('/user/dashboard');
+		dispatch(userFormSubmitted(false));
+	};
+
 	useEffect(
 		() => {
-			if (userReducer.userFormSubmitted) {
-				history.push('/user/dashboard');
-				dispatch(userFormSubmitted(false));
-			}
+			return () => {
+				const route = routeToDashboard;
+				route();
+				resetFields();
+			};
 		},
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[ userReducer.userFormSubmitted ]
 	);
 	return (
