@@ -20,15 +20,21 @@ const SignupForm = () => {
 	};
 	const [ values, handleChanges, resetFields, errors, handleSubmit ] = useForm(cb, signupValidation);
 
+	const registerMessage = () => {
+		dispatch(userFormSubmitted(false));
+		history.push('/signin');
+		resetFields();
+	};
+
+	console.log(userReducer.userFormSubmitted);
+
 	useEffect(
 		() => {
 			if (userReducer.userFormSubmitted) {
 				var intervalId = setInterval(() => {
 					setSeconds(seconds - 1);
 					if (seconds <= 1) {
-						dispatch(userFormSubmitted(false));
-						history.push('/signin');
-						resetFields();
+						registerMessage();
 					}
 				}, 800);
 				return () => clearInterval(intervalId);
