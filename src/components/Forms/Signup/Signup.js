@@ -46,7 +46,6 @@ const SignupForm = () => {
 
 	return (
 		<div className='form-container'>
-			{userReducer.userFormSubmitted ? <ModalSubmit heading={'Thank You For Registering!!'} seconds={seconds} /> : null}
 			<form onSubmit={handleSubmit} noValidate>
 				<div className='title-container'>
 					<h1>Create Account</h1>
@@ -117,6 +116,7 @@ const SignupForm = () => {
 					Returning customer? <NavLink to='/signin'>Login</NavLink>
 				</p>
 			</form>
+			{userReducer.userFormSubmitted ? <ModalSubmit heading={'Thank You For Registering!!'} seconds={seconds} /> : null}
 		</div>
 	);
 };
