@@ -23,6 +23,8 @@ const LoginForm = () => {
 		resetFields();
 	};
 
+	console.log(userReducer.userFormSubmitted);
+
 	useEffect(
 		() => {
 			const formSubmitted = userReducer.userFormSubmitted;
@@ -57,7 +59,7 @@ const LoginForm = () => {
 					{errors.password && <p className='errors'>{errors.password}</p>}
 				</div>
 				<button className='form-btn' type='submit'>
-					{!userReducer.loadingUser ? (
+					{userReducer.loadingUser === false ? (
 						'Login'
 					) : (
 						<Loader

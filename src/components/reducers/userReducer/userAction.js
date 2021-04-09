@@ -45,10 +45,8 @@ export const getUserOrdersSuccess = (orders) => ({
 });
 
 export const registerUser = (userData) => async (dispatch) => {
-	dispatch(userLoading());
-
 	try {
-		// const res = await api().post('/auth/signup', userData);
+		await api().post('/auth/signup', userData);
 
 		dispatch(userFormSubmitted(true));
 	} catch (err) {

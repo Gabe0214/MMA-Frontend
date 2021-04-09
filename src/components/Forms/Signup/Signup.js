@@ -20,15 +20,21 @@ const SignupForm = () => {
 	};
 	const [ values, handleChanges, resetFields, errors, handleSubmit ] = useForm(cb, signupValidation);
 
+	const registerMessage = () => {
+		dispatch(userFormSubmitted(false));
+		history.push('/signin');
+		resetFields();
+	};
+
+	console.log(userReducer.userFormSubmitted);
+
 	useEffect(
 		() => {
 			if (userReducer.userFormSubmitted) {
 				var intervalId = setInterval(() => {
 					setSeconds(seconds - 1);
 					if (seconds <= 1) {
-						dispatch(userFormSubmitted(false));
-						history.push('/signin');
-						resetFields();
+						registerMessage();
 					}
 				}, 800);
 				return () => clearInterval(intervalId);
@@ -40,7 +46,6 @@ const SignupForm = () => {
 
 	return (
 		<div className='form-container'>
-			{userReducer.userFormSubmitted ? <ModalSubmit heading={'Thank You For Registering!!'} seconds={seconds} /> : null}
 			<form onSubmit={handleSubmit} noValidate>
 				<div className='title-container'>
 					<h1>Create Account</h1>
@@ -111,6 +116,7 @@ const SignupForm = () => {
 					Returning customer? <NavLink to='/signin'>Login</NavLink>
 				</p>
 			</form>
+			{userReducer.userFormSubmitted ? <ModalSubmit heading={'Thank You For Registering!!'} seconds={seconds} /> : null}
 		</div>
 	);
 };
