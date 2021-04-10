@@ -1,15 +1,20 @@
 import { api } from '../../utils/axiosWithAuth';
 
+export const removeUserError = () => ({
+	type: 'REMOVE USER ERROR'
+});
+
 export const userFormSubmitted = (type) => ({
 	type: 'USER SUBMITTED FORM',
 	payload: type
 });
+
 export const userLoading = () => ({
 	type: 'LOADING USER'
 });
 
-export const userError = (error) => ({
-	type: 'USER ERROR',
+export const registerUserError = (error) => ({
+	type: 'REGISTER USER ERROR',
 	payload: error
 });
 
@@ -22,16 +27,13 @@ export const userLoginSuccess = (data) => ({
 	payload: data
 });
 
-export const userLoginFailure = () => ({
-	type: 'LOGIN USER FAILURE'
+export const userLoginFailure = (error) => ({
+	type: 'LOGIN USER FAILURE',
+	payload: error
 });
 
 export const orderLoading = () => ({
 	type: 'ORDER LOADING'
-});
-
-export const getUserOrderLoading = () => ({
-	type: 'GET_USER_ORDERS_LOADING'
 });
 
 export const getUserOrderErrors = (error) => ({
@@ -47,10 +49,10 @@ export const getUserOrdersSuccess = (orders) => ({
 export const registerUser = (userData) => async (dispatch) => {
 	try {
 		await api().post('/auth/signup', userData);
-
 		dispatch(userFormSubmitted(true));
 	} catch (err) {
-		dispatch(userError(err));
+		const { Message } = err.response.data;
+		dispatch(registerUserError(Message));
 	}
 };
 
@@ -59,18 +61,17 @@ export const loginUser = (userData) => async (dispatch) => {
 
 	try {
 		const res = await api().post('/auth/login', userData);
-
 		localStorage.setItem('token', res.data.token);
 		const user = res.data.user;
 		dispatch(userLoginSuccess(user));
 		dispatch(userFormSubmitted(true));
 	} catch (err) {
-		dispatch(userLoginFailure());
+		dispatch(userLoginFailure(err));
 	}
 };
 
 export const getUserOrders = (id) => async (dispatch) => {
-	dispatch(getUserOrderLoading());
+	dispatch(userLoading());
 
 	try {
 		const res = await api().get(`/orders/order/user/${id}`);
