@@ -63,7 +63,7 @@ const LoginForm = () => {
 					{userError}
 				</p>
 				<button className='form-btn' type='submit'>
-					{!userReducer.userFormSubmitted ? (
+					{!userReducer.loadingUser ? (
 						'Login'
 					) : (
 						<Loader
