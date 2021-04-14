@@ -66,7 +66,8 @@ export const loginUser = (userData) => async (dispatch) => {
 		dispatch(userLoginSuccess(user));
 		dispatch(userFormSubmitted(true));
 	} catch (err) {
-		dispatch(userLoginFailure(err));
+		const { response: { data: { message } } } = err;
+		dispatch(userLoginFailure(message));
 	}
 };
 

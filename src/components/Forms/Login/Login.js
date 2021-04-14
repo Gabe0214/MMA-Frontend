@@ -3,7 +3,7 @@ import { useForm } from '../useForm/useForm';
 import { loginValidation } from '../FormValidaton/formValidation';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { loginUser, userFormSubmitted } from '../../reducers/userReducer/userAction';
+import { loginUser, userFormSubmitted, removeUserError } from '../../reducers/userReducer/userAction';
 import { useHistory } from 'react-router-dom';
 import Loader from 'react-loader-spinner';
 
@@ -22,12 +22,16 @@ const LoginForm = () => {
 		resetFields();
 	};
 
+	const { userError } = userReducer;
+
 	useEffect(
 		() => {
 			const formSubmitted = userReducer.userFormSubmitted;
 			if (formSubmitted) {
 				routeToDashboard();
 			}
+
+			dispatch(removeUserError());
 		},
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[ userReducer.userFormSubmitted ]
@@ -55,8 +59,11 @@ const LoginForm = () => {
 					/>
 					{errors.password && <p className='errors'>{errors.password}</p>}
 				</div>
+				<p className='errors' style={{ color: 'red' }}>
+					{userError}
+				</p>
 				<button className='form-btn' type='submit'>
-					{!userReducer.userFormSubmitted ? (
+					{!userReducer.loadingUser ? (
 						'Login'
 					) : (
 						<Loader
