@@ -2,9 +2,11 @@ import React from 'react';
 import './pagination.scss';
 export const Pagination = ({ totalPosts, postsPerPage, paginate }) => {
 	const pageNumber = [];
+
 	for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
 		pageNumber.push(i);
 	}
+
 	return (
 		<div className='pages-container'>
 			<ul>

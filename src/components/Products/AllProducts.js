@@ -14,10 +14,14 @@ import {
 import './ProductsView.scss';
 import axios from 'axios';
 import { DesktopFiltering } from '../Filter.js/DesktopFiltering/DesktopFiltering';
+import { Pagination } from '../Pagination/Pagination';
+import { usePagination } from '../Pagination/usePagination/usePagination';
+
 function AllProducts() {
 	const [ sortOption, setSortOption ] = useState('');
 	const [ brands, setBrands ] = useState([]);
 	const productReducer = useSelector((state) => state.productsReducer);
+	const [ postsPerPage, currentOrders, paginate ] = usePagination();
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -81,8 +85,10 @@ function AllProducts() {
 			</div>
 			<div className='products-desktop-filter-container'>
 				<DesktopFiltering filter={filter} brands={brands} />
-				<ProductsView products={productReducer.products} />
+				<ProductsView products={currentOrders} />
 			</div>
+
+			<Pagination postsPerPage={postsPerPage} totalPosts={productReducer.products.length} paginate={paginate} />
 		</div>
 	);
 }
