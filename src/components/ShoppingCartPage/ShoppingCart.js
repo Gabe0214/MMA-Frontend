@@ -16,7 +16,7 @@ const ShoppingCart = () => {
 	const dispatch = useDispatch();
 	const history = useHistory();
 
-	const removeItem = (id, price, qty) => {
+	const removeItem = (id, price) => {
 		dispatch({
 			type: 'REMOVE_ITEM',
 			payload: { id }
