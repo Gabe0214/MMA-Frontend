@@ -12,7 +12,6 @@ const initialState = {
 
 	loadingUser: false,
 	userError: false,
-	userSucceed: false,
 	userFormSubmitted: false,
 	userOrderError: false
 };
