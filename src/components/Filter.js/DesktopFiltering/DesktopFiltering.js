@@ -1,6 +1,10 @@
 import React from 'react';
 import './DesktopFiltering.scss';
-export const DesktopFiltering = ({ brands, filter }) => {
+export const DesktopFiltering = ({ brands, filter, resetPagination }) => {
+	const onClick = (brand) => {
+		filter(brand);
+		resetPagination(1);
+	};
 	return (
 		<div className='filter-main-container'>
 			<div className='filter-option-container'>
@@ -9,7 +13,7 @@ export const DesktopFiltering = ({ brands, filter }) => {
 					{brands &&
 						brands.map((brand, i) => {
 							return (
-								<li key={i} onClick={() => filter(brand)}>
+								<li key={i} onClick={() => onClick(brand)}>
 									{brand.toUpperCase()}
 								</li>
 							);

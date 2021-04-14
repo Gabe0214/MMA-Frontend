@@ -21,7 +21,7 @@ function AllProducts() {
 	const [ sortOption, setSortOption ] = useState('');
 	const [ brands, setBrands ] = useState([]);
 	const productReducer = useSelector((state) => state.productsReducer);
-	const [ postsPerPage, currentOrders, paginate ] = usePagination();
+	const [ postsPerPage, setCurrentPage, currentOrders, paginate ] = usePagination();
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -84,10 +84,9 @@ function AllProducts() {
 				<Filter filterBrand={filter} brands={brands} />
 			</div>
 			<div className='products-desktop-filter-container'>
-				<DesktopFiltering filter={filter} brands={brands} />
+				<DesktopFiltering filter={filter} brands={brands} resetPagination={setCurrentPage} />
 				<ProductsView products={currentOrders} />
 			</div>
-
 			<Pagination postsPerPage={postsPerPage} totalPosts={productReducer.products.length} paginate={paginate} />
 		</div>
 	);

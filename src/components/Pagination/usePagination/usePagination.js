@@ -11,5 +11,5 @@ export const usePagination = () => {
 	const currentOrders = productsReducer.products.slice(indexOfFirstPost, indexOfLastPost);
 	const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-	return [ postsPerPage, currentOrders, paginate ];
+	return [ postsPerPage, setCurrentPage, currentOrders, paginate ];
 };
