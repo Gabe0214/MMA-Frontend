@@ -19,7 +19,6 @@ const UserDashboard = () => {
 		history.push('/signin');
 	};
 
-	console.log(customer.user);
 	const customer_id = customer.user.user_id;
 
 	useEffect(() => {

@@ -4,7 +4,7 @@ import { states } from './fiftyStates';
 import { signupValidation } from '../FormValidaton/formValidation';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { registerUser, userFormSubmitted } from '../../reducers/userReducer/userAction';
+import { registerUser, userFormSubmitted, removeUserError } from '../../reducers/userReducer/userAction';
 import { useHistory } from 'react-router-dom';
 import { ModalSubmit } from '../ModalSubmit';
 import '../Form.scss';
@@ -26,8 +26,6 @@ const SignupForm = () => {
 		resetFields();
 	};
 
-	console.log(userReducer.userFormSubmitted);
-
 	useEffect(
 		() => {
 			if (userReducer.userFormSubmitted) {
@@ -39,6 +37,7 @@ const SignupForm = () => {
 				}, 800);
 				return () => clearInterval(intervalId);
 			}
+			dispatch(removeUserError());
 		},
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[ userReducer.userFormSubmitted, seconds ]
@@ -109,6 +108,7 @@ const SignupForm = () => {
 					<input name='adress' value={values.adress || ''} onChange={handleChanges} placeholder='Address' />
 					{errors.adress && <p className='errors'>{errors.adress}</p>}
 				</div>
+				<p style={{ color: 'red' }}>{userReducer.userError}</p>
 				<button type='submit' className='form-btn'>
 					Sign Up
 				</button>

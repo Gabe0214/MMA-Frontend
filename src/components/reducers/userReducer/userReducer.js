@@ -14,7 +14,6 @@ const initialState = {
 	userError: false,
 	userSucceed: false,
 	userFormSubmitted: false,
-	userOrdersLoading: false,
 	userOrderError: false
 };
 
@@ -22,16 +21,18 @@ const userReducer = (state = initialState, action) => {
 	const { type, payload } = action;
 
 	switch (type) {
+		case 'REMOVE USER ERROR':
+			return { ...state, userError: false };
 		case 'USER SUBMITTED FORM':
 			return { ...state, userFormSubmitted: payload };
 		case 'LOADING USER':
 			return { ...state, loadingUser: true };
-		case 'USER ERROR':
-			return { ...state, loadingUser: false, userError: true };
+		case 'REGISTER USER ERROR':
+			return { ...state, loadingUser: false, userError: payload };
 		case 'REGISTER USER SUCCESS':
-			return { ...state, loadingUser: false, userSucceed: true };
+			return { ...state, loadingUser: false, userError: false };
 		case 'LOGIN USER FALIURE':
-			return { ...state, loadingUser: false, userError: true };
+			return { ...state, loadingUser: false, userError: payload };
 		case 'LOGIN USER SUCCESS':
 			const { user_id, username, firstname, lastname, email, city, zip, adress, adress_2 } = payload;
 			const userData = {
@@ -48,12 +49,11 @@ const userReducer = (state = initialState, action) => {
 			};
 
 			return { ...state, loadingUser: false, user: { ...userData, orders: [ ...state.user.orders ] } };
-		case 'GET_USER_ORDERS_LOADING':
-			return { ...state, loadingOrdersLoading: true };
+
 		case 'GET_USER_ORDERS_FAILURE':
-			return { ...state, loadOrdersLoading: false, userOrderError: payload.error };
+			return { ...state, loadingUser: false, userOrderError: payload };
 		case 'GET_USER_ORDERS_SUCCESS':
-			return { ...state, user: { ...state.user, orders: payload } };
+			return { ...state, loadingUser: false, user: { ...state.user, orders: payload } };
 		default:
 			return state;
 	}

@@ -17,13 +17,10 @@ const LoginForm = () => {
 	const userReducer = useSelector((state) => state.customer);
 
 	const routeToDashboard = () => {
-		console.log('should route');
 		history.push('/user/dashboard');
 		dispatch(userFormSubmitted(false));
 		resetFields();
 	};
-
-	console.log(userReducer.userFormSubmitted);
 
 	useEffect(
 		() => {
@@ -59,7 +56,7 @@ const LoginForm = () => {
 					{errors.password && <p className='errors'>{errors.password}</p>}
 				</div>
 				<button className='form-btn' type='submit'>
-					{userReducer.loadingUser === false ? (
+					{!userReducer.userFormSubmitted ? (
 						'Login'
 					) : (
 						<Loader
