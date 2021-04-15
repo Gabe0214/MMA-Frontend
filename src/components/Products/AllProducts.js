@@ -87,7 +87,12 @@ function AllProducts() {
 				<DesktopFiltering filter={filter} brands={brands} resetPagination={setCurrentPage} />
 				<ProductsView products={currentOrders} />
 			</div>
-			<Pagination postsPerPage={postsPerPage} totalPosts={productReducer.products.length} paginate={paginate} />
+			<Pagination
+				postsPerPage={postsPerPage}
+				totalPosts={productReducer.products.length}
+				paginate={paginate}
+				setCurrentPage={setCurrentPage}
+			/>
 		</div>
 	);
 }
