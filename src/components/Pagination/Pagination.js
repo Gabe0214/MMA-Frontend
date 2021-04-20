@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './pagination.scss';
 export const Pagination = ({ totalPosts, postsPerPage, paginate, setCurrentPage }) => {
 	const [ sliceStart, setSliceStart ] = useState(1);
 	const [ sliceEnd, setSliceEnd ] = useState(0);
+	const pageRef = useRef();
 
 	const pageNumber = [];
 
@@ -12,45 +13,59 @@ export const Pagination = ({ totalPosts, postsPerPage, paginate, setCurrentPage 
 
 	const onPageClick = (page) => {
 		const fourthFromEnd = pageNumber[pageNumber.length - 1] - 3;
-		const OneLessFromHalf = pageNumber[pageNumber.length - 1] / 2 - 1;
+		const OneLessFromHalf = Math.ceil(pageNumber[pageNumber.length - 1] / 2 - 1);
 		const pageOne = pageNumber[0];
 		const lastPage = pageNumber[pageNumber.length - 1];
+		const mutatedArr = pagesStart;
+		const firstItemMutatedArr = mutatedArr[0];
 
 		if (pageNumber.length <= 6) {
 			return paginate(page);
 		}
-		if (
-			Math.ceil(OneLessFromHalf) === page ||
-			(pagesStart[pagesStart.length - 1] === page && page !== fourthFromEnd && page < fourthFromEnd)
-		) {
+		if (pagesStart[pagesStart.length - 1] === page && page < fourthFromEnd) {
 			setSliceStart(page - 2);
 			setSliceEnd(page + 1);
 			paginate(page);
-			console.log('hello');
 		} else if (page === fourthFromEnd) {
 			setSliceEnd(pageNumber[pageNumber.length - 2]);
 			paginate(page);
 		} else if (page === pageOne) {
-			console.log('its one');
 			setSliceStart(1);
 			setSliceEnd(5);
 			paginate(page);
 		} else if (page === lastPage) {
-			console.log('hello poop');
 			setSliceStart(lastPage - 6);
 			setSliceEnd(pageNumber[pageNumber.length - 2]);
+			paginate(page);
+		} else if (firstItemMutatedArr !== pageOne + 3 && firstItemMutatedArr === page && pageNumber[1] !== page) {
+			if (pagesStart.length === 5) {
+				setSliceStart(page - 2);
+				setSliceEnd(page + 1);
+			} else {
+				console.log(pageNumber.slice(pagesStart[0] - 1, sliceEnd));
+				setSliceStart(pagesStart[0] - 2);
+				setSliceEnd(pagesStart[pagesStart.length - 2]);
+			}
+			paginate(page);
+		} else if (page === pagesStart[0]) {
+			setSliceStart(1);
+			setSliceEnd(OneLessFromHalf);
 			paginate(page);
 		} else {
 			paginate(page);
 		}
-	};
 
-	console.log(pageNumber[0]);
+		// switch(page){
+		// 	case OneLessFromHalf === page:
+
+		// }
+	};
 
 	const backOnePage = () => {
 		setCurrentPage((currentPage) => (currentPage <= 1 ? 1 : currentPage - 1));
 	};
 
+	console.log(pageRef);
 	const pagesStart =
 		pageNumber.length >= 10 ? pageNumber.slice(sliceStart, sliceEnd) : pageNumber.slice(sliceStart, sliceEnd);
 
@@ -62,6 +77,8 @@ export const Pagination = ({ totalPosts, postsPerPage, paginate, setCurrentPage 
 		}
 	}, []);
 
+	console.log(pagesStart);
+
 	return (
 		<div className='pages-container'>
 			<ul>
@@ -70,7 +87,7 @@ export const Pagination = ({ totalPosts, postsPerPage, paginate, setCurrentPage 
 				{sliceStart >= 3 ? <li>...</li> : ''}
 				{pagesStart.map((page) => {
 					return (
-						<li key={page} onClick={() => onPageClick(page)}>
+						<li ref={pageRef} key={page} onClick={() => onPageClick(page)}>
 							{page}
 						</li>
 					);
