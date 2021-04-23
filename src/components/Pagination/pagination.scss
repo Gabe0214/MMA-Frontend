@@ -1,4 +1,6 @@
 .pages-container {
+	display: flex;
+	justify-content: space-evenly;
 	ul {
 		list-style: none;
 		display: flex;
