@@ -12,60 +12,61 @@ export const Pagination = ({ totalPosts, postsPerPage, paginate, setCurrentPage 
 	}
 
 	const onPageClick = (page) => {
-		const fourthFromEnd = pageNumber[pageNumber.length - 1] - 3;
+		const pageToShowLastFour = pageNumber[pageNumber.length - 1] - 3;
 		const OneLessFromHalf = Math.ceil(pageNumber[pageNumber.length - 1] / 2 - 1);
 		const pageOne = pageNumber[0];
 		const lastPage = pageNumber[pageNumber.length - 1];
 		const mutatedArr = pagesStart;
 		const firstItemMutatedArr = mutatedArr[0];
+		const lastItemMutatedArr = mutatedArr[mutatedArr.length - 1];
+		const pageToShowFirstFour = pageOne + 3;
+		const lastRemaingPages = 5;
 
 		if (pageNumber.length <= 6) {
 			return paginate(page);
 		}
-		if (pagesStart[pagesStart.length - 1] === page && page < fourthFromEnd) {
-			setSliceStart(page - 2);
-			setSliceEnd(page + 1);
-			paginate(page);
-		} else if (page === fourthFromEnd) {
-			setSliceEnd(pageNumber[pageNumber.length - 2]);
-			paginate(page);
-		} else if (page === pageOne) {
-			setSliceStart(1);
-			setSliceEnd(5);
-			paginate(page);
-		} else if (page === lastPage) {
-			setSliceStart(lastPage - 6);
-			setSliceEnd(pageNumber[pageNumber.length - 2]);
-			paginate(page);
-		} else if (firstItemMutatedArr !== pageOne + 3 && firstItemMutatedArr === page && pageNumber[1] !== page) {
-			if (pagesStart.length === 5) {
+
+		switch (true) {
+			case lastItemMutatedArr === page && page < pageToShowLastFour:
 				setSliceStart(page - 2);
 				setSliceEnd(page + 1);
-			} else {
-				console.log(pageNumber.slice(pagesStart[0] - 1, sliceEnd));
+				paginate(page);
+				break;
+			case page === pageOne:
+				setSliceStart(1);
+				setSliceEnd(5);
+				paginate(page);
+				break;
+			case page === lastPage:
+				setSliceStart(OneLessFromHalf);
+				setSliceEnd(pageNumber[pageNumber.length - 2]);
+				paginate(page);
+				break;
+			case page === pageToShowFirstFour:
+				setSliceStart(1);
+				setSliceEnd(5);
+				paginate(page);
+				break;
+			case page === pageToShowLastFour:
+				setSliceEnd(pageNumber[pageNumber.length - 2]);
+				paginate(page);
+				break;
+			case firstItemMutatedArr === page &&
+				firstItemMutatedArr !== pageToShowFirstFour &&
+				mutatedArr.length === lastRemaingPages:
+				setSliceStart(page - 2);
+				setSliceEnd(page + 1);
+				break;
+			case firstItemMutatedArr === page && firstItemMutatedArr !== pageNumber[1]:
 				setSliceStart(pagesStart[0] - 2);
 				setSliceEnd(pagesStart[pagesStart.length - 2]);
-			}
-			paginate(page);
-		} else if (page === pagesStart[0]) {
-			setSliceStart(1);
-			setSliceEnd(OneLessFromHalf);
-			paginate(page);
-		} else {
-			paginate(page);
+				console.log('hello');
+				break;
+			default:
+				paginate(page);
 		}
-
-		// switch(page){
-		// 	case OneLessFromHalf === page:
-
-		// }
 	};
 
-	const backOnePage = () => {
-		setCurrentPage((currentPage) => (currentPage <= 1 ? 1 : currentPage - 1));
-	};
-
-	console.log(pageRef);
 	const pagesStart =
 		pageNumber.length >= 10 ? pageNumber.slice(sliceStart, sliceEnd) : pageNumber.slice(sliceStart, sliceEnd);
 
@@ -75,6 +76,7 @@ export const Pagination = ({ totalPosts, postsPerPage, paginate, setCurrentPage 
 		} else {
 			setSliceEnd(pageNumber[pageNumber.length - 2]);
 		}
+		// eslint-disable-next-line
 	}, []);
 
 	console.log(pagesStart);
@@ -82,7 +84,6 @@ export const Pagination = ({ totalPosts, postsPerPage, paginate, setCurrentPage 
 	return (
 		<div className='pages-container'>
 			<ul>
-				<li onClick={backOnePage}>B</li>
 				<li onClick={() => onPageClick(pageNumber[0])}>{pageNumber[0]}</li>
 				{sliceStart >= 3 ? <li>...</li> : ''}
 				{pagesStart.map((page) => {
