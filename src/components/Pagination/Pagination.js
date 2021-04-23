@@ -56,11 +56,12 @@ export const Pagination = ({ totalPosts, postsPerPage, paginate, setCurrentPage 
 				mutatedArr.length === lastRemaingPages:
 				setSliceStart(page - 2);
 				setSliceEnd(page + 1);
+				paginate(page);
 				break;
 			case firstItemMutatedArr === page && firstItemMutatedArr !== pageNumber[1]:
 				setSliceStart(pagesStart[0] - 2);
 				setSliceEnd(pagesStart[pagesStart.length - 2]);
-				console.log('hello');
+				paginate(page);
 				break;
 			default:
 				paginate(page);
