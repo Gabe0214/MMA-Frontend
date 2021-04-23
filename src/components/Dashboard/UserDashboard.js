@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getUserOrders } from '../reducers/userReducer/userAction';
 import './dashboard.scss';
 import { UserOrders } from './UserOrders/UserOrders';
 import { Pagination } from '../Pagination/Pagination';
-
+import { usePagination } from '../Pagination/usePagination/usePagination';
 const UserDashboard = () => {
-	const [ postsPerPage ] = useState(6);
-	const [ currentPage, setCurrentPage ] = useState(1);
 	const history = useHistory();
 
 	const customer = useSelector((state) => state.customer);
 	const dispatch = useDispatch();
-
+	// eslint-disable-next-line
+	const [ postsPerPage, setCurrentPage, currentOrders, paginate ] = usePagination();
 	const logout = () => {
 		localStorage.clear();
 		history.push('/signin');
@@ -30,11 +29,6 @@ const UserDashboard = () => {
 	}, []);
 
 	// Orders Pagination
-
-	const indexOfLastPost = currentPage * postsPerPage;
-	const indexOfFirstPost = indexOfLastPost - postsPerPage;
-	const currentOrders = customer.user.orders.slice(indexOfFirstPost, indexOfLastPost);
-	const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
 	if (customer.user.firstname === '') {
 		return <h1>Loading...</h1>;

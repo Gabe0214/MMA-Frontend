@@ -1,4 +1,6 @@
 .pages-container {
+	display: flex;
+	justify-content: space-evenly;
 	ul {
 		list-style: none;
 		display: flex;
@@ -6,9 +8,14 @@
 		justify-content: flex-start;
 
 		li {
-			padding: 10px 16px;
-			border: 1px solid black;
-			margin-right: 3%;
+			width: 35px;
+			height: 35px;
+			border: 1px solid gainsboro;
+			margin-right: 6px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
 
 			@media screen and (min-width: 1366px) {
 				margin-right: 1%;
@@ -17,6 +24,9 @@
 			&:hover {
 				cursor: pointer;
 			}
+		}
+		.active-page {
+			border-color: black;
 		}
 	}
 }
